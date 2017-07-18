@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.pCloudy.testng.LocalRunner">
+        <methods>
+          <include name="endTest"/>
+          <include name="prepareTest"/>
+          <include name="setUpSuite"/>
+          <include name="tearDownSuite"/>
+          <include name="Test1"/>
+          <include name="Test2"/>
+        </methods>
+      </class> <!-- com.pCloudy.testng.LocalRunner -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
