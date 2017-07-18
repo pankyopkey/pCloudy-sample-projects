@@ -13,8 +13,8 @@
 
 # Downloads
 
-[pCloudy-connector-jar](http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/)
-pCloudy-connector-jar via Maven
+* [pCloudy-connector-jar](http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/)
+* [How to install pCloudy-connector-jar in Maven](http://pcloudy-content-distribution.s3.amazonaws.com/pCloudy-Connector-Jars/v11/java/How%20to%20Install%20pCloudy-java-connector.jar%20in%20Maven.txt)
 
 # Getting Started
 
