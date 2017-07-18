@@ -7,11 +7,11 @@ This repository contains the Appium Sample Projects for quick beginners and adva
 
 
 # Downloads
-		pCloudy-connector-jar
+		[pCloudy-connector-jar](http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/)
 		pCloudy-connector-jar via Maven
 
 # Getting Started
-		Chapter 1- TestNG with Local Appium on Single Device(Android Native + TestNG)
+		[Chapter 1- TestNG with Local Appium on Single Device(Android Native + TestNG)](Chapter 1- TestNG with Local Appium on Single Device(Android Native + TestNG))
 		Chapter 2- TestNG with pCloudy Appium on Single Device(Android Native + TestNG)
 		Chapter 3- TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG)
 			
