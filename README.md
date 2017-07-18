@@ -22,7 +22,7 @@ pCloudy-connector-jar via Maven
 |-----------|-------|
 |Chapter 1  | TestNG with Local Appium on Single Device(Android Native + TestNG) [link](https://google.com)|
 |Chapter 2  | TestNG with pCloudy Appium on Single Device(Android Native + TestNG) [link](https://github.com/pankyopkey/pCloudy-sample-projects/tree/master/Getting%20Started/Chapter%202-%20TestNG%20with%20pCloudy%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG)) |
-|Chapter 3 |TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG) [link](tree/master/Getting%20Started/Chapter%203-%20TestNG%20with%20pCloudy%20Appium%20on%20Multiple%20Devices(Android%20Native%20%2B%20TestNG)) |
+|Chapter 3 |TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG) [link](/Getting%20Started/Chapter%203-%20TestNG%20with%20pCloudy%20Appium%20on%20Multiple%20Devices(Android%20Native%20%2B%20TestNG)) |
 
 
 # Advanced(Continued...)
