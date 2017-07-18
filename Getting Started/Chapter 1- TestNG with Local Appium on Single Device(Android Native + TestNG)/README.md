@@ -6,9 +6,9 @@ Simple project to get started on TestNG.
 Run the project
 
 * Clone the project
-* Open Terminal
-* cd to the directory which contains the project
-* Run the command "mvn test"
+* ```Open Terminal```
+* ```cd to the directory which contains the project```
+* Run the command ```mvn test```
 
 
 
