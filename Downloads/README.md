@@ -1,3 +1,8 @@
+# Downloads
+
+Download pCloudy-Connector-Jars from :- http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/
+
+
 =========== How to install pCloudy-Java-Connector.jar in local Maven Repository =============
 
 
@@ -11,7 +16,7 @@ https://stackoverflow.com/questions/1164043/maven-how-to-include-jars-which-are-
 
 
 
-  Steps:
+Steps:
 ----------- 
 
 1. Download the required Jar
@@ -27,10 +32,14 @@ mvn install:install-file -Dfile=pCloudy-java-connector-11.0.3-jar-with-dependenc
 
 5. Once the above step is completed and the jar is installed in your Maven, please add the following dependancy in your Maven Project
 
-		<dependency>
-			<groupId>pCloudy-java-connector</groupId>
-			<artifactId>pCloudy-java-connector</artifactId>
-			<version>11.0.3</version>
-		</dependency>
+<dependency>
+<groupId>pCloudy-java-connector</groupId>
+<artifactId>pCloudy-java-connector</artifactId>
+<version>11.0.3</version>
+</dependency>
 
 6. You should now be able to use the 'Connector' class in your project
+
+
+
+
