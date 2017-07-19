@@ -2,31 +2,29 @@
 <testng-results skipped="2" failed="0" ignored="0" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="44602" started-at="2017-07-18T06:44:41Z" finished-at="2017-07-18T06:45:26Z">
+  <suite name="Suite" duration-ms="616" started-at="2017-07-19T07:34:25Z" finished-at="2017-07-19T07:34:26Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="44602" started-at="2017-07-18T06:44:41Z" finished-at="2017-07-18T06:45:26Z">
-      <class name="com.pCloudy.testng.LocalRunner">
-        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.pCloudy.testng.LocalRunner@2ef5e5e3]" name="setUpSuite" is-config="true" duration-ms="9" started-at="2017-07-18T12:14:41Z" finished-at="2017-07-18T12:14:41Z">
+    <test name="Test" duration-ms="616" started-at="2017-07-19T07:34:25Z" finished-at="2017-07-19T07:34:26Z">
+      <class name="com.pCloudy.testNG.LocalRunner">
+        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.pCloudy.testNG.LocalRunner@2ef5e5e3]" name="setUpSuite" is-config="true" duration-ms="9" started-at="2017-07-19T13:04:25Z" finished-at="2017-07-19T13:04:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpSuite -->
-        <test-method status="FAIL" signature="prepareTest()[pri:0, instance:com.pCloudy.testng.LocalRunner@2ef5e5e3]" name="prepareTest" is-config="true" duration-ms="44562" started-at="2017-07-18T12:14:41Z" finished-at="2017-07-18T12:15:26Z">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
+        <test-method status="FAIL" signature="prepareTest()[pri:0, instance:com.pCloudy.testNG.LocalRunner@2ef5e5e3]" name="prepareTest" is-config="true" duration-ms="579" started-at="2017-07-19T13:04:25Z" finished-at="2017-07-19T13:04:26Z">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+              <![CDATA[org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+              <![CDATA[org.openqa.selenium.WebDriverException: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:91)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:84)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
@@ -38,7 +36,7 @@ Driver info: driver.version: AndroidDriver
 	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
 	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:113)
 	at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:72)
-	at com.pCloudy.testng.LocalRunner.prepareTest(LocalRunner.java:46)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -69,28 +67,54 @@ Driver info: driver.version: AndroidDriver
 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:142)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:88)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:108)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	... 42 more
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+	... 57 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- prepareTest -->
-        <test-method status="SKIP" signature="Test1()[pri:0, instance:com.pCloudy.testng.LocalRunner@2ef5e5e3]" name="Test1" duration-ms="0" started-at="2017-07-18T12:15:26Z" finished-at="2017-07-18T12:15:26Z">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
+        <test-method status="SKIP" signature="Test1()[pri:0, instance:com.pCloudy.testNG.LocalRunner@2ef5e5e3]" name="Test1" duration-ms="0" started-at="2017-07-19T13:04:26Z" finished-at="2017-07-19T13:04:26Z">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+              <![CDATA[org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+              <![CDATA[org.openqa.selenium.WebDriverException: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:91)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:84)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
@@ -102,7 +126,7 @@ Driver info: driver.version: AndroidDriver
 	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
 	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:113)
 	at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:72)
-	at com.pCloudy.testng.LocalRunner.prepareTest(LocalRunner.java:46)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -133,32 +157,54 @@ Driver info: driver.version: AndroidDriver
 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:142)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:88)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:108)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	... 42 more
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+	... 57 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test1 -->
-        <test-method status="SKIP" signature="prepareTest()[pri:0, instance:com.pCloudy.testng.LocalRunner@2ef5e5e3]" name="prepareTest" is-config="true" duration-ms="0" started-at="2017-07-18T12:15:26Z" finished-at="2017-07-18T12:15:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- prepareTest -->
-        <test-method status="SKIP" signature="Test2()[pri:0, instance:com.pCloudy.testng.LocalRunner@2ef5e5e3]" name="Test2" duration-ms="0" started-at="2017-07-18T12:15:26Z" finished-at="2017-07-18T12:15:26Z">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
+        <test-method status="SKIP" signature="Test2()[pri:0, instance:com.pCloudy.testNG.LocalRunner@2ef5e5e3]" name="Test2" duration-ms="0" started-at="2017-07-19T13:04:26Z" finished-at="2017-07-19T13:04:26Z">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+              <![CDATA[org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+              <![CDATA[org.openqa.selenium.WebDriverException: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:91)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:84)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
@@ -170,7 +216,7 @@ Driver info: driver.version: AndroidDriver
 	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
 	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:113)
 	at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:72)
-	at com.pCloudy.testng.LocalRunner.prepareTest(LocalRunner.java:46)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -201,17 +247,49 @@ Driver info: driver.version: AndroidDriver
 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:142)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:88)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:108)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:69)
+	... 42 more
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+	... 57 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test2 -->
-        <test-method status="SKIP" signature="tearDownSuite()[pri:0, instance:com.pCloudy.testng.LocalRunner@2ef5e5e3]" name="tearDownSuite" is-config="true" duration-ms="0" started-at="2017-07-18T12:15:26Z" finished-at="2017-07-18T12:15:26Z">
+        <test-method status="SKIP" signature="prepareTest()[pri:0, instance:com.pCloudy.testNG.LocalRunner@2ef5e5e3]" name="prepareTest" is-config="true" duration-ms="0" started-at="2017-07-19T13:04:26Z" finished-at="2017-07-19T13:04:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method status="SKIP" signature="tearDownSuite()[pri:0, instance:com.pCloudy.testNG.LocalRunner@2ef5e5e3]" name="tearDownSuite" is-config="true" duration-ms="0" started-at="2017-07-19T13:04:26Z" finished-at="2017-07-19T13:04:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownSuite -->
-      </class> <!-- com.pCloudy.testng.LocalRunner -->
+      </class> <!-- com.pCloudy.testNG.LocalRunner -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -5,10 +5,12 @@ Project to get started on pCloudy multiple devices using java threading
 
 Run the project
 
-    1. Clone the project
-    2. Import project as existing maven project
-    3. Enter pCloudy username & APIKey in MainClass class
-    4. Run MainClass as "Java Application"
+* Clone the project
+* Import project as existing maven project
+* Enter pCloudy username & APIKey in MainClass class
+* Open Terminal
+* cd to the directory which contains the project
+* Run the command "mvn exec:java -Dexec.mainClass='mvn exec:java -Dexec.mainClass='TestScript.MainClass'"
 
 
 

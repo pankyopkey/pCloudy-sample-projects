@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" configfailurepolicy="continue" name="Failed suite [pCloudy Suite]" parallel="tests">
+  <parameter name="myDeviceContext" value="Apple iPad Pro 9.3.2"/>
+  <test name="test_Apple iPhone SE 10.3.2">
+    <parameter name="myDeviceContext" value="Apple iPhone SE 10.3.2"/>
+    <classes>
+      <class name="com.pcloudy.testng.TestClass1"/>
+      <class name="com.pcloudy.testng.TestClass2"/>
+    </classes>
+  </test> <!-- test_Apple iPhone SE 10.3.2 -->
+  <test name="test_Apple iPad Pro 9.3.2">
+    <parameter name="myDeviceContext" value="Apple iPad Pro 9.3.2"/>
+    <classes>
+      <class name="com.pcloudy.testng.TestClass1"/>
+      <class name="com.pcloudy.testng.TestClass2"/>
+    </classes>
+  </test> <!-- test_Apple iPad Pro 9.3.2 -->
+  <test name="test_Apple iPhone SE 10.3.2(failed)" parallel="tests">
+    <parameter name="myDeviceContext" value="Apple iPhone SE 10.3.2"/>
+    <classes>
+      <class name="com.pcloudy.testng.TestClass1">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="test1" invocation-numbers="0"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.pcloudy.testng.TestClass1 -->
+      <class name="com.pcloudy.testng.TestClass2">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="test2" invocation-numbers="0"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.pcloudy.testng.TestClass2 -->
+    </classes>
+  </test> <!-- test_Apple iPhone SE 10.3.2(failed) -->
+  <test name="test_Apple iPad Pro 9.3.2(failed)" parallel="tests">
+    <parameter name="myDeviceContext" value="Apple iPad Pro 9.3.2"/>
+    <classes>
+      <class name="com.pcloudy.testng.TestClass1">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="test1" invocation-numbers="0"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.pcloudy.testng.TestClass1 -->
+      <class name="com.pcloudy.testng.TestClass2">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="test2" invocation-numbers="0"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.pcloudy.testng.TestClass2 -->
+    </classes>
+  </test> <!-- test_Apple iPad Pro 9.3.2(failed) -->
+</suite> <!-- Failed suite [pCloudy Suite] -->

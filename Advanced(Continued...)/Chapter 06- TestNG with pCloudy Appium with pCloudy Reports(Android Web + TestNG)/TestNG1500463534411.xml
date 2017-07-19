@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+  <test name="test_Zte Blade S6 5.0.2">
+    <parameter name="myDeviceContext" value="Zte Blade S6 5.0.2"/>
+    <classes>
+      <class name="pcloudy.testng.TestClass1"/>
+      <class name="pcloudy.testng.TestClass2"/>
+    </classes>
+  </test> <!-- test_Zte Blade S6 5.0.2 -->
+  <test name="test_Coolpad Note3 Lite 5.1.0">
+    <parameter name="myDeviceContext" value="Coolpad Note3 Lite 5.1.0"/>
+    <classes>
+      <class name="pcloudy.testng.TestClass1"/>
+      <class name="pcloudy.testng.TestClass2"/>
+    </classes>
+  </test> <!-- test_Coolpad Note3 Lite 5.1.0 -->
+  <test name="test_Lenovo Tab2 A8 5.1.0">
+    <parameter name="myDeviceContext" value="Lenovo Tab2 A8 5.1.0"/>
+    <classes>
+      <class name="pcloudy.testng.TestClass1"/>
+      <class name="pcloudy.testng.TestClass2"/>
+    </classes>
+  </test> <!-- test_Lenovo Tab2 A8 5.1.0 -->
+</suite> <!-- pCloudy Suite -->

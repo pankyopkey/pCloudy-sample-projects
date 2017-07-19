@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="pCloudy Suite" duration-ms="85546" started-at="2017-07-19T10:39:23Z" finished-at="2017-07-19T10:40:48Z">
+    <groups>
+    </groups>
+    <test name="test_Lenovo Phab Plus 5.0.2" duration-ms="85546" started-at="2017-07-19T10:39:23Z" finished-at="2017-07-19T10:40:48Z">
+      <class name="com.pcloudy.testng.TestClass1">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass1@14ff024e]" name="beforeTest" is-config="true" duration-ms="8" started-at="2017-07-19T16:09:23Z" finished-at="2017-07-19T16:09:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass1@14ff024e]" name="beforeClass" is-config="true" duration-ms="51156" started-at="2017-07-19T16:09:23Z" finished-at="2017-07-19T16:10:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="test1(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass1@14ff024e]" name="test1" duration-ms="5945" started-at="2017-07-19T16:10:14Z" finished-at="2017-07-19T16:10:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="afterClass(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass1@14ff024e]" name="afterClass" is-config="true" duration-ms="2218" started-at="2017-07-19T16:10:20Z" finished-at="2017-07-19T16:10:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass1@14ff024e]" name="afterTest" is-config="true" duration-ms="3385" started-at="2017-07-19T16:10:45Z" finished-at="2017-07-19T16:10:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.pcloudy.testng.TestClass1 -->
+      <class name="com.pcloudy.testng.TestClass2">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass2@3709c537]" name="beforeClass" is-config="true" duration-ms="13239" started-at="2017-07-19T16:10:22Z" finished-at="2017-07-19T16:10:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="test2(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass2@3709c537]" name="test2" duration-ms="7311" started-at="2017-07-19T16:10:35Z" finished-at="2017-07-19T16:10:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test2 -->
+        <test-method status="PASS" signature="afterClass(java.lang.String)[pri:0, instance:com.pcloudy.testng.TestClass2@3709c537]" name="afterClass" is-config="true" duration-ms="2274" started-at="2017-07-19T16:10:42Z" finished-at="2017-07-19T16:10:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Lenovo Phab Plus 5.0.2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.pcloudy.testng.TestClass2 -->
+    </test> <!-- test_Lenovo Phab Plus 5.0.2 -->
+  </suite> <!-- pCloudy Suite -->
+</testng-results>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="66198" started-at="2017-07-19T08:24:20Z" finished-at="2017-07-19T08:25:26Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="66198" started-at="2017-07-19T08:24:20Z" finished-at="2017-07-19T08:25:26Z">
+      <class name="com.pCloudy.testNG.pCloudyRunner">
+        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="setUpSuite" is-config="true" duration-ms="20229" started-at="2017-07-19T13:54:20Z" finished-at="2017-07-19T13:54:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpSuite -->
+        <test-method status="PASS" signature="prepareTest()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="prepareTest" is-config="true" duration-ms="21490" started-at="2017-07-19T13:54:41Z" finished-at="2017-07-19T13:55:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method status="PASS" signature="Test1()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="Test1" duration-ms="1234" started-at="2017-07-19T13:55:02Z" finished-at="2017-07-19T13:55:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test1 -->
+        <test-method status="PASS" signature="endTest()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="endTest" is-config="true" duration-ms="2996" started-at="2017-07-19T13:55:03Z" finished-at="2017-07-19T13:55:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+        <test-method status="PASS" signature="prepareTest()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="prepareTest" is-config="true" duration-ms="13734" started-at="2017-07-19T13:55:06Z" finished-at="2017-07-19T13:55:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method status="PASS" signature="Test2()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="Test2" duration-ms="1225" started-at="2017-07-19T13:55:20Z" finished-at="2017-07-19T13:55:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test2 -->
+        <test-method status="PASS" signature="endTest()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="endTest" is-config="true" duration-ms="2856" started-at="2017-07-19T13:55:21Z" finished-at="2017-07-19T13:55:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+        <test-method status="PASS" signature="tearDownSuite()[pri:0, instance:com.pCloudy.testNG.pCloudyRunner@7f9a81e8]" name="tearDownSuite" is-config="true" duration-ms="2416" started-at="2017-07-19T13:55:24Z" finished-at="2017-07-19T13:55:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownSuite -->
+      </class> <!-- com.pCloudy.testNG.pCloudyRunner -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

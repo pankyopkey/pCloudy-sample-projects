@@ -1,0 +1,445 @@
+<html>
+<head><title>Apple iPhone SE 10.3.2</title>
+<style>
+body {background-color:white; font-family:Verdana, Geneva, sans-serif;}
+h1   {color:#004380;}
+h2   {color:#005199;background-color: #cce7ff;width: 98%; padding: 6px 6px 6px 10px; margin-bottom: 10px;}
+.environmentDetails tr:nth-of-type(odd) {background-color:#f1f1f1; font-family:'Comic Sans MS', cursive, sans-serif;}
+.environmentDetails tr:nth-of-type(even) {background-color:#ddeeff; font-family:'Comic Sans MS', cursive, sans-serif;}
+.environmentDetails td {padding: 3px;text-align: left;}
+.executionSteps tr:nth-of-type(odd) {
+    background-color:#f1f1f1;
+}
+.executionSteps tr:nth-of-type(even) {
+    background-color:#fff;
+}
+.executionSteps th, .executionSteps td {padding: 5px;text-align: left;}
+.pass { background-color:#8ed576; color:White; text-align: center;}
+.fail { background-color:#ffaa90; color:Red; text-align: center;}
+.notExecuted { background-color:#ffff66; text-align: center;}
+.comment { background-color:#adebad; color:#248f24; font-size:80%;}
+.testcase { background-color:#b3ccff; color:#000099; font-size:130%;}
+.executionSteps td { white-space:pre;
+max-width: 100px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;}
+table.accordion {
+background-color: #7EC8C8;
+cursor: pointer;
+padding: 10px;
+width: 98%;
+border: 5px solid white;
+outline: none;
+font-size: 20px;
+transition: 0.4s;
+}
+table.accordion.active, table.accordion:hover {
+background-color: #3E8EB3;
+}
+div.panel {
+padding: 0 18px;
+display: none;
+background-color: white;
+}
+div.panel.show {
+display: block !important;
+}
+table#t01{
+padding:40px;
+}
+button.accordion {
+background-color: #cce7ff;
+color: #005199;
+cursor: pointer;
+padding: 10px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 20px;
+transition: 0.4s;
+}
+button.accordion.active, button.accordion:hover {
+background-color: #ddd;
+}
+button {
+     background:none!important;
+     border:none; 
+     color: #005199;
+     padding:0!important;
+     font: inherit;
+}
+.white_content_popup {
+    display: none;
+    margin: auto;
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    padding: 16px;
+    border: 16px light blue;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+}
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+#customPopup
+{
+ width:50vw;
+ height:60vh;
+ z-index:11111;
+ position:fixed;
+ left: 25vw;
+ top: 25vh;
+}
+.hide {
+ display:none;
+}
+.popup-cover{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ z-index:100;
+ background-color:rgba(0,0,0,0.4);
+}
+.customImageContainer{
+width:100%;
+height:100%;
+padding:20px;
+background-color:#fafafa;
+overflow:auto;
+}
+.customImage{
+user-select: none;
+max-width:100%;
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-height:100%;
+background-color:#fafafa;
+border:0;
+}
+.customImage.zoomed{
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+.close{
+position:absolute;
+right:15px;
+top:15px;
+z-index:111111;
+width: 30px;
+height: 30px;
+background-color: #2060B1;
+border-radius: 50%;
+}
+.close > i{
+color:#fff;
+text-align: center;
+width: 100%;
+height: 100%;
+line-height: 1.8em;
+}
+.close:hover{
+background-color: #003374;
+}
+.zoomed{
+transform:scale(2);
+transform-origin: left top;
+}
+.msg-for-user{
+text-align: center;
+background-color: #fff;
+font-weight: bold;
+font-size: 1.5em;
+margin: 0;
+padding: 20px;
+}
+</style>
+<script src='https://code.jquery.com/jquery-1.10.2.js'></script>
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+  google.load('visualization', '1', {packages:['corechart']});
+  google.setOnLoadCallback(drawTestCaseChart);
+  google.setOnLoadCallback(drawStepsChart);
+  function drawTestCaseChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Status', 'Number of steps'],
+      ['Passed Test Cases',     4],
+      ['Failed Test Cases',     2],
+      ['NotExecuted Test Cases',  2],
+    ]);
+
+    var options = {
+      title: 'TestCases Summary',
+      is3D: true,
+      slices: {
+          0: { color: 'Green' },
+          1: { color: 'Red' },
+          2: { color: 'Yellow' }
+        }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('testCasesPieChart'));
+
+    chart.draw(data, options);
+  }
+  function drawStepsChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Status', 'Number of steps'],
+      ['Passed Steps',     5],
+      ['Failed Steps',     2],
+      ['NotExecuted Steps',  0],
+    ]);
+
+    var options = {
+      title: 'Steps Summary',
+      is3D: true,
+      slices: {
+          0: { color: 'Green' },
+          1: { color: 'Red' },
+          2: { color: 'Yellow' }
+        }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('stepsPieChart'));
+
+    chart.draw(data, options);
+  }
+</script>
+<script type='text/javascript'>
+function showIt(imgsrc) {
+debugger;
+ $('#customPopup').removeClass('hide'); 
+ $('.popup-cover').removeClass('hide');
+ $('.customImage').attr('src',imgsrc);
+}
+</script>
+<script>
+$(document).keydown(function(e) {
+if (e.keyCode == 27) {
+if($('#customPopup').hasClass('hide') === false){
+$('#customPopup').addClass('hide');
+$('.popup-cover').addClass('hide');
+$('.customImage').removeClass( 'zoomed' );
+}
+}
+});
+$(document).ready(function(){
+$('.close').on('click', function(){
+$('#customPopup').addClass('hide');
+$('.customImage').removeClass( 'zoomed' );
+$('.popup-cover').addClass('hide');
+});
+$('.customImage').on('click', function() {
+$(this).toggleClass( 'zoomed' );
+if($('.customImage').hasClass('zoomed') === true){
+$('.customImage').css('cursor', 'zoom-out');
+}
+else{
+$('.customImage').css('cursor', 'zoom-in');
+}
+});
+$('.customImage').hover(function() {
+if($('.customImage').hasClass('zoomed') === true){
+$('.customImage').css('cursor', 'zoom-out');
+}
+else{
+$('.customImage').css('cursor', 'zoom-in');
+}
+});
+});
+</script>
+</head>
+<body>
+<table width=100%><tr>
+<td><img src=https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png alt='https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png' height='75px'></td> <td width=70%><center><h1>Report on Apple iPhone SE 10.3.2</h1></center></td><td><img src=https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png alt='https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png' height='75px'></td>
+</tr></table>
+<hr/>
+<h2><u>Environment Details</u></h2>
+<table width='100%' border=0><tr><td rowspan=2 align='center'>
+<table class='environmentDetails' width=100% border=0align='left'>
+<tr><td>Execution Started On</td><td>2017-07-19T17:34:13.319</td></tr>
+<tr><td>Executed From</td><td>Yammys-MacBook-Pro.local</td></tr>
+<tr><td>NetworkType</td><td></td></tr>
+<tr><td>Phone Number</td><td></td></tr>
+<tr><td>Total Time Elapsed</td><td>01:22 min</td></tr>
+</table></td>
+<td rowspan=2 align='right'><div id='testCasesPieChart' style='width: 400px; height: 300px;'></div></td>
+<td height='30%'></td>
+</tr><tr>
+<td align='left'><div id='stepsPieChart' style='width: 350px; height: 200px;'></div></td>
+</tr></table>
+</br>
+</br>
+<h2><u>Hyperlinks Details</u></h2>
+<table class='hyperlinkDetails' width=50% align=center>
+<tr><td>Appium Endpoint</td><td><a href='https://device.pcloudy.com/appium/hubble/7g8yhkx7v55f-18402/wd/hub'>https://device.pcloudy.com/appium/hubble/7g8yhkx7v55f-18402/wd/hub</a></td></tr>
+<tr><td>pCloudy Result Folder</td><td><a href='https://device.pcloudy.com/storage?reports=7g8yhkx7v55f-18402'>https://device.pcloudy.com/storage?reports=7g8yhkx7v55f-18402</a></td></tr>
+</table>
+<hr/>
+<h2><u>Execution Details</u></h2>
+<table align='center' cellpadding='10'><tr><td>
+<button id='expand_all_testcases'>Expand All</button>
+</td><td>
+<button id='toggle_all_testcases'>Toggle</button>
+</td><td>
+<button id='collapse_all_testcases'>Collapse All</button>
+</td></tr><table>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@Before Test: com.pcloudy.testng.TestClass1</td><td width='10%' align='center'>00:00 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>@BeforeTest  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>17:34:13 </td><td> </td><td class='pass'>Pass </td> </tr>
+<tr><td>2 </td> <td>Create Report Folders  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>17:34:13 </td><td> </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@Before Class</td><td width='10%' align='center'>00:00 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr></tr></table></td><td class='notexecuted'>NotExecuted </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td colspan='8' class='comment'><pre>@Before Class : com.pcloudy.testng.TestClass1</pre></td></tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>TestCase test1 :com.pcloudy.testng.TestClass1</td><td width='10%' align='center'>00:21 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='red' width='100%'></td></tr></table></td><td class='fail'>Fail </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen---1500465855-F8634046852325677368.png'>
+<tr><td>1 </td> <td>Exception Occur  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>21 s  </td> <td>17:34:36 </td><td><a target='_blank' href='./Snapshots/Screen---1500465855-F8634046852325677368.png' onmouseover='showIt(this.href)'>Screen---1500465855-F8634046852325677368.png</a> </td><td class='fail'>Fail </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@AfterClass</td><td width='10%' align='center'>00:00 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>@AfterClass : com.pcloudy.testng.TestClass1  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>17:34:36 </td><td> </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@Before Class</td><td width='10%' align='center'>00:00 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr></tr></table></td><td class='notexecuted'>NotExecuted </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td colspan='8' class='comment'><pre>@Before Class : com.pcloudy.testng.TestClass2</pre></td></tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>TestCase test2 :com.pcloudy.testng.TestClass2</td><td width='10%' align='center'>00:40 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='red' width='100%'></td></tr></table></td><td class='fail'>Fail </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen---1500465897-F7323862051958063954.png'>
+<tr><td>1 </td> <td>Exception Occur  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>40 s  </td> <td>17:35:33 </td><td><a target='_blank' href='./Snapshots/Screen---1500465897-F7323862051958063954.png' onmouseover='showIt(this.href)'>Screen---1500465897-F7323862051958063954.png</a> </td><td class='fail'>Fail </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@AfterClass</td><td width='10%' align='center'>00:00 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>@AfterClass : com.pcloudy.testng.TestClass2  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>17:35:33 </td><td> </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@After Test: com.pcloudy.testng.TestClass1</td><td width='10%' align='center'>00:02 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Seconds </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>Release Appium Session  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>2 s  </td> <td>17:35:36 </td><td> </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<script>
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function(){
+       this.classList.toggle('active');
+       this.nextElementSibling.classList.toggle('show');
+  }
+}
+</script>
+<script>
+$(function(){
+$('#collapse_all_testcases').click(function(){
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].classList.toggle('active', false);
+    acc[i].nextElementSibling.classList.toggle('show', false);
+}
+});
+$('#toggle_all_testcases').click(function(){
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].classList.toggle('active');
+    acc[i].nextElementSibling.classList.toggle('show');
+}
+});
+$('#expand_all_testcases').click(function(){
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].classList.toggle('active', true);
+    acc[i].nextElementSibling.classList.toggle('show', true);
+}
+});
+});
+</script>
+</br>
+</div>
+</div
+</body>
+<footer><center>
+<p>Report Powered by: pCloudy @ SSTS Inc. US.</p>
+<p>pCloudy™ is a registered trademark. Copyright Laws Apply. pCloudy is owned by Smart Software Testing Solutions Inc. US.</p>
+<a href='https://www.pcloudy.com'>https://www.pcloudy.com</a></p>
+</center></footer>
+<hr/>
+</html>

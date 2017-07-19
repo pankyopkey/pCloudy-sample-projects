@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="45.031" tests="5" errors="0" skipped="4" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1.069" tests="5" errors="0" skipped="4" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib"/>
@@ -7,7 +7,7 @@
     <property name="user.country.format" value="IN"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/Yammy/git-repos/pCloudy-sample-projects/Getting Started/Chapter 1- TestNG with Local Appium on Single Device(Android Native + TestNG)"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice"/>
+    <property name="user.dir" value="/Users/Yammy/git-repos/pCloudy-sample-projects/Getting Started/Chapter 1- TestNG with Local Appium on Single Device(Android Native + TestNG)"/>
     <property name="java.runtime.version" value="1.8.0_121-b13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/endorsed"/>
@@ -64,32 +64,32 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="prepareTest" classname="com.pCloudy.testng.LocalRunner" time="44.942">
-    <failure message="Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]&#10;Build info: version: &apos;3.0.1&apos;, revision: &apos;1969d75&apos;, time: &apos;2016-10-18 09:49:13 -0700&apos;&#10;System info: host: &apos;Yammys-MacBook-Pro.local&apos;, ip: &apos;192.168.1.193&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.12.5&apos;, java.version: &apos;1.8.0_121&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.SessionNotCreatedException">org.openqa.selenium.SessionNotCreatedException: 
-Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]
+  <testcase name="prepareTest" classname="com.pCloudy.testNG.LocalRunner" time="0.938">
+    <failure message="org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)&#10;Build info: version: &apos;3.0.1&apos;, revision: &apos;1969d75&apos;, time: &apos;2016-10-18 09:49:13 -0700&apos;&#10;System info: host: &apos;Yammys-MacBook-Pro.local&apos;, ip: &apos;192.168.1.249&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.12.5&apos;, java.version: &apos;1.8.0_121&apos;&#10;Driver info: driver.version: AndroidDriver" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: 
+org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
 Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
-System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.193', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
 Driver info: driver.version: AndroidDriver
-	at com.pCloudy.testng.LocalRunner.prepareTest(LocalRunner.java:46)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
 </failure>
-    <system-err><![CDATA[Jul 18, 2017 12:14:42 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+    <system-err><![CDATA[Jul 19, 2017 1:04:26 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Attempting bi-dialect session, assuming Postel's Law holds true on the remote end
-Jul 18, 2017 12:15:04 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Falling back to original OSS JSON Wire Protocol.
-Jul 18, 2017 12:15:26 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Falling back to straight W3C remote end connection
 ]]></system-err>
   </testcase>
-  <testcase name="prepareTest" classname="com.pCloudy.testng.LocalRunner" time="0">
+  <testcase name="prepareTest" classname="com.pCloudy.testNG.LocalRunner" time="0">
     <skipped/>
   </testcase>
-  <testcase name="Test1" classname="com.pCloudy.testng.LocalRunner" time="0">
-    <skipped message="Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]&#10;Build info: version: &apos;3.0.1&apos;, revision: &apos;1969d75&apos;, time: &apos;2016-10-18 09:49:13 -0700&apos;&#10;System info: host: &apos;Yammys-MacBook-Pro.local&apos;, ip: &apos;192.168.1.193&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.12.5&apos;, java.version: &apos;1.8.0_121&apos;&#10;Driver info: driver.version: AndroidDriver"/>
+  <testcase name="Test1" classname="com.pCloudy.testNG.LocalRunner" time="0">
+    <skipped message="org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)&#10;Build info: version: &apos;3.0.1&apos;, revision: &apos;1969d75&apos;, time: &apos;2016-10-18 09:49:13 -0700&apos;&#10;System info: host: &apos;Yammys-MacBook-Pro.local&apos;, ip: &apos;192.168.1.249&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.12.5&apos;, java.version: &apos;1.8.0_121&apos;&#10;Driver info: driver.version: AndroidDriver"/>
   </testcase>
-  <testcase name="Test2" classname="com.pCloudy.testng.LocalRunner" time="0">
-    <skipped message="Unable to create new remote session. desired capabilities = Capabilities [{appPackage=com.ba.mobile, appActivity=com.ba.mobile.LaunchActivity, app=/Users/Yammy/Documents/workspaceOFCpCloudy/TestNG-LocalSingleDevice/com.ba.mobile.apk, rotatable=true, newCommandTimeout=600, browserName=Android, platformName=Android, launchTimeout=90000, deviceName=ZH33B2DB9W}], required capabilities = Capabilities [{}]&#10;Build info: version: &apos;3.0.1&apos;, revision: &apos;1969d75&apos;, time: &apos;2016-10-18 09:49:13 -0700&apos;&#10;System info: host: &apos;Yammys-MacBook-Pro.local&apos;, ip: &apos;192.168.1.193&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.12.5&apos;, java.version: &apos;1.8.0_121&apos;&#10;Driver info: driver.version: AndroidDriver"/>
+  <testcase name="Test2" classname="com.pCloudy.testNG.LocalRunner" time="0">
+    <skipped message="org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)&#10;Build info: version: &apos;3.0.1&apos;, revision: &apos;1969d75&apos;, time: &apos;2016-10-18 09:49:13 -0700&apos;&#10;System info: host: &apos;Yammys-MacBook-Pro.local&apos;, ip: &apos;192.168.1.249&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.12.5&apos;, java.version: &apos;1.8.0_121&apos;&#10;Driver info: driver.version: AndroidDriver"/>
   </testcase>
-  <testcase name="tearDownSuite" classname="com.pCloudy.testng.LocalRunner" time="0">
+  <testcase name="tearDownSuite" classname="com.pCloudy.testNG.LocalRunner" time="0">
     <skipped/>
   </testcase>
 </testsuite>

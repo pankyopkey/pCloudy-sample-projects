@@ -22,6 +22,7 @@ import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
+import com.ssts.pcloudy.Version;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -37,7 +38,7 @@ public class pCloudyRunner {
 		Connector con = new Connector("https://device.pcloudy.com/api/");
 
 		// User Authentication over pCloudy
-		String authToken = con.authenticateUser(Your_pCloudy_Username, Your_pCloudy_ApiKey);
+		String authToken = con.authenticateUser(Your_pCloudy_Email, Your_pCloudy_APIKey);
 
 		// Select apk in pCloudy Cloud Drive
 		File fileToBeUploaded = new File("./com.ba.mobile.apk");
@@ -53,7 +54,8 @@ public class pCloudyRunner {
 		}
 
 		ArrayList<MobileDevice> selectedDevices = new ArrayList<>();
-		selectedDevices.add(con.chooseSingleDevice(authToken,"android"));
+        selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"),
+                                                 new Version("7.*.*"), 1));
 
 		// Book the selected devices in pCloudy
 		String sessionName =  "Appium Session " + new Date();

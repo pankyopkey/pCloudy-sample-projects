@@ -71,7 +71,8 @@ public class EntryPoint_Web {
 		System.out.println("pCloudy UserAPI Authenticated");
 		System.out.println(" ----------------------- ");
 
-		List<MobileDevice> selectedDevices = con.chooseMultipleDevices(authToken, PLATFORM);
+		List<MobileDevice> selectedDevices = con.chooseDevices(authToken, PLATFORM, new Version("5.*.*"),new Version("7.*.*"), 3);
+		
 		// List<MobileDevice> selectedDevices = con.chooseDevices(authToken, PLATFORM, new Version(4, 3, 0), new Version(10, 2, 2), 20);
 
 		String sessionName = "AppiumNative-" + selectedDevices.get(0).display_name;

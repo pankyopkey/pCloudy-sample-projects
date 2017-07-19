@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" name="Failed suite [pCloudy Suite]" parallel="tests">
+  <parameter name="myDeviceContext" value="Lenovo Phab Plus 5.0.2"/>
+  <test name="test_Lenovo Phab Plus 5.0.2">
+    <parameter name="myDeviceContext" value="Lenovo Phab Plus 5.0.2"/>
+    <classes>
+      <class name="com.pcloudy.testng.TestClass1"/>
+      <class name="com.pcloudy.testng.TestClass2"/>
+    </classes>
+  </test> <!-- test_Lenovo Phab Plus 5.0.2 -->
+</suite> <!-- Failed suite [pCloudy Suite] -->

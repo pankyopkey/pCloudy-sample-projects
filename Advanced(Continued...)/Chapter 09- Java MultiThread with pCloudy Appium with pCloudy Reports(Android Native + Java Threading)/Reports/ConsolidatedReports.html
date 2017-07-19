@@ -1,0 +1,108 @@
+<html>
+<head><title>Consolidated Report</title>
+<style>
+body {background-color:white; font-family:Verdana, Geneva, sans-serif;}
+h1   {color:#004380;}
+h2   {color:#005199;background-color: #cce7ff;width: 95%; padding: 6px 0 6px 10px; margin-bottom: 10px;}
+.environmentDetails tr:nth-of-type(odd) {background-color:#f1f1f1; font-family:'Comic Sans MS', cursive, sans-serif;}
+.environmentDetails tr:nth-of-type(even) {background-color:#ddeeff; font-family:'Comic Sans MS', cursive, sans-serif;}
+.environmentDetails td{padding: 3px;text-align: left;}
+.executionSteps tr:nth-of-type(odd) {
+    background-color:#f1f1f1;
+}
+.executionSteps tr:nth-of-type(even) {
+    background-color:#fff;
+}
+.executionSteps th, .executionSteps td {padding: 5px;text-align: left;}
+.pass { background-color:#8ed576; color:White}
+.fail { background-color:#ffaa90; color:Red}
+.notExecuted { background-color:#ffff66;}
+.executionSteps td { white-space:pre;
+max-width: 100px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;}
+</style>
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+  google.load('visualization', '1', {packages:['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Status', 'Number of steps'],
+      ['Passed Test Cases',     3],
+      ['Failed Test Cases',     1],
+      ['NotExecuted Test Cases',  0],
+    ]);
+
+    var options = {
+      title: 'Summary',
+      is3D: true,
+      slices: {
+          0: { color: 'Green' },
+          1: { color: 'Red' },
+          2: { color: 'Yellow' }
+        }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('consolidatedPieChart'));
+
+    chart.draw(data, options);
+  }
+</script>
+</head>
+<body>
+<table width=100%><tr>
+<td><img src=https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png alt='https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png' height='75px'></td> <td width=70%><center><h1>Consolidated Report</h1></center></td><td><img src=https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png alt='https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png' height='75px'></td>
+</tr></table>
+<hr/>
+<h2><u>Execution Details</u></h2>
+<table width='100%'><tr><td align='center' width='85%'>
+<table class='executionSteps' width=100% align='left'>
+<tr><th>#</th> <th width='35%'>Device</th> <th>Total Duration</th> <th width='10%'>Steps %</th> <th>Passed TestCases</th> <th>Failed TestCases</th> <th>TestCases %</th> <th width='20%'>Status</th></tr>
+  <tr>
+    <td>1</td>
+    <td width='55%'><a href='./Phicomm Clue630 5.1.1/Phicomm Clue630 5.1.1.html'>Phicomm Clue630 5.1.1</a></td>
+    <td>00:04 min</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='3' bgcolor='green' width=3></td></tr></table></td>
+    <td>1</td>
+    <td>0</td>
+    <td>100%</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='1' bgcolor='green' width=1></td></tr></table></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td width='55%'><a href='./Htc Desire 10 6.0.1/Htc Desire 10 6.0.1.html'>Htc Desire 10 6.0.1</a></td>
+    <td>00:05 min</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='3' bgcolor='green' width=3></td></tr></table></td>
+    <td>1</td>
+    <td>0</td>
+    <td>100%</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='1' bgcolor='green' width=1></td></tr></table></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td width='55%'><a href='./Sony Xperia Z3 6.0.1/Sony Xperia Z3 6.0.1.html'>Sony Xperia Z3 6.0.1</a></td>
+    <td>00:03 min</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='2' bgcolor='green' width=2></td><td title='1' bgcolor='red' width='1'></td></tr></table></td>
+    <td>0</td>
+    <td>1</td>
+    <td>0%</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='1' bgcolor='red' width='1'></td></tr></table></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td width='55%'><a href='./Swipe Elite Sense 6.0.1/Swipe Elite Sense 6.0.1.html'>Swipe Elite Sense 6.0.1</a></td>
+    <td>00:04 min</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='3' bgcolor='green' width=3></td></tr></table></td>
+    <td>1</td>
+    <td>0</td>
+    <td>100%</td>
+<td><table border='0' width='90%' height='28px'><tr><td title='1' bgcolor='green' width=1></td></tr></table></td>
+  </tr>
+</table>
+</td><td align='center'><div id='consolidatedPieChart' style='width: 250px; height: 250px; display: none;'></div></td></tr></table>
+<hr/>
+</body>
+</html>
