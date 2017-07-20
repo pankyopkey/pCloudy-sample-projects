@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 4, Time elapsed: 1.069 s <<< FAILURE! - in TestSuite
+prepareTest(com.pCloudy.testNG.LocalRunner)  Time elapsed: 0.938 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
+Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
+System info: host: 'Yammys-MacBook-Pro.local', ip: '192.168.1.249', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.5', java.version: '1.8.0_121'
+Driver info: driver.version: AndroidDriver
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4723 [/127.0.0.1] failed: Connection refused (Connection refused)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at com.pCloudy.testNG.LocalRunner.prepareTest(LocalRunner.java:46)
+

@@ -47,13 +47,13 @@ public class MainClass {
 		String[] deviceList = null;
 		String appPath = "./TestmunkDemo.ipa"; // arr[3];
 
-		REPEATITION = 2; // Integer.parseInt(arr[4]);
+		REPEATITION = 1; // Integer.parseInt(arr[4]);
 		BOOKINGDURATION = 5 * REPEATITION;
 		if (use_pCloudy) {
 
 			String apiEndpoint = "https://device.pcloudy.com";//arr[0];
-			String emailID = pCLOUDY_EMAIL_ID //arr[1];
-			String authKey = pCLOUDY_API_KEY  //arr[2];
+			String emailID = Your_pCloudy_Email; //arr[1];
+			String authKey = Your_pCloudy_APIKey;  //arr[2];
 
 			ProcessBuilder processbuilder = new ProcessBuilder();
 			Map<String, String> envs = processbuilder.environment();
@@ -124,7 +124,7 @@ public class MainClass {
 		List<MobileDevice> selectedDevices = new ArrayList<MobileDevice>();
 
 		if (args.length == 0) {
-			selectedDevices = con.chooseMultipleDevices(authToken, "ios");
+			  selectedDevices.addAll(con.chooseDevices(authToken, "iOS", new Version("9.3.*"),new Version("11.*.*"), 3));
 		} else {
 			System.out.println("Added devices from Arguments");
 			selectedDevices = con.chooseDevicesFromArrayOfFullNames(authToken, "ios", args);

@@ -36,8 +36,8 @@ public class EntryPoint_Web {
 
 		if (use_pCloudy) {
 			String apiEndpoint = "https://device.pcloudy.com";
-			String email_id = Your_pCloudy_username;
-			String apiKey = pCloudy_APIKey;
+			String email_id = Your_pCloudy_Email;
+			String apiKey = Your_pCloudy_APIKey
 
 			init_pCloudyAppiumDriver(apiEndpoint, email_id, apiKey);
 
@@ -71,7 +71,7 @@ public class EntryPoint_Web {
 		System.out.println("pCloudy UserAPI Authenticated");
 		System.out.println(" ----------------------- ");
 
-		List<MobileDevice> selectedDevices = con.chooseMultipleDevices(authToken, PLATFORM);
+		List<MobileDevice> selectedDevices = con.chooseDevices(authToken, PLATFORM, new Version("9.3.*"),new Version("11.*.*"), 3);
 		// List<MobileDevice> selectedDevices = con.chooseDevices(authToken, PLATFORM, new Version(4, 3, 0), new Version(10, 2, 2), 20);
 
 		String sessionName = "AppiumNative-" + selectedDevices.get(0).display_name;
