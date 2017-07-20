@@ -28,8 +28,8 @@
 # Advanced(Continued...)
 | #   | Title |
 |-----------|-------|
-|Chapter 04| [TestNG with pCloudy Appium with Extent Reports(Android Native + TestNG)]|
-|Chapter 05| [TestNG with pCloudy Appium with pCloudy Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2005-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20TestNG)#chapter-05--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-native--testng)(/Advanced(Continued...)/Chapter%2006-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Web%20%2B%20TestNG)#chapter-06--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-web--testng)|
+|Chapter 04| [TestNG with pCloudy Appium with Extent Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2004-%20TestNG%20with%20pCloudy%20Appium%20with%20Extent%20Reports(Android%20Native%20%2B%20TestNG)#chapter-04--testng-with-pcloudy-appium-with-extent-reportsandroid-native--testng)|
+|Chapter 05| [TestNG with pCloudy Appium with pCloudy Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2005-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20TestNG)#chapter-05--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-native--testng)|
 |Chapter 06| [TestNG with pCloudy Appium with pCloudy Reports(Android Web + TestNG)](/Advanced(Continued...)/Chapter%2006-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Web%20%2B%20TestNG)#chapter-06--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-web--testng)|
 |Chapter 07| [TestNG with pCloudy Appium with pCloudy Reports(iOS Native + TestNG)](/Advanced(Continued...)/Chapter%2007-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Native%20%2B%20TestNG)#chapter-07--testng-with-pcloudy-appium-with-pcloudy-reportsios-native--testng)|
 |Chapter 08| [TestNG with pCloudy Appium with pCloudy Reports(iOS Web + TestNG)](/Advanced(Continued...)/Chapter%2008-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Web%20%2B%20TestNG)#chapter-08--testng-with-pcloudy-appium-with-pcloudy-reportsios-web--testng)|
