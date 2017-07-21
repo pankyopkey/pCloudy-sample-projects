@@ -1,4 +1,4 @@
-<h1><img src="/images/pcloudy.png">pCloudy Appium Sample Projects</h1>
+<h1><img src="/images/pcloudy.png"> &nbsp;&nbsp; pCloudy Appium Sample Projects</h1>
 
 ## About [pCloudy](https://www.pcloudy.com)
 
