@@ -1,6 +1,5 @@
 <h1><img src="https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png">pCloudy Appium Sample Projects</h1>
 
-***
 
 > This repository contains the Appium Sample Projects
 > for quick beginners and advanced learners.
