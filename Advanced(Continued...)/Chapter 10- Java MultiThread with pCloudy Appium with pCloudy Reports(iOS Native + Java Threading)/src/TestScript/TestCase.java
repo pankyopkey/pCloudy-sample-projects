@@ -77,6 +77,7 @@ public class TestCase implements Runnable {
 				s.addStep("Error executing TestCase #" + i, null, e.toString(), null, ExecutionResult.Fail);
 				// e.printStackTrace();
 			} finally {
+
 				if (driver != null) {
 					try {
 						driver.quit();
@@ -84,20 +85,22 @@ public class TestCase implements Runnable {
 						driver = null;
 					} catch (Exception e) {
 					}
+
+				}
+				try {
+					if (pCloudySession != null) {
+						pCloudySession.releaseSessionNow();
+						s.addComment("Released Appium Booking with RID:" + pCloudySession.getDto().rid);
+					}
+				} catch (Exception e) {
+					s.addComment(e.getMessage());
 				}
 
 				s.addComment("End of TestCase # " + i);
 			}
 		}
 
-		try {
-			if (pCloudySession != null) {
-				pCloudySession.releaseSessionNow();
-				s.addComment("Released Appium Booking with RID:" + pCloudySession.getDto().rid);
-			}
-		} catch (Exception e) {
-			s.addComment(e.getMessage());
-		}
+
 
 		File parentFolder = new File(MainClass.WORKING_DIRECTORY, s.Header);
 
