@@ -1,5 +1,8 @@
-[![pCloudy](https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png)](http://www.pcloudy.com/) # pCloudy Sample Projects
+[![pCloudy](https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png)](http://www.pcloudy.com/)
 
+# pCloudy Sample Projects
+
+***
 
 > This repository contains the Appium Sample Projects
 > for quick beginners and advanced learners.
@@ -10,12 +13,12 @@
 
 
 
-# Downloads
+## Downloads
 
 * [pCloudy-connector-jar](http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/)
 * [How to install pCloudy-connector-jar in Maven](http://pcloudy-content-distribution.s3.amazonaws.com/pCloudy-Connector-Jars/v11/java/How%20to%20Install%20pCloudy-java-connector.jar%20in%20Maven.txt)
 
-# Getting Started
+## Getting Started
 
 | #   | Title |
 |-----------|-------|
@@ -24,7 +27,7 @@
 |Chapter 03  |[TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG)](/Getting%20Started/Chapter%2003-%20TestNG%20with%20pCloudy%20Appium%20on%20Multiple%20Devices(Android%20Native%20%2B%20TestNG)) |
 
 
-# Advanced(Continued...)
+## Advanced(Continued...)
 | #   | Title |
 |-----------|-------|
 |Chapter 04| [TestNG with pCloudy Appium with Extent Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2004-%20TestNG%20with%20pCloudy%20Appium%20with%20Extent%20Reports(Android%20Native%20%2B%20TestNG)#chapter-04--testng-with-pcloudy-appium-with-extent-reportsandroid-native--testng)|
