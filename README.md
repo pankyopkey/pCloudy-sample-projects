@@ -17,8 +17,8 @@
 
 ## Getting Started
 
-| #   | Title |
-|-----------|-------|
+| #   | OS | FrameWork | Title |
+|-----|----|-----------|-------|
 |Chapter 01  | ![Android][android] | ![TestNG][testng] | [TestNG with Local Appium on Single Device(Android Native + TestNG)](/Getting%20Started/Chapter%2001-%20TestNG%20with%20Local%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG))|
 |Chapter 02  | ![Android][android] | ![TestNG][testng] | [TestNG with pCloudy Appium on Single Device(Android Native + TestNG)](/Getting%20Started/Chapter%2002-%20TestNG%20with%20pCloudy%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG)) |
 |Chapter 03  | ![Android][android] | ![TestNG][testng] | [TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG)](/Getting%20Started/Chapter%2003-%20TestNG%20with%20pCloudy%20Appium%20on%20Multiple%20Devices(Android%20Native%20%2B%20TestNG)) |
