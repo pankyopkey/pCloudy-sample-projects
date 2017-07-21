@@ -39,6 +39,9 @@ public class BritishAirwaysAppium {
 	}
 
 	public void runExecutionOnPCloudy() throws IOException, ConnectError, InterruptedException {
+		
+		int deviceBookDurationTime= 10;
+		
 		Connector con = new Connector("https://device.pcloudy.com/api/");
 
 		// User Authentication over pCloudy
@@ -55,7 +58,7 @@ public class BritishAirwaysAppium {
 
 		String sessionName = selectedDevices.get(0).display_name + " Appium Session";
 		// Book the selected devices in pCloudy
-		BookingDtoDevice[] bookedDevices = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, 10, sessionName);
+		BookingDtoDevice[] bookedDevices = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, deviceBookDurationTime, sessionName);
 		System.out.println("Devices booked successfully");
 
 		// Select apk in pCloudy Cloud Drive
@@ -159,8 +162,7 @@ public class BritishAirwaysAppium {
 
 					report.addStep("Take Screenshot", null, null, snapshotFile.getAbsolutePath(), ExecutionResult.Pass);
 
-					// release session now
-					pCloudySession.releaseSessionNow();
+					
 
 					report.addStep("Release Appium Session", null, null, ExecutionResult.Pass);
 
@@ -171,6 +173,14 @@ public class BritishAirwaysAppium {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} finally {
+					
+					// release session now
+					try {
+						pCloudySession.releaseSessionNow();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					HtmlFilePrinter printer = new HtmlFilePrinter(new File(deviceFolder, deviceFolder.getName() + ".html"));
 					printer.printSingleRunReport(report);
 

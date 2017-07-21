@@ -24,7 +24,7 @@ import com.ssts.pcloudy.Version;
 public class Controller {
 
 	public static Map<String, DeviceContext> allDeviceContexts = new HashMap<String, DeviceContext>();
-
+	int deviceBookDuration=10;
 	public static void main(String args[]) throws Exception {
 		Controller runExecutionOnPCloudy = new Controller();
 		runExecutionOnPCloudy.runTestNGTest();
@@ -74,7 +74,7 @@ public class Controller {
 		}
 
 		// Book the selected devices in pCloudy
-		BookingDtoDevice[] bookedDevices = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, 3, sessionName);
+		BookingDtoDevice[] bookedDevices = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, deviceBookDuration, sessionName);
 		System.out.println("Devices booked successfully");
 
 		con.AppiumApis().initAppiumHubForApp(authToken, alreadyUploadedApp);

@@ -30,7 +30,7 @@ public class DeviceContext {
 	public PCloudyAppiumSession pCloudySession;
 	public SingleRunReport report;
 	public DesiredCapabilities capabilities;
-	public IOSDriver<WebElement> driver;
+	public AndroidDriver<WebElement> driver;
 
 	
 	public File snapshotsFolder;

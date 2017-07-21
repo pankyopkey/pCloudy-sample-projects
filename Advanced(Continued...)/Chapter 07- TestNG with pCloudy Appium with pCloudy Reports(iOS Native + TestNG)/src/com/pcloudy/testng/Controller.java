@@ -38,7 +38,8 @@ public class Controller {
 	}
 
 	public void runTestNGTest() throws Exception {
-
+		int deviceBookDurationTime =10;
+		
 		// Create an instance on TestNG
 		TestNG myTestNG = new TestNG();
 
@@ -79,7 +80,7 @@ public class Controller {
 		}
 
 		// Book the selected devices in pCloudy
-		BookingDtoDevice[] bookedDevices = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, 4, sessionName);
+		BookingDtoDevice[] bookedDevices = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, deviceBookDurationTime, sessionName);
 		System.out.println("Devices booked successfully");
 
 		con.AppiumApis().initAppiumHubForApp(authToken, alreadyUploadedApp);

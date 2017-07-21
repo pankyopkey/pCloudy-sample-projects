@@ -39,20 +39,18 @@ public class TestSuite implements Runnable {
 					report.addStep("Iteration Sequence #" + i, endpoint.toString(), e.toString(), ExecutionResult.Fail);
 					System.err.println(Thread.currentThread().getName() + " -> " + e.getMessage());
 				}
-				/*
-				 * try { report.beginTestcase("TestCase NCR Portal #" + i); this.test_NcrPortal(); } catch (Exception e) { report.addStep("Iteration Sequence #" + i, endpoint.toString(), e.toString(),
-				 * ExecutionResult.Fail); System.err.println(Thread.currentThread().getName() + " -> " + e.getMessage()); }
-				 */
+				
 
 			}
+			
+
+		} finally {
 			try {
 				if (sessionCloser != null)
 					sessionCloser.releaseSessionNow();
 			} catch (Exception e) {
 				report.addComment("Error while closing session: " + e.getMessage());
 			}
-
-		} finally {
 			printReport();
 		}
 
@@ -108,32 +106,6 @@ public class TestSuite implements Runnable {
 
 			System.out.println("----------");
 
-		} finally {
-			if (keywords.getDriver() != null) {
-				keywords.getDriver().quit();
-
-				report.addComment("Close Application");
-			}
-		}
-	}
-
-	public void test_NcrPortal() throws Exception {
-		Keywords keywords = new Keywords(this.report, sessionCloser);
-		try {
-
-			keywords.initRemoteWebDriver(endpoint, capabilities, "https://portalcert.ncr.com/");
-
-			printReport();
-			keywords.WaitForObject(By.cssSelector("input#input_1"), 30, "Username TextBox");
-			keywords.TypeText(By.cssSelector("input#input_1"), "vt250085");
-			keywords.TypeText(By.cssSelector("input#input_2"), "Smile@234");
-			keywords.ClickObject(By.xpath("//tr[@id='submit_row']/td/input"), "Submit");
-			printReport();
-
-			keywords.WaitForObject(By.xpath("//div[@id='ddMenu']/a/span"), 30, "ddMenu");
-			keywords.ClickObject(By.xpath("//div[@id='ddMenu']/a/span"), "ddMenu");
-			String output = keywords.getDriver().findElement(By.xpath("//ul[@id='ddMenuBox']")).getText();
-			report.addComment(output);
 		} finally {
 			if (keywords.getDriver() != null) {
 				keywords.getDriver().quit();

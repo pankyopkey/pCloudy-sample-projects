@@ -21,6 +21,7 @@ import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.util.reporting.ExecutionResult;
 import com.ssts.util.reporting.printers.HtmlFilePrinter;
 
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 
@@ -54,7 +55,7 @@ public class TestSetUp {
 			while (trialsLeft > 0) {
 				trialsLeft--;
 				try {
-					myContext.driver = new IOSDriver<WebElement>(myContext.endpoint, myContext.capabilities);
+					myContext.driver = new AndroidDriver<WebElement>(myContext.endpoint, myContext.capabilities);
 
 					myContext.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 					myContext.driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
