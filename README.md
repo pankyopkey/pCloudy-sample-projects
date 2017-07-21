@@ -17,7 +17,7 @@
 
 ## Getting Started
 
-| #   | OS | FrameWork | App | Title |
+| #   | OS | Arch | App | Title |
 |-----|----|-----------|-----|-------|
 |Chapter 01  | ![Android][android] | ![TestNG][testng] | ![Native][native] | [Local Appium on Local Single Device via TestNG](/Getting%20Started/Chapter%2001-%20TestNG%20with%20Local%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG))|
 |Chapter 02  | ![Android][android] | ![TestNG][testng] | ![Native][native] | [pCloudy Appium on pCloudy Single Device via TestNG](/Getting%20Started/Chapter%2002-%20TestNG%20with%20pCloudy%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG)) |
@@ -25,7 +25,7 @@
 
 
 ## Advanced(Continued...)
-| #   | OS | FrameWork | App | Title |
+| #   | OS | Arch | App | Title |
 |-----|----|-----------|-----|-------|
 |Chapter 04| ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium with Extent Reports](/Advanced(Continued...)/Chapter%2004-%20TestNG%20with%20pCloudy%20Appium%20with%20Extent%20Reports(Android%20Native%20%2B%20TestNG)#chapter-04--testng-with-pcloudy-appium-with-extent-reportsandroid-native--testng)|
 |Chapter 05| ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium with pCloudy Reports](/Advanced(Continued...)/Chapter%2005-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20TestNG)#chapter-05--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-native--testng)|
