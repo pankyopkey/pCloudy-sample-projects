@@ -23,6 +23,7 @@ Read more here https://www.pcloudy.com
 * [pCloudy-connector-jar](http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/)
 
 ## For Maven Users
+* The pCloudy-connector-jar is yet not published in Maven Central. Although you may install it in your machine and use it via pom.xml
 * [How to install pCloudy-connector-jar in Maven](http://pcloudy-content-distribution.s3.amazonaws.com/pCloudy-Connector-Jars/v11/java/How%20to%20Install%20pCloudy-java-connector.jar%20in%20Maven.txt)
 
 ## Getting Started
