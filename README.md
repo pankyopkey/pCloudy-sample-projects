@@ -1,8 +1,3 @@
-
-# pCloudy Sample Projects  [![pCloudy](https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png)](http://www.pcloudy.com/)
-
-
-
 <h1><img src="https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png">pCloudy Appium Sample Projects</h1>
 
 ***
