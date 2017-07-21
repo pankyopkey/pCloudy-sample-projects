@@ -17,25 +17,25 @@
 
 ## Getting Started
 
-| #   | OS | FrameWork | Title |
-|-----|----|-----------|-------|
-|Chapter 01  | ![Android][android] | ![TestNG][testng] | [TestNG with Local Appium on Single Device(Android Native + TestNG)](/Getting%20Started/Chapter%2001-%20TestNG%20with%20Local%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG))|
-|Chapter 02  | ![Android][android] | ![TestNG][testng] | [TestNG with pCloudy Appium on Single Device(Android Native + TestNG)](/Getting%20Started/Chapter%2002-%20TestNG%20with%20pCloudy%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG)) |
-|Chapter 03  | ![Android][android] | ![TestNG][testng] | [TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG)](/Getting%20Started/Chapter%2003-%20TestNG%20with%20pCloudy%20Appium%20on%20Multiple%20Devices(Android%20Native%20%2B%20TestNG)) |
+| #   | OS | FrameWork | App | Title |
+|-----|----|-----------|-----|-------|
+|Chapter 01  | ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with Local Appium on Single Device(Android Native + TestNG)](/Getting%20Started/Chapter%2001-%20TestNG%20with%20Local%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG))|
+|Chapter 02  | ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium on Single Device(Android Native + TestNG)](/Getting%20Started/Chapter%2002-%20TestNG%20with%20pCloudy%20Appium%20on%20Single%20Device(Android%20Native%20%2B%20TestNG)) |
+|Chapter 03  | ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium on Multiple Devices(Android Native + TestNG)](/Getting%20Started/Chapter%2003-%20TestNG%20with%20pCloudy%20Appium%20on%20Multiple%20Devices(Android%20Native%20%2B%20TestNG)) |
 
 
 ## Advanced(Continued...)
-| #   | OS | FrameWork | Title |
-|-----|----|-----------|-------|
-|Chapter 04| ![Android][android] | ![TestNG][testng] | [TestNG with pCloudy Appium with Extent Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2004-%20TestNG%20with%20pCloudy%20Appium%20with%20Extent%20Reports(Android%20Native%20%2B%20TestNG)#chapter-04--testng-with-pcloudy-appium-with-extent-reportsandroid-native--testng)|
-|Chapter 05| ![Android][android] | ![TestNG][testng] |[TestNG with pCloudy Appium with pCloudy Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2005-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20TestNG)#chapter-05--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-native--testng)|
-|Chapter 06| ![Android][android] | ![TestNG][testng] |[TestNG with pCloudy Appium with pCloudy Reports(Android Web + TestNG)](/Advanced(Continued...)/Chapter%2006-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Web%20%2B%20TestNG)#chapter-06--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-web--testng)|
-|Chapter 07|![iOS][ios] | ![TestNG][testng] | [TestNG with pCloudy Appium with pCloudy Reports(iOS Native + TestNG)](/Advanced(Continued...)/Chapter%2007-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Native%20%2B%20TestNG)#chapter-07--testng-with-pcloudy-appium-with-pcloudy-reportsios-native--testng)|
-|Chapter 08| ![iOS][ios] | ![TestNG][testng] |[TestNG with pCloudy Appium with pCloudy Reports(iOS Web + TestNG)](/Advanced(Continued...)/Chapter%2008-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Web%20%2B%20TestNG)#chapter-08--testng-with-pcloudy-appium-with-pcloudy-reportsios-web--testng)|
-|Chapter 09|![Android][android] | ![Java][java] | [Java MultiThread with pCloudy Appium with pCloudy Reports(Android Native + Java Threading)](/Advanced(Continued...)/Chapter%2009-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20Java%20Threading)#chapter-9--java-multithread-with-pcloudy-appium-with-pcloudy-reportsandroid-native--java-threading)|
-|Chapter 10|![iOS][ios] | ![Java][java] | [Java MultiThread with pCloudy Appium with pCloudy Reports(iOS Native + Java Threading)](/Advanced(Continued...)/Chapter%2010-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Native%20%2B%20Java%20Threading)#chapter-10--java-multithread-with-pcloudy-appium-with-pcloudy-reportsios-native--java-threading)|
-|Chapter 11|![Android][android] | ![Java][java] | [Java MultiThread with pCloudy Appium with pCloudy Reports(Android Web + Java Threading)](/Advanced(Continued...)/Chapter%2011-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Web%20%2B%20Java%20Threading)#chapter-11--java-multithread-with-pcloudy-appium-with-pcloudy-reportsandroid-web--java-threading)|
-|Chapter 12|![iOS][ios] | ![Java][java] | [Java MultiThread with pCloudy Appium with pCloudy Reports(iOS Web + Java Threading)](/Advanced(Continued...)/Chapter%2012-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Web%20%2B%20Java%20Threading)#chapter-12--java-multithread-with-pcloudy-appium-with-pcloudy-reportsios-web--java-threading)|
+| #   | OS | FrameWork | App | Title |
+|-----|----|-----------|-----|-------|
+|Chapter 04| ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium with Extent Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2004-%20TestNG%20with%20pCloudy%20Appium%20with%20Extent%20Reports(Android%20Native%20%2B%20TestNG)#chapter-04--testng-with-pcloudy-appium-with-extent-reportsandroid-native--testng)|
+|Chapter 05| ![Android][android] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium with pCloudy Reports(Android Native + TestNG)](/Advanced(Continued...)/Chapter%2005-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20TestNG)#chapter-05--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-native--testng)|
+|Chapter 06| ![Android][android] | ![TestNG][testng] | ![Web][web] | [TestNG with pCloudy Appium with pCloudy Reports(Android Web + TestNG)](/Advanced(Continued...)/Chapter%2006-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Web%20%2B%20TestNG)#chapter-06--testng-with-pcloudy-appium-with-pcloudy-reportsandroid-web--testng)|
+|Chapter 07|![iOS][ios] | ![TestNG][testng] | ![Native][native] | [TestNG with pCloudy Appium with pCloudy Reports(iOS Native + TestNG)](/Advanced(Continued...)/Chapter%2007-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Native%20%2B%20TestNG)#chapter-07--testng-with-pcloudy-appium-with-pcloudy-reportsios-native--testng)|
+|Chapter 08| ![iOS][ios] | ![TestNG][testng] | ![Web][web] | [TestNG with pCloudy Appium with pCloudy Reports(iOS Web + TestNG)](/Advanced(Continued...)/Chapter%2008-%20TestNG%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Web%20%2B%20TestNG)#chapter-08--testng-with-pcloudy-appium-with-pcloudy-reportsios-web--testng)|
+|Chapter 09|![Android][android] | ![Java][java] | ![Native][native] | [Java MultiThread with pCloudy Appium with pCloudy Reports(Android Native + Java Threading)](/Advanced(Continued...)/Chapter%2009-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Native%20%2B%20Java%20Threading)#chapter-9--java-multithread-with-pcloudy-appium-with-pcloudy-reportsandroid-native--java-threading)|
+|Chapter 10|![iOS][ios] | ![Java][java] | ![Native][native] | [Java MultiThread with pCloudy Appium with pCloudy Reports(iOS Native + Java Threading)](/Advanced(Continued...)/Chapter%2010-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Native%20%2B%20Java%20Threading)#chapter-10--java-multithread-with-pcloudy-appium-with-pcloudy-reportsios-native--java-threading)|
+|Chapter 11|![Android][android] | ![Java][java] | ![Web][web] | [Java MultiThread with pCloudy Appium with pCloudy Reports(Android Web + Java Threading)](/Advanced(Continued...)/Chapter%2011-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(Android%20Web%20%2B%20Java%20Threading)#chapter-11--java-multithread-with-pcloudy-appium-with-pcloudy-reportsandroid-web--java-threading)|
+|Chapter 12|![iOS][ios] | ![Java][java] | ![Web][web] | [Java MultiThread with pCloudy Appium with pCloudy Reports(iOS Web + Java Threading)](/Advanced(Continued...)/Chapter%2012-%20Java%20MultiThread%20with%20pCloudy%20Appium%20with%20pCloudy%20Reports(iOS%20Web%20%2B%20Java%20Threading)#chapter-12--java-multithread-with-pcloudy-appium-with-pcloudy-reportsios-web--java-threading)|
 
 
 
@@ -49,4 +49,6 @@
 [ios]:/images/apple.png "iOS"
 [java]:/images/java.png "Java"
 [testng]:/images/testng.png "TestNG"
+[native]:/images/native.png "Native"
+[web]:/images/web.png "Web"
 
