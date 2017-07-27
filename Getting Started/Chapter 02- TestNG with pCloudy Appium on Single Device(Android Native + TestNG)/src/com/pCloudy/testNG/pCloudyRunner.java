@@ -31,11 +31,13 @@ public class pCloudyRunner {
 
 	PCloudyAppiumSession pCloudySession;
 	AppiumDriver<WebElement> driver;
-	int deviceBookDuration=10;
+	int deviceBookDuration = 10;
+
+	Boolean autoSelectDevices = true;
 
 	@BeforeTest
 	public void setUpSuite() throws Exception {
-		
+
 		Connector con = new Connector("https://device.pcloudy.com/api/");
 
 		// User Authentication over pCloudy
@@ -55,11 +57,13 @@ public class pCloudyRunner {
 		}
 
 		ArrayList<MobileDevice> selectedDevices = new ArrayList<>();
-        selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"),
-                                                 new Version("7.*.*"), 1));
+		if (autoSelectDevices)
+			selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"), new Version("7.*.*"), 1));
+		else
+			selectedDevices.add(con.chooseSingleDevice(authToken, "android"));
 
 		// Book the selected devices in pCloudy
-		String sessionName =  "Appium Session " + new Date();
+		String sessionName = "Appium Session " + new Date();
 		BookingDtoDevice bookedDevice = con.AppiumApis().bookDevicesForAppium(authToken, selectedDevices, deviceBookDuration, sessionName)[0];
 		System.out.println("Devices booked successfully");
 

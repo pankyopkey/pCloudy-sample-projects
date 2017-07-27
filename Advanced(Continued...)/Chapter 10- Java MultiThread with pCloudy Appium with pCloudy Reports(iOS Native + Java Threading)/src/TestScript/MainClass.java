@@ -26,6 +26,8 @@ public class MainClass {
 
 	public static File WORKING_DIRECTORY = new File("Reports");
 
+	public static Boolean autoSelectDevices = true;
+
 	public static void main(String args[]) throws Exception {
 
 		System.out.println("<apiEndpoint> <email_id> <apiAuthKey> <AppPath> <Repeatition>");
@@ -50,10 +52,10 @@ public class MainClass {
 		REPEATITION = 1; // Integer.parseInt(arr[4]);
 		BOOKINGDURATION = 5 * REPEATITION;
 		if (use_pCloudy) {
-
-			String apiEndpoint = "https://device.pcloudy.com";//arr[0];
-			String emailID = Your_pCloudy_Email; //arr[1];
-			String authKey = Your_pCloudy_APIKey;  //arr[2];
+			
+			String apiEndpoint = "https://device.pcloudy.com";// arr[0];
+			String emailID = Your_pCloudy_Email; // arr[1];
+			String authKey = Your_pCloudy_APIKey; // arr[2];
 
 			ProcessBuilder processbuilder = new ProcessBuilder();
 			Map<String, String> envs = processbuilder.environment();
@@ -124,7 +126,10 @@ public class MainClass {
 		List<MobileDevice> selectedDevices = new ArrayList<MobileDevice>();
 
 		if (args.length == 0) {
-			  selectedDevices.addAll(con.chooseDevices(authToken, "iOS", new Version("9.3.*"),new Version("11.*.*"), 3));
+			if (autoSelectDevices)
+				selectedDevices.addAll(con.chooseDevices(authToken, "iOS", new Version("9.3.*"), new Version("11.*.*"), 3));
+			else
+				selectedDevices.addAll(con.chooseMultipleDevices(authToken, "iOS"));
 		} else {
 			System.out.println("Added devices from Arguments");
 			selectedDevices = con.chooseDevicesFromArrayOfFullNames(authToken, "ios", args);
