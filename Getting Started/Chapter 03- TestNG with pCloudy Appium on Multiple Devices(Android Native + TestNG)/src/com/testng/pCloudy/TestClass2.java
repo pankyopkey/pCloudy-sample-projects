@@ -20,6 +20,8 @@ public class TestClass2 extends TestSetUp {
 		AndroidDriver<WebElement> driver = myContext.driver;
 		try {
 
+			// myContext.pCloudySession.extendSession(15); // this will release the session after 15 minutes from now
+
 			driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
 
 			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.ba.mobile:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
