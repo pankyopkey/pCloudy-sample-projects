@@ -17,7 +17,7 @@ import io.appium.java_client.ios.IOSDriver;
 
 public class TestCase implements Runnable {
 
-	SingleRunReport s;
+	SingleRunReport report;
 	IOSDriver driver;
 	DesiredCapabilities capabilities;
 	URL endpoint;
@@ -25,7 +25,7 @@ public class TestCase implements Runnable {
 	PCloudyAppiumSession pCloudySession = null;
 
 	public TestCase(SingleRunReport s, DesiredCapabilities capabilities, URL endpoint, PCloudyAppiumSession pCloudySession) {
-		this.s = s;
+		this.report = s;
 		this.capabilities = capabilities;
 		this.endpoint = endpoint;
 		this.pCloudySession = pCloudySession;
@@ -37,11 +37,11 @@ public class TestCase implements Runnable {
 
 	public void runTestCase() throws IOException, InterruptedException {
 
-		keywords = new Keywords(s, driver, pCloudySession);
+		keywords = new Keywords(report, driver, pCloudySession);
 
 		// ObjectRepository object_pom = PageFactory.initElements(driver, ObjectRepository.class);
 		String snap = keywords.getScreenshot();
-		s.addStep("Application Opened", null, null, snap, ExecutionResult.Pass);
+		report.addStep("Application Opened", null, null, snap, ExecutionResult.Pass);
 
 		if (this.pCloudySession.getDto().getVersion().compareTo(new Version("9.3")) >= 0) {
 			keywords.typeText(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField[1]"), "test@testname.com", "Email");
@@ -62,51 +62,47 @@ public class TestCase implements Runnable {
 	public void run() {
 		for (int i = 1; i <= MainClass.REPEATITION; i++) {
 			try {
-				s.beginTestcase("TestCase # " + i);
+				report.beginTestcase("TestCase # " + i);
 				if (pCloudySession != null) {
 					// pCloudySession.extendSession(4);
-					//	s.addComment("Extended Session by four mins");
+					// s.addComment("Extended Session by four mins");
 				}
 
 				initRemoteWebDriver(endpoint, capabilities);
-				s.addStep("Open the application", endpoint.toString(), null, null, ExecutionResult.Pass);
-				Thread.sleep(6000);
-				this.runTestCase();
-				// Thread.sleep(6000);
-			} catch (Exception e) {
-				s.addStep("Error executing TestCase #" + i, null, e.toString(), null, ExecutionResult.Fail);
-				// e.printStackTrace();
-			} finally {
+				report.addStep("Open the application", endpoint.toString(), null, null, ExecutionResult.Pass);
 
+				this.runTestCase();
+
+			} catch (Exception e) {
+				report.addStep("Error executing TestCase #" + i, null, e.toString(), null, ExecutionResult.Fail);
+
+			} finally {
+				report.addComment("End of TestCase # " + i);
 				if (driver != null) {
 					try {
 						driver.quit();
-						s.addStep("Application Closed", null, null, null, ExecutionResult.Pass);
+						report.addStep("Application Closed", null, null, null, ExecutionResult.Pass);
 						driver = null;
 					} catch (Exception e) {
 					}
-
 				}
-				try {
-					if (pCloudySession != null) {
-						pCloudySession.releaseSessionNow();
-						s.addComment("Released Appium Booking with RID:" + pCloudySession.getDto().rid);
-					}
-				} catch (Exception e) {
-					s.addComment(e.getMessage());
-				}
-
-				s.addComment("End of TestCase # " + i);
 			}
 		}
 
+		try {
+			if (pCloudySession != null) {
+				pCloudySession.releaseSessionNow();
+				report.addComment("Released Appium Booking with RID:" + pCloudySession.getDto().rid);
+			}
+		} catch (Exception e) {
+			report.addComment(e.getMessage());
+		}
 
-
-		File parentFolder = new File(MainClass.WORKING_DIRECTORY, s.Header);
+		File parentFolder = new File(MainClass.WORKING_DIRECTORY, report.Header);
 
 		parentFolder.mkdirs();
-		HtmlFilePrinter h = new HtmlFilePrinter(new File(parentFolder, s.Header + ".html"));
-		h.printSingleRunReport(s);
+		HtmlFilePrinter h = new HtmlFilePrinter(new File(parentFolder, report.Header + ".html"));
+		h.printSingleRunReport(report);
 
 	}
 }
