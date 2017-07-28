@@ -64,8 +64,8 @@ public class TestCase implements Runnable {
 			try {
 				s.beginTestcase("TestCase # " + i);
 				if (pCloudySession != null) {
-					pCloudySession.extendSession(4);
-					s.addComment("Extended Session by four mins");
+					// pCloudySession.extendSession(4);
+					//	s.addComment("Extended Session by four mins");
 				}
 
 				initRemoteWebDriver(endpoint, capabilities);
