@@ -1,12 +1,10 @@
-<h1><img src="/images/pcloudy.png" align="top"> &nbsp;&nbsp; pCloudy Appium Sample Projects</h1>
-
-# Java Sample Projects [pCloudy](https://www.pcloudy.com)
+<h1><img src="/images/pcloudy.png" align="top"> &nbsp;&nbsp; pCloudy Java Appium Sample Projects [pCloudy](https://www.pcloudy.com)</h1>
 
 
 
 ## Downloads
 
-* [pCloudy-connector-jar](https://github.com/pankyopkey/pCloudy-sample-projects/tree/newCode/Java/Downloads/)
+* [pCloudy-connector-jar](/Java/Downloads/)
 
 ## For Maven Users
 * The pCloudy-connector-jar is yet not published in Maven Central. Although you may install it in your machine and use it via pom.xml
