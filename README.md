@@ -31,6 +31,6 @@ Read more here https://www.pcloudy.com
 
 
 
-[java]:/images/java.png "Java"
-[nodejs]:/images/nodejs.png "NodeJs"
-[dotnet]:/images/dotnet.png "DotNet"
+[java]:/images/java-big.png "Java"
+[nodejs]:/images/nodejs-big.png "NodeJs"
+[dotnet]:/images/dotnet-big.png "DotNet"
