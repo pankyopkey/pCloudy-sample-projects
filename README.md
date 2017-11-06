@@ -23,7 +23,9 @@ Read more here https://www.pcloudy.com
 * [pCloudy-connector-jar](https://github.com/pankyopkey/pCloudy-sample-projects/tree/newCode/Java/Downloads/)
 
 
-
+## Sample Code
+| Tech | Language | Link |
+|------|----------|------|
 | ![Java][java] | JAVA   | [Browse](/Java/) |
 | ![NodeJS][nodejs] | NodeJS | [Browse](/NodeJS/) |
 | ![DotNet][dotnet] | DotNet | [Browse](/DotNet/) |
