@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.relevantcodes.extentreports.ExtentReports;
-import com.ssts.pcloudy.ConnectError;
+import com.ssts.pcloudy.exception.ConnectError;
 
 import io.appium.java_client.android.AndroidDriver;
 

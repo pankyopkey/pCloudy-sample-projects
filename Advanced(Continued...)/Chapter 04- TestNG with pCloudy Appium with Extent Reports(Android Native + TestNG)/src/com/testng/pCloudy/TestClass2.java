@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.ssts.pcloudy.ConnectError;
+import com.ssts.pcloudy.exception.ConnectError;
 
 import io.appium.java_client.android.AndroidDriver;
 

@@ -37,7 +37,7 @@ public class EntryPoint_Web {
 		if (use_pCloudy) {
 			String apiEndpoint = "https://device.pcloudy.com";
 			String email_id = Your_pCloudy_username;
-			String apiKey = pCloudy_APIKey;
+			String apiKey = Your_pCloudy_APIKey;
 
 			init_pCloudyAppiumDriver(apiEndpoint, email_id, apiKey);
 

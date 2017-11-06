@@ -15,11 +15,11 @@ import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
 import com.ssts.pcloudy.Connector;
+import com.ssts.pcloudy.Version;
 import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
-import com.ssts.pcloudy.Version;
 
 public class Controller {
 
@@ -33,8 +33,8 @@ public class Controller {
 	}
 
 	public void runTestNGTest() throws Exception {
-		
-		int deviceBookDurationTime= 10;
+
+		int deviceBookDurationTime = 10;
 
 		// Create an instance on TestNG
 		TestNG myTestNG = new TestNG();
@@ -45,7 +45,6 @@ public class Controller {
 		mySuite.setParallel("tests");
 		mySuite.setConfigFailurePolicy("continue");
 
-		
 		// Create a list which can contain the classes that you want to run.
 		List<XmlClass> myClasses = new ArrayList<XmlClass>();
 		myClasses.add(new XmlClass("com.testng.pCloudy.TestClass1"));
@@ -56,10 +55,10 @@ public class Controller {
 
 		Connector con = new Connector("https://device.pcloudy.com/api/");
 		// User Authentication over pCloudy
-		String authToken = con.authenticateUser(Your_pCloudy_Email,Your_pCloudy_APIKey);
+		String authToken = con.authenticateUser(Your_pCloudy_Email, Your_pCloudy_APIKey);
 		ArrayList<MobileDevice> selectedDevices = new ArrayList<>();
 
-        selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"),new Version("7.*.*"), 2));
+		selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"), new Version("7.*.*"), 2));
 
 		String sessionName = selectedDevices.get(0).display_name + " Appium Session";
 		// Select apk in pCloudy Cloud Drive
@@ -85,13 +84,12 @@ public class Controller {
 		System.out.println("Appium Endpoint: " + endpoint);
 		URL reportFolderOnPCloudy = con.AppiumApis().getAppiumReportFolder(authToken);
 		System.out.println("Report Folder: " + reportFolderOnPCloudy);
-		
+
 		for (int i = 0; i < bookedDevices.length; i++) {
 			BookingDtoDevice aDevice = bookedDevices[i];
-		
+
 			PCloudyAppiumSession pCloudySession = new PCloudyAppiumSession(con, authToken, aDevice);
 			String uniqueName = aDevice.manufacturer + " " + aDevice.model + " " + aDevice.version;
-
 
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability("newCommandTimeout", 600);

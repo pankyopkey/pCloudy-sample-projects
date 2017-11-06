@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.ssts.pcloudy.ConnectError;
+import com.ssts.pcloudy.exception.ConnectError;
 
 import io.appium.java_client.android.AndroidDriver;
 

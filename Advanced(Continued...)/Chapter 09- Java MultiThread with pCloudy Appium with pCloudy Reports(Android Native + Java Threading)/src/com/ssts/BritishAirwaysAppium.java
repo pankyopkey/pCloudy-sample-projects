@@ -9,13 +9,13 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.ssts.pcloudy.ConnectError;
 import com.ssts.pcloudy.Connector;
 import com.ssts.pcloudy.Version;
 import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
+import com.ssts.pcloudy.exception.ConnectError;
 import com.ssts.util.reporting.ExecutionResult;
 import com.ssts.util.reporting.MultipleRunReport;
 import com.ssts.util.reporting.SingleRunReport;

@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-import com.ssts.pcloudy.ConnectError;
+import com.ssts.pcloudy.exception.ConnectError;
 
 import io.appium.java_client.android.AndroidDriver;
 

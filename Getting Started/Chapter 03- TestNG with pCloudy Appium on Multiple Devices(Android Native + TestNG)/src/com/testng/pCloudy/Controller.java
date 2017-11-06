@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.TestNG;
@@ -19,13 +20,16 @@ import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
+
+import io.appium.java_client.remote.MobileCapabilityType;
+
 import com.ssts.pcloudy.Version;
 
 public class Controller {
 
 	public static Map<String, DeviceContext> allDeviceContexts = new HashMap<String, DeviceContext>();
 	int deviceBookDuration = 10;
-	Boolean autoSelectDevices = true;
+	Boolean autoSelectDevices = false;
 
 	public static void main(String args[]) throws Exception {
 		Controller runExecutionOnPCloudy = new Controller();
@@ -105,7 +109,7 @@ public class Controller {
 			capabilities.setCapability("appPackage", "com.ba.mobile");
 			capabilities.setCapability("appActivity", "com.ba.mobile.LaunchActivity");
 			capabilities.setCapability("rotatable", true);
-
+			
 			DeviceContext aDeviceContext = new DeviceContext(uniqueName);
 
 			aDeviceContext.endpoint = endpoint;

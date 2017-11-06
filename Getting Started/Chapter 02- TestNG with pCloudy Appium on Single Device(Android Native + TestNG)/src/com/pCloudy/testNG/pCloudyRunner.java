@@ -15,14 +15,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.ssts.pcloudy.ConnectError;
 import com.ssts.pcloudy.Connector;
-import com.ssts.pcloudy.MobileDeviceFinder;
+import com.ssts.pcloudy.Version;
 import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
-import com.ssts.pcloudy.Version;
+import com.ssts.pcloudy.exception.ConnectError;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;

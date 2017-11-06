@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.ssts.pcloudy.ConnectError;
+import com.ssts.pcloudy.exception.ConnectError;
 import com.ssts.util.reporting.ExecutionResult;
 import com.ssts.util.reporting.SingleRunReport;
 

@@ -16,13 +16,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-import com.ssts.pcloudy.ConnectError;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
+import com.ssts.pcloudy.exception.ConnectError;
 import com.ssts.util.reporting.ExecutionResult;
 import com.ssts.util.reporting.printers.HtmlFilePrinter;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 
 
 public class TestSetUp {
