@@ -1,0 +1,22 @@
+{
+  "desiredCapabilities": {
+    "launchTimeout" : 90000,
+    "CommandTimeout" : 600,
+    "appPackage" : "com.ba.mobile",
+    "appActivity" : "com.ba.mobile.LaunchActivity",
+    "rotatable" : true
+
+  },
+  "logLevel" : "verbose",
+  "logOutput" : "/home/radmin/hipages/appiumConnector/log/",
+  "protocol" : "https",
+  "host" : "test-main.pcloudy.com",
+  "port" : 443,
+  "coloredLogs" : true,
+  "bail" : 0,
+  "screenshotPath" : "/home/radmin/hipages/appiumConnector/screenshot/",
+  "screenshotOnReject" : false,
+  "username" : "Your_UserName_Here",
+  "password" : "Your_API_Key_Here",
+  "appname" : "com.ba.mobile.apk"
+}
