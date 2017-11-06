@@ -18,12 +18,9 @@ Read more here https://www.pcloudy.com
 
 
 
-## Downloads
 
-* [pCloudy-connector-jar](https://github.com/pankyopkey/pCloudy-sample-projects/tree/newCode/Java/Downloads/)
+## Sample Projects
 
-
-## Sample Code
 | Tech | Language | Link |
 |------|----------|------|
 | ![Java][java] | JAVA   | [Browse](/Java/) |
