@@ -1,6 +1,6 @@
 # Downloads
 
-Download pCloudy-Connector-Jars from :- http://pcloudy-content-distribution.s3.amazonaws.com/index.html?prefix=pCloudy-Connector-Jars/v11/java/
+Download pCloudy-Connector-Jar from above link(in github)
 
 
 =========== How to install pCloudy-Java-Connector.jar in local Maven Repository =============
