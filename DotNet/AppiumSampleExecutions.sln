@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppiumAndroidExecution_dotNet", "AppiumAndroidExecution_dotNet\AppiumAndroidExecution_dotNet.csproj", "{0D5209EB-711B-4DCF-900E-877E53D63457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppiumWebTest", "ConsoleApplication1\AppiumWebTest.csproj", "{7ED3016D-B670-4FF9-ABB2-6F91F00B2624}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D5209EB-711B-4DCF-900E-877E53D63457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D5209EB-711B-4DCF-900E-877E53D63457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D5209EB-711B-4DCF-900E-877E53D63457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D5209EB-711B-4DCF-900E-877E53D63457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED3016D-B670-4FF9-ABB2-6F91F00B2624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED3016D-B670-4FF9-ABB2-6F91F00B2624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED3016D-B670-4FF9-ABB2-6F91F00B2624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED3016D-B670-4FF9-ABB2-6F91F00B2624}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

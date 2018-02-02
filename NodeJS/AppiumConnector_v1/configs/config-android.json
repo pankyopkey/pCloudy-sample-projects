@@ -1,0 +1,21 @@
+{
+  "desiredCapabilities": {
+    "launchTimeout" : 90000,
+    "CommandTimeout" : 600,
+    "appPackage" : "com.ba.mobile",
+    "appActivity" : "com.ba.mobile.LaunchActivity",
+    "rotatable" : true
+  },
+  "logLevel" : "verbose",
+  "logOutput" : "./log/",
+  "protocol" : "https",
+  "host" : "device.pcloudy.com",
+  "port" : 443,
+  "coloredLogs" : true,
+  "bail" : 0,
+  "screenshotPath" : "./screenshot/",
+  "screenshotOnReject" : false,
+  "username" : "YOUR_PCLOUDY_USERNAME",
+  "password" : "YOUR_PCLOUDY_ACCESS_KEY",
+  "appname" : "com.ba.mobile.apk"
+}
