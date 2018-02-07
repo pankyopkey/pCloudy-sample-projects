@@ -15,3 +15,6 @@ C:\Users\Anshuman\Documents\Visual Studio 2013\Projects\pCloudy-dotNet-Connector
 C:\Users\Anshuman\Documents\Visual Studio 2013\Projects\pCloudy-dotNet-Connector\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Anshuman\Documents\Visual Studio 2013\Projects\pCloudy-dotNet-Connector\ConsoleApplication1\bin\Debug\appium-dotnet-driver.xml
 C:\Users\Anshuman\Documents\Visual Studio 2013\Projects\pCloudy-dotNet-Connector\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\anshuman.chatterjee\Documents\GitHub\pCloudy-sample-projects\DotNet\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\anshuman.chatterjee\Documents\GitHub\pCloudy-sample-projects\DotNet\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\anshuman.chatterjee\Documents\GitHub\pCloudy-sample-projects\DotNet\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

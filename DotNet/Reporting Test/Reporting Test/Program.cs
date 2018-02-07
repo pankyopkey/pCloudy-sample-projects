@@ -12,14 +12,14 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             SingleRunReport report = new SingleRunReport();
-            report.addComment("report on");
-            report.addComment("asus Zenfone laser");
+            report.addComment("Report on");
+            report.addComment("Asus Zenfone laser");
 
-            report.addStep("gghjjhk","ffjhgkj",null,ExecutionResult.Pass);
-            report.addStep("vbjnkml", "fhjgjhk", "gfghmj", null, ExecutionResult.Fail);
+            report.addStep("TestStep-1","Arguments",null,ExecutionResult.Pass);
+            report.addStep("TestStep-2", "Other Arguments", "output", null, ExecutionResult.Fail);
 
-            report.Header = "pcloudy";
-            report.Footer = "@copyright pcloudy.ssts.inc";
+            report.Header = "pCloudy";
+            report.Footer = "@Copyright pCloudy.sstsinc.com";
 
             FileInfo reportOut = new FileInfo(Path.Combine(Environment.CurrentDirectory, "Reports", report.Header + ".html"));
             if(reportOut.Directory.Exists==false)
