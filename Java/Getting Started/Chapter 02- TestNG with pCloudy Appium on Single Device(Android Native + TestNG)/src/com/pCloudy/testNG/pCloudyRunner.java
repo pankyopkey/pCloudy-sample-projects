@@ -43,7 +43,7 @@ public class pCloudyRunner {
 		String authToken = con.authenticateUser(Your_pCloudy_Email, Your_pCloudy_APIKey);
 
 		// Select apk in pCloudy Cloud Drive
-		File fileToBeUploaded = new File("./com.ba.mobile.apk");
+		File fileToBeUploaded = new File("./pCloudy Appium Demo.apk");
 		PDriveFileDTO alreadyUploadedApp = con.getAvailableAppIfUploaded(authToken, fileToBeUploaded.getName());
 		if (alreadyUploadedApp == null) {
 			System.out.println("Uploading App: " + fileToBeUploaded.getAbsolutePath());
@@ -81,7 +81,7 @@ public class pCloudyRunner {
 		capabilities.setCapability("deviceName", pCloudySession.getDto().capabilities.deviceName);
 		capabilities.setCapability("browserName", pCloudySession.getDto().capabilities.deviceName);
 		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("appPackage", "com.ba.mobile");
+		capabilities.setCapability("appPackage", "com.pcloudy.appiumdemo");
 		capabilities.setCapability("appActivity", "com.ba.mobile.LaunchActivity");
 		capabilities.setCapability("rotatable", true);
 
@@ -92,13 +92,13 @@ public class pCloudyRunner {
 	@Test
 	public void Test1() {
 
-		driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept' and @text='Accept']")).click();
 	}
 
 	@Test
 	public void Test2() {
 
-		driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/btnrefuse' and @text='Refuse']")).click();
 	}
 
 	@AfterMethod

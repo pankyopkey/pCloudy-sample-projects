@@ -38,10 +38,10 @@ public class LocalRunner {
 		capabilities.setCapability("deviceName", Your_Android_Device_ID);
 		capabilities.setCapability("browserName", "Android");
 		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("appPackage", "com.ba.mobile");
+		capabilities.setCapability("appPackage", "com.pcloudy.appiumdemo");
 		capabilities.setCapability("appActivity", "com.ba.mobile.LaunchActivity");
 		capabilities.setCapability("rotatable", true);
-		capabilities.setCapability("app", System.getProperty("user.dir")+"/com.ba.mobile.apk");
+		capabilities.setCapability("app", System.getProperty("user.dir")+"/pCloudy Appium Demo.apk");
 		
 		driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 	}
@@ -49,13 +49,13 @@ public class LocalRunner {
 	@Test
 	public void Test1() {
 
-		driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept' and @text='Accept']")).click();
 	}
 
 	@Test
 	public void Test2() {
 
-		driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button2' and @text='Reject']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/btnrefuse' and @text='Refuse']")).click();
 	}
 
 	@AfterMethod
