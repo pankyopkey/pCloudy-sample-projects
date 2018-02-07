@@ -14,7 +14,7 @@ As of now this contains only two sample projects:
 * Visual Studio should first fetch the dependancies from Nuget and then start the execution
 * Follow the instructions in the Console application to proceed
 
-##pCloudy-vb-connector
+## About the *pCloudy-vb-connector* Project
 Here the pCloudy-vb-connector is the project that is responsible to make REST calls to the pCloudy web apis and provide you a unified method of calling the apis as native .Net methods through code.
 This project is maintained by pCloudy Team. You may want to build this as-is.
 
