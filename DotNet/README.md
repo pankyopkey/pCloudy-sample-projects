@@ -5,13 +5,14 @@ As of now this contains only two sample projects:
 * ![Android][android] ![Native][native] Appium Native Test-For automating Android Native Apps
 * ![Android][android] ![iOS][ios] ![Web][web]  Appium Web Test-For both Chrome on Android as well as Safari of iOS.
 
+## Getting Started - How to run
 
-*- You may open the solution file "Appium pClouty Test.sln"
-*- Resolve the errors by providing your pCloudyEmail & pCloudyApiKey (you will get this from your Settings->API section in pCloudy website)
-*- Right click on the AppiumWeb or AppiumNative project and 'Set as Startup Project'
-*- Execute the project(or press F5)
-*- Visual Studio should first fetch the dependancies from Nuget and then start the execution
-*- Follow the instructions in the Console application to proceed
+* You may open the solution file "Appium pClouty Test.sln"
+* Resolve the errors by providing your pCloudyEmail & pCloudyApiKey (you will get this from your Settings->API section in pCloudy website)
+* Right click on the AppiumWeb or AppiumNative project and 'Set as Startup Project'
+* Execute the project(or press F5)
+* Visual Studio should first fetch the dependancies from Nuget and then start the execution
+* Follow the instructions in the Console application to proceed
 
 ##pCloudy-vb-connector
 Here the pCloudy-vb-connector is the project that is responsible to make REST calls to the pCloudy web apis and provide you a unified method of calling the apis as native .Net methods through code.
