@@ -24,10 +24,10 @@ public class TestClass1 extends TestSetUp {
 		try {
 			logger.log(LogStatus.PASS, "Application Opened Successfully");
 			
-			driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
+			driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept' and @text='Accept']")).click();
 			logger.log(LogStatus.PASS, "Clicked Accept Button");
 			
-			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.ba.mobile:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
+			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
 				logger.log(LogStatus.PASS, "Verified Login Button display");
 			} else {
 				logger.log(LogStatus.FAIL, "Verified Login Button not display");
