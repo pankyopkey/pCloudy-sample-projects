@@ -10,7 +10,7 @@ Gem Need To Be Installed
 sudo gem install httparty
 sudo gem install appium_lib (for reference you can follow <https://github.com/appium/ruby_lib/blob/master/readme.md>)
 
--Open AndroidWeb.rb/AndroidNative.rb and Enter emailId,apiKey and bookDuration
+-Open AndroidWeb.rb/AndroidNative.rb and Enter "Your Cloud Url", "EmailId","ApiKey" and BookDuration
 
 -To run:
     ruby AndroidWeb.rb/ ruby AndroidNative.rb
