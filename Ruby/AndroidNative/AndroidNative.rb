@@ -10,9 +10,11 @@ require 'uri'
 # Configure call to Appium Server
 # More information is available at http://appium.io/slate/en/master/?ruby#appium-server-capabilities.
 
-emailId='shibu.prasad@sstsinc.com'
-apiKey='5vgzqqp4zrd2hdrgymbqz8yq'
+emailId='Your MailId'
+apiKey='Your API Key'
 bookDuration=1;
+#initializeCloudUrl('https://device.pcloudy.com/api')
+initializeCloudUrl('Cloud URL Endpoint')
 
 authToken = authenticateUser(emailId,apiKey)
 

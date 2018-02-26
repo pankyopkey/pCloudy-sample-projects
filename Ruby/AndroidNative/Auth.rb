@@ -4,9 +4,14 @@
       require "base64"
       require 'httparty'
       require 'json'
+	
+      $cloudUrl='';
+      def initializeCloudUrl(cUrl)
+        $cloudUrl=cUrl
+      end	
 
       def authenticateUser(email,apikey)
-        uri = URI('https://device.pcloudy.com/api/access')
+        uri = URI($cloudUrl+'/access')
 
         Net::HTTP.start(uri.host, uri.port,
           :use_ssl => uri.scheme == 'https', 
@@ -28,7 +33,7 @@
            return  JSON.parse(response.body)['result']['token']
          else
       	 # puts response.body
-        return JSON.parse(response.body)['result']['error']
+         puts JSON.parse(response.body)['result']['error']
       end
       end
       end
@@ -36,7 +41,7 @@
 
       def getDevices(authToken,duration,platform,available_now)
 
-        uri = URI('https://device.pcloudy.com/api/devices')
+        uri = URI($cloudUrl+'/devices')
         Net::HTTP.start(uri.host, uri.port,
           :use_ssl => uri.scheme == 'https', 
           :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -66,7 +71,7 @@
           
       def bookDevices(authToken,platform,devices,duration,sessionName)
 
-        uri = URI('https://device.pcloudy.com/api/appium/init')
+        uri = URI($cloudUrl+'/appium/init')
         Net::HTTP.start(uri.host, uri.port,
           :use_ssl => uri.scheme == 'https', 
           :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -96,7 +101,7 @@
 
       def initAppiumHubForBrowser(authToken,browserName)
 
-        uri = URI('https://device.pcloudy.com/api/appium/execute')
+        uri = URI($cloudUrl+'/appium/execute')
         Net::HTTP.start(uri.host, uri.port,
           :use_ssl => uri.scheme == 'https', 
           :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -124,7 +129,7 @@
 
       def initAppiumHubForApp(authToken,uploadedApp)
 
-        uri = URI('https://device.pcloudy.com/api/appium/execute')
+        uri = URI($cloudUrl+'/appium/execute')
         Net::HTTP.start(uri.host, uri.port,
           :use_ssl => uri.scheme == 'https',
           :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -154,7 +159,7 @@
 
       def getAppiumEndpoint(authToken)
 
-        uri = URI('https://device.pcloudy.com/api/appium/endpoint')
+        uri = URI($cloudUrl+'/appium/endpoint')
         Net::HTTP.start(uri.host, uri.port,
           :use_ssl => uri.scheme == 'https', 
           :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -183,7 +188,7 @@
 
       def releaseSession(authToken,rid)
         
-       uri = URI('https://device.pcloudy.com/api/appium/update_session')
+       uri = URI($cloudUrl+'/appium/update_session')
        Net::HTTP.start(uri.host, uri.port,
          :use_ssl => uri.scheme == 'https', 
          :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|

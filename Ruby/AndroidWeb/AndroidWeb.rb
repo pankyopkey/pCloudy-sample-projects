@@ -10,10 +10,11 @@ require 'uri'
 # Configure call to Appium Server
 # More information is available at http://appium.io/slate/en/master/?ruby#appium-server-capabilities.
 
-emailId='shibu.prasad@sstsinc.com'
-apiKey='5vgzqqp4zrd2hdrgymbqz8yq'
+emailId='Your Mail Id'
+apiKey='Your Api Key'
 bookDuration=5
-
+#initializeCloudUrl('https://device.pcloudy.com/api')
+initializeCloudUrl('Cloud Url')
 authToken = authenticateUser(emailId,apiKey)
 
 getDevices(authToken,10,'Android',true)
@@ -64,10 +65,7 @@ appium = Appium::Driver.new(desired_caps,true)
 driver=appium.start_driver
 
 # Promote appium method to class instance methods
-# Without promoting we would need to make all calls with the @appium_driver, example:
-#   @appium_driver.find_element(:id, 'lst-ib')
-# After promoting to a class instance method we can the method directly, example:
-#   find_element(:id, 'lst-ib')
+
 Appium.promote_appium_methods Object
 
 # Open web page
@@ -76,7 +74,7 @@ driver.get("http://www.google.com/")
 sleep(5)
 
 # Find Search Box element, click on it, type in Search Query
-element = find_element(:id, 'lst-ib')
+element = find_element(:name, 'q')
 element.click
 element.send_keys 'Steven Miller Dentedghost Appium'
 
@@ -84,7 +82,7 @@ element.send_keys 'Steven Miller Dentedghost Appium'
 sleep(2)
 
 # Find Search Button element, click on it
-element = find_element(:id, 'tsbb')
+element = find_element(:class, '_S6q')
 element.click
 
 # Extra time to allow webpage to load
