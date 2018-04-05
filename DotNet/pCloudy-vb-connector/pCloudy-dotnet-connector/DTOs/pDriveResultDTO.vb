@@ -46,7 +46,9 @@ Namespace pCloudy.DTO
 
     <DataContract()>
     Public Class pDriveFileDTO
+        <DataMember(Name:="file")>
         Public Property [file] As String
+        <DataMember(Name:="size_KB")>
         Public Property size_KB As Integer
         <DataMember(Name:="time_UTC")>
         Private Property time_UTC As String
