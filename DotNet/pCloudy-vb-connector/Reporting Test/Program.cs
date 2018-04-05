@@ -1,4 +1,5 @@
 ﻿using ssts.util;
+using ssts.util.pCloudy;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,12 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
+
+            pCloudyClient client = new pCloudyClient("https://device.pcloudy.com") ;
+            String authToken = client.authenticateUser("anshuman.chatterjee@sstsinc.com", "qngf3bgv6h8pg2r8xm78xvxz");
+            var p = client.getAvailableApps(authToken);
+            var time = p[0].UploadedOn_UTC;
+
             SingleRunReport report = new SingleRunReport();
             report.addComment("Report on");
             report.addComment("Asus Zenfone laser");

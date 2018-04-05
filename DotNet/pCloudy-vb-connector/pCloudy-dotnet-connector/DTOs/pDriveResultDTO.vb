@@ -1,4 +1,10 @@
-﻿Namespace pCloudy.DTO
+﻿Imports System.Xml.Serialization
+Imports System.Runtime.Serialization
+Imports System
+
+Namespace pCloudy.DTO
+
+
 
 #Region "Upload File"
 
@@ -38,10 +44,11 @@
 
     End Class
 
-
+    <DataContract()>
     Public Class pDriveFileDTO
         Public Property [file] As String
         Public Property size_KB As Integer
+        <DataMember(Name:="time_UTC")>
         Private Property time_UTC As String
 
         Public ReadOnly Property UploadedOn_UTC As Date
