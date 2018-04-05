@@ -292,16 +292,22 @@ Namespace pCloudy
         End Function
 
         Public Sub installAndLaunchApp(authToken As String, deviceBookingDto As generic.BookingDTOResult, filename As pDriveFileDTO)
+            Me.installAndLaunchApp(authToken, deviceBookingDto, filename, False)
+        End Sub
+
+        Public Sub installAndLaunchApp(authToken As String, deviceBookingDto As generic.BookingDTOResult, filename As pDriveFileDTO, GrantAllPermissions As Boolean)
             Dim url = String.Format("{0}/install_app", endpoint)
 
             Dim jsonData = <json>
                                {"token": "@token",
                                 "rid": "@rid",
-                                "filename": "@filename"}
+                                "filename": "@filename",
+                                "grant_all_permissions":"@grant_all_permissions"}
                            </json>.Value.Trim
             jsonData = jsonData.Replace("@token", authToken)
             jsonData = jsonData.Replace("@rid", deviceBookingDto.rid)
             jsonData = jsonData.Replace("@filename", filename.file)
+            jsonData = jsonData.Replace("@grant_all_permissions", GrantAllPermissions.ToString.ToLower)
 
             Dim p = callService(Of pCloudyResponseDTO)(url, jsonData)
 
@@ -612,6 +618,30 @@ Namespace pCloudy
             'Return p.result.URL
         End Sub
 
+
+        Public Sub sendCommandToOpkeyMobilityPlugin(authToken As String, deviceBookingDto As generic.BookingDTOResult, serial_number As Integer, command As String)
+            '	https://localhost/api/pull_stepexecute_command
+
+            Dim url = String.Format("{0}/pull_stepexecute_command", endpoint)
+
+            Dim jsonData = <json>
+                               {"token": "@token",
+                                "rid":@rid,
+                                "serial_number":@serial_number,
+                                "command":"@command"}
+                           </json>.Value.Trim
+
+            jsonData = jsonData.Replace("@token", authToken)
+            jsonData = jsonData.Replace("@rid", deviceBookingDto.rid.ToString)
+            jsonData = jsonData.Replace("@serial_number", serial_number.ToString)
+            jsonData = jsonData.Replace("@command", command)
+
+
+            Dim p = callService(Of pCloudyResponseDTO)(url, jsonData)
+
+            If p.result.error IsNot Nothing Then Throw New ConnectError(p.result.error)
+
+        End Sub
 #End Region
 
 
