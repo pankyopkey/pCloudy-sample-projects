@@ -20,9 +20,9 @@ public class TestClass1 extends TestSetUp {
 		AndroidDriver<WebElement> driver = myContext.driver;
 
 		try {
-			driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
+			driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept' and @text='Accept']")).click();
 
-			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.ba.mobile:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
+			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
 				System.out.println("Verified Login Button display");
 			} else {
 				System.out.println("Verified Login Button not display");

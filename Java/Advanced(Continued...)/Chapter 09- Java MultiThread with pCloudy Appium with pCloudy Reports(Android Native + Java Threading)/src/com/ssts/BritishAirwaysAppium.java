@@ -62,7 +62,7 @@ public class BritishAirwaysAppium {
 		System.out.println("Devices booked successfully");
 
 		// Select apk in pCloudy Cloud Drive
-		File fileToBeUploaded = new File("./com.ba.mobile.apk");
+		File fileToBeUploaded = new File("./pCloudy Appium Demo.apk");
 		PDriveFileDTO alreadyUploadedApp = con.getAvailableAppIfUploaded(authToken, fileToBeUploaded.getName());
 		if (alreadyUploadedApp == null) {
 			System.out.println("Uploading App: " + fileToBeUploaded.getAbsolutePath());
@@ -136,7 +136,7 @@ public class BritishAirwaysAppium {
 					capabilities.setCapability("deviceName", aDevice.capabilities.deviceName);
 					capabilities.setCapability("browserName", aDevice.capabilities.deviceName);
 					capabilities.setCapability("platformName", "Android");
-					capabilities.setCapability("appPackage", "com.ba.mobile");
+					capabilities.setCapability("appPackage", "com.pcloudy.appiumdemo");
 					capabilities.setCapability("appActivity", "com.ba.mobile.LaunchActivity");
 					capabilities.setCapability("rotatable", true);
 					AppiumDriver driver = new AndroidDriver(endpoint, capabilities);

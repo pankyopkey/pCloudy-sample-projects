@@ -27,13 +27,13 @@ public class TestClass2 extends TestSetUp {
 			report.beginTestcase("TestCase test2: " + getClass().getName());
 			report.addComment("--- Add your Test Scripts over here ---");
 
-			driver.findElement(By.xpath("//android.widget.Button[@resource-id='android:id/button1' and @text='Accept']")).click();
+			driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept' and @text='Accept']")).click();
 			report.addStep("Clicked on Accept Button", "Accept", null, ExecutionResult.Pass);
 
-			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.ba.mobile:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
-				report.addStep("Verified Login Button dislay", "resource-id='com.ba.mobile:id/ecLoginButton'", null, takeScreenShot(myContext), ExecutionResult.Pass);
+			if (driver.findElements(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/ecLoginButton' and @text='Log-in']")).size() != 0) {
+				report.addStep("Verified Login Button dislay", "resource-id='com.pcloudy.appiumdemo:id/ecLoginButton'", null, takeScreenShot(myContext), ExecutionResult.Pass);
 			} else {
-				report.addStep("Verified Login Button dislay", "resource-id='com.ba.mobile:id/ecLoginButton'", null, takeScreenShot(myContext), ExecutionResult.Fail);
+				report.addStep("Verified Login Button dislay", "resource-id='com.pcloudy.appiumdemo:id/ecLoginButton'", null, takeScreenShot(myContext), ExecutionResult.Fail);
 			}
 
 			report.addStep("Take Screenshot", null, null, takeScreenShot(myContext), ExecutionResult.Pass);
