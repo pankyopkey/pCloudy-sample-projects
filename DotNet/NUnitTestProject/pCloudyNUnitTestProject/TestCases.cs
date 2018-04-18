@@ -22,76 +22,79 @@ namespace pCloudyNUnitTestProject
         static Version minimumVersion = new Version(5, 1, 1);
         static Version maximumVersion = new Version(8, 0, 0);
         static int maxDeviceCount = 2;
-        public static List<PCloudyAppiumSession> pCloudySessions = new List<PCloudyAppiumSession>();
+
+        public static List<PCloudyAppiumSession> pCloudySessions = null;
 
 
-        public static String[] init()
+        public static PCloudyAppiumSession[] init()
         {
-            log("Called init");
-            List<String> list = new List<String>();
 
-            var con = new ssts.util.pCloudy.pCloudyClient("https://device.pcloudy.com");
-            String authToken = con.authenticateUser("kuldeep.kala@sstsinc.com", "3vngzzzghz267t5b2qqz3r5r");
-            log("AuthToken: " + authToken);
-
-            log("-------------------------------");
-
-            log("maxDeviceCount:" + maxDeviceCount);
-            var selectedDevices = con.getAvailableDevices(authToken, BOOKINGDURATION, "android", minimumVersion, maximumVersion, maxDeviceCount).ToList();
-
-            log("Total Devices Booked: " + selectedDevices.Count);
-            String sessionName = "NUnit Appium-" + System.DateTime.Now;
-
-            FileInfo fileToBeuploaded = new FileInfo(appPath);
-
-            var alreadyUploadedApp = con.getApplicationIfUploaded(authToken, fileToBeuploaded.Name);
-            if (alreadyUploadedApp == null)
+            if (pCloudySessions == null)
             {
-                Console.Out.WriteLine("Uploading App :  " + appPath);
-                var uploadedApp = con.uploadApp(authToken, fileToBeuploaded,
-                    x =>
-                    {
-                        log("Uploaded: " + x + "%");
-                    }
-                 );
+                log("Called init");
+                pCloudySessions = new List<PCloudyAppiumSession>();
+                var con = new ssts.util.pCloudy.pCloudyClient("https://device.pcloudy.com");
+                String authToken = con.authenticateUser("kuldeep.kala@sstsinc.com", "3vngzzzghz267t5b2qqz3r5r");
+                log("AuthToken: " + authToken);
 
-                log("App uploaded...");
-                alreadyUploadedApp = new ssts.util.pCloudy.DTO.pDriveFileDTO();
-                alreadyUploadedApp.file = uploadedApp.File;
+                log("-------------------------------");
+
+                log("maxDeviceCount:" + maxDeviceCount);
+                var selectedDevices = con.getAvailableDevices(authToken, BOOKINGDURATION, "android", minimumVersion, maximumVersion, maxDeviceCount).ToList();
+
+                log("Total Devices Booked: " + selectedDevices.Count);
+                String sessionName = "NUnit Appium-" + System.DateTime.Now;
+
+                FileInfo fileToBeuploaded = new FileInfo(appPath);
+
+                var alreadyUploadedApp = con.getApplicationIfUploaded(authToken, fileToBeuploaded.Name);
+                if (alreadyUploadedApp == null)
+                {
+                    Console.Out.WriteLine("Uploading App :  " + appPath);
+                    var uploadedApp = con.uploadApp(authToken, fileToBeuploaded,
+                        x =>
+                        {
+                            log("Uploaded: " + x + "%");
+                        }
+                     );
+
+                    log("App uploaded...");
+                    alreadyUploadedApp = new ssts.util.pCloudy.DTO.pDriveFileDTO();
+                    alreadyUploadedApp.file = uploadedApp.File;
+
+                }
+
+                log("-------------------------------");
+                var bookedDevices = con.bookDevicesForAppium(authToken, selectedDevices, BOOKINGDURATION, sessionName);
+                log("Devices Booked....");
+                log("-------------------------------");
+
+
+                con.initAppiumHubForApp(authToken, alreadyUploadedApp);
+                var endpoint = con.getAppiumEndpoint(authToken);
+                log("Appium Endpoint: " + endpoint);
+                log("Result Folder Path: " + con.getAppiumReportFolder(authToken));
+
+
+                foreach (BookingDtoDevice itm in bookedDevices)
+                {
+                    PCloudyAppiumSession appiumSession = new PCloudyAppiumSession(con, authToken, itm);
+                    pCloudySessions.Add(appiumSession);
+
+                    //context.appiumEndpoint = endpoint;
+                    pCloudySessions.Add(appiumSession);
+                }
 
             }
-
-            log("-------------------------------");
-            var bookedDevices = con.bookDevicesForAppium(authToken, selectedDevices, BOOKINGDURATION, sessionName);
-            log("Devices Booked....");
-            log("-------------------------------");
-
-
-            con.initAppiumHubForApp(authToken, alreadyUploadedApp);
-            var endpoint = con.getAppiumEndpoint(authToken);
-            log("Appium Endpoint: " + endpoint);
-            log("Result Folder Path: " + con.getAppiumReportFolder(authToken));
-
-
-            foreach (BookingDtoDevice itm in bookedDevices)
-            {
-                PCloudyAppiumSession appiumSession = new PCloudyAppiumSession(con, authToken, itm);
-                pCloudySessions.Add(appiumSession);
-
-                //context.appiumEndpoint = endpoint;
-                list.Add(appiumSession.getDeviceName());
-            }
-
-
-            return list.ToArray();
+            return pCloudySessions.ToArray();
         }
 
         [TestCaseSource("init")]
         [Test]
-        public void runAppiumTestCase2(String deviceName)
+        public void runAppiumTestCase2(PCloudyAppiumSession appiumSession)
         {
 
-            var appiumSession = (from itm in TestCases.pCloudySessions where itm.getDeviceName() == deviceName select itm).Single();
+            // var appiumSession = (from itm in TestCases.pCloudySessions where itm.getDeviceName() == deviceName select itm).Single();
 
             var capabilities = new DesiredCapabilities();
 

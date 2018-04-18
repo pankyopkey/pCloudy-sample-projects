@@ -28,7 +28,7 @@ Namespace pCloudy.AppiumAPIs
         End Function
 
         Public Overrides Function ToString() As String
-            Return Me.getDeviceName(0)
+            Return Me.getDeviceName()
         End Function
 
 
