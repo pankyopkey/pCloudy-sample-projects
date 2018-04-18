@@ -27,5 +27,13 @@ Namespace pCloudy.AppiumAPIs
             Return con.downloadFileFromCloud(authToken, dto.filename, dto.dir)
         End Function
 
+        Public Overrides Function ToString() As String
+            Return Me.getDeviceName(0)
+        End Function
+
+
+        Public Function getDeviceName() As String
+            Return String.Format("{0} {1} {2}", bookingDto.manufacturer, bookingDto.model, bookingDto.version)
+        End Function
     End Class
 End Namespace

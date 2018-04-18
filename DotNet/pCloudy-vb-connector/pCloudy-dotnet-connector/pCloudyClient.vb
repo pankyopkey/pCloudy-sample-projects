@@ -202,8 +202,15 @@ Namespace pCloudy
 
         End Function
 
-        Function getAvailableDevices(AuthToken As String, durationInMinutes As Integer, platform As String, Optional showOnlyAvailable As Boolean = False) As MobileDeviceDTO()
-            Return getAvailableDevices(AuthToken, TimeSpan.FromMinutes(durationInMinutes), platform, showOnlyAvailable)
+        Function getAvailableDevices(authToken As String, durationInMinutes As Integer, platform As String, Optional showOnlyAvailable As Boolean = False) As MobileDeviceDTO()
+            Return getAvailableDevices(authToken, TimeSpan.FromMinutes(durationInMinutes), platform, showOnlyAvailable)
+        End Function
+
+        Function getAvailableDevices(authToken As String, duration As TimeSpan, platform As String, minimumVersion As Version, maxVersion As Version, maxCount As Integer) As MobileDeviceDTO()
+            Dim p = (From itm In getAvailableDevices(authToken, duration, platform, True) Where minimumVersion <= itm.getVersion() AndAlso itm.getVersion() <= maxVersion).ToList
+            If p.Count < maxCount Then maxCount = p.Count
+
+            Return p.Take(maxCount).ToArray
         End Function
 
         Function getAvailableDevices(AuthToken As String, duration As TimeSpan, platform As String, Optional showOnlyAvailable As Boolean = False) As MobileDeviceDTO()

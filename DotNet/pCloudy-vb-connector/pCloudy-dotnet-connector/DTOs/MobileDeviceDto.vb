@@ -19,6 +19,10 @@ Public Class MobileDeviceDTO
     Public Property available As Boolean
     Public Property SerialNumber As String
 
+    Public Function getVersion() As Version
+        Return New Version(Me.version)
+    End Function
+
 
     'Public Overrides Function Equals(ByVal obj As Object) As Boolean
     '    If Not TypeOf (obj) Is MobileDeviceDTO Then
