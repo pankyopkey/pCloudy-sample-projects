@@ -19,28 +19,16 @@ namespace pCloudyNUnitTestProject
         [Test]
         public void TestMethod1(String s)
         {
-
+            log(s);
         }
 
 
 
         static void log(String s)
         {
-            try
-            {
 
-                using (StreamWriter logFile = File.AppendText("log.txt"))
-                {
-                    logFile.WriteLine(s);
-                }
+            Console.WriteLine(s);
 
-                //  NUnit.Framework.TestContext.Out.WriteLine(s);
-                Console.WriteLine(s);
-            }
-            catch (Exception ex)
-            {
-
-            }
         }
     }
 }

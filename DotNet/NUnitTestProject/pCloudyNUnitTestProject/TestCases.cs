@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
+using pCloudyNUnitTestProject.TestDataSource;
 using ssts.util.pCloudy.AppiumAPIs;
 using ssts.util.pCloudy.DTO.appium;
 using System;
@@ -13,26 +14,33 @@ namespace pCloudyNUnitTestProject
 {
 
     [TestFixture]
-    [Parallelizable(ParallelScope.All)]
+    [Parallelizable(ParallelScope.Children)]
     public class TestCases
     {
-
+        static String logFile = "log.txt";
         static TimeSpan BOOKINGDURATION = TimeSpan.FromMinutes(10);
         static String appPath = "com.ba.mobile.apk";
         static Version minimumVersion = new Version(5, 1, 1);
         static Version maximumVersion = new Version(8, 0, 0);
-        static int maxDeviceCount = 2;
+        static int maxDeviceCount = 1;
 
-        public static List<PCloudyAppiumSession> pCloudySessions = null;
-
-
-        public static PCloudyAppiumSession[] init()
+        public static ITestDataSource[] pCloudyDeviceList()
         {
+            return new TestDataSource.DiscoveryDataSource[] { new TestDataSource.DiscoveryDataSource("Lg_G4Dual_Android_6.0.0"),
+            new TestDataSource.DiscoveryDataSource("Samsung_GalaxyC9Pro_Android_7.1.1")};
+        }
 
-            if (pCloudySessions == null)
+        public static ITestDataSource[] init()
+        {
+            if (isRunningInTestDiagnosticMode())
             {
+                return pCloudyDeviceList();
+            }
+            else
+            {
+
                 log("Called init");
-                pCloudySessions = new List<PCloudyAppiumSession>();
+                var pCloudySessions = new List<PCloudyAppiumSession>();
                 var con = new ssts.util.pCloudy.pCloudyClient("https://device.pcloudy.com");
                 String authToken = con.authenticateUser("kuldeep.kala@sstsinc.com", "3vngzzzghz267t5b2qqz3r5r");
                 log("AuthToken: " + authToken);
@@ -40,7 +48,10 @@ namespace pCloudyNUnitTestProject
                 log("-------------------------------");
 
                 log("maxDeviceCount:" + maxDeviceCount);
-                var selectedDevices = con.getAvailableDevices(authToken, BOOKINGDURATION, "android", minimumVersion, maximumVersion, maxDeviceCount).ToList();
+                //   var selectedDevices = con.getAvailableDevices(authToken, BOOKINGDURATION, "android", minimumVersion, maximumVersion, maxDeviceCount).ToList();
+
+                var deviceFullNameArray = (from itm in pCloudyDeviceList() select itm.getDeviceName()).ToArray();
+                var selectedDevices = con.getAvailableDevicesByArrayOfFullNames(authToken, BOOKINGDURATION, "android", deviceFullNameArray).ToList();
 
                 log("Total Devices Booked: " + selectedDevices.Count);
                 String sessionName = "NUnit Appium-" + System.DateTime.Now;
@@ -81,19 +92,18 @@ namespace pCloudyNUnitTestProject
                     PCloudyAppiumSession appiumSession = new PCloudyAppiumSession(con, authToken, itm);
                     pCloudySessions.Add(appiumSession);
 
-                    //context.appiumEndpoint = endpoint;
-                    pCloudySessions.Add(appiumSession);
                 }
 
+
+                return (from itm in pCloudySessions select new TestCaseDataSource(itm)).ToArray();
             }
-            return pCloudySessions.ToArray();
         }
 
         [TestCaseSource("init")]
         [Test]
-        public void runAppiumTestCase2(PCloudyAppiumSession appiumSession)
+        public void runAppiumTestCase2(TestCaseDataSource testCaseDataSource)
         {
-
+            var appiumSession = testCaseDataSource.getAppiumSession();
             // var appiumSession = (from itm in TestCases.pCloudySessions where itm.getDeviceName() == deviceName select itm).Single();
 
             var capabilities = new DesiredCapabilities();
@@ -109,7 +119,7 @@ namespace pCloudyNUnitTestProject
             {
 
                 log(appiumSession.bookingDto.manufacturer + " " + appiumSession.bookingDto.model);
-                throw new Exception("Will do this later");
+               // throw new Exception("Will do this later");
                 AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(appiumEndpoint, capabilities, TimeSpan.FromMinutes(120));
 
                 log("Created the driver object: " + appiumSession.bookingDto.model);
@@ -161,17 +171,43 @@ namespace pCloudyNUnitTestProject
         }
 
 
+        static Boolean isRunningInTestDiagnosticMode()
+        {
+            if (TestContext.CurrentContext == null || TestContext.CurrentContext.Test == null)
+                return true;
+            else
+            {
+                try
+                {
+                    using (StreamWriter loggerlogg = File.AppendText(logFile))
+                    {
+
+                    }
+                    File.Delete(logFile);
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    return true;
+                }
+
+            }
+
+        }
+
 
         static void log(String s)
         {
             try
             {
-                using (StreamWriter logFile = File.AppendText("log.txt"))
-                {
-                    logFile.WriteLine(s);
-                }
+                System.Diagnostics.Debug.WriteLine(s);
                 TestContext.Out.WriteLine(s);
                 Console.WriteLine(s);
+                using (StreamWriter logger = File.AppendText(logFile))
+                {
+                    logger.WriteLine(s);
+                }
+
             }
             catch (Exception ex)
             {

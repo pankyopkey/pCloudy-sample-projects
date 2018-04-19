@@ -1,0 +1,18 @@
+Called init
+AuthToken: p7k4ngsqrs6hjfpjrknjxv9h
+-------------------------------
+maxDeviceCount:1
+Total Devices Booked: 2
+-------------------------------
+Devices Booked....
+-------------------------------
+Appium Endpoint: https://device.pcloudy.com/appium/hubble/w9tnt94pbfdk-31128/wd/hub
+Result Folder Path: https://device.pcloudy.com/storage?reports=w9tnt94pbfdk-31128
+Samsung Galaxy C9 Pro
+Lg G4 Dual
+Created the driver object: G4 Dual
+Created the driver object: Galaxy C9 Pro
+Appium Driver Screenshot is at: Screen-f9a768f6-8488-4064-bcb0-05052592270d.png
+Session Released
+Appium Driver Screenshot is at: Screen-240fa458-514e-4911-b22e-ef16f6e7d509.png
+Session Released

@@ -213,6 +213,12 @@ Namespace pCloudy
             Return p.Take(maxCount).ToArray
         End Function
 
+        Function getAvailableDevicesByArrayOfFullNames(authToken As String, duration As TimeSpan, platform As String, deviceFullNames() As String) As MobileDeviceDTO()
+            Dim p = getAvailableDevices(authToken, duration, platform, True)
+
+            Return (From itm In p Join itm2 In deviceFullNames On itm.full_name.ToLower() Equals itm2.ToLower() Select itm).ToArray()
+        End Function
+
         Function getAvailableDevices(AuthToken As String, duration As TimeSpan, platform As String, Optional showOnlyAvailable As Boolean = False) As MobileDeviceDTO()
             'curl -H "Content-Type: application/json" -d "{"token": "token", "duration": 15, "platform": "android"}" https://192.168.0.100/api/devices -k
 

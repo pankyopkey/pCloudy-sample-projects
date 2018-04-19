@@ -33,7 +33,12 @@ Namespace pCloudy.AppiumAPIs
 
 
         Public Function getDeviceName() As String
-            Return String.Format("{0} {1} {2}", bookingDto.manufacturer, bookingDto.model, bookingDto.version)
+            Dim platform = "Android"
+            If (bookingDto.os.ToLower = "ios") Then platform = "iOS"
+
+            Dim model = bookingDto.model.Replace(" ", "")
+
+            Return String.Format("{0}_{1}_{2}_{3}", bookingDto.manufacturer, model, platform, bookingDto.version)
         End Function
     End Class
 End Namespace
