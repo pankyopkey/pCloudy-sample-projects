@@ -20,9 +20,13 @@ namespace pCloudyNUnitTestProject
         static String logFile = "log.txt";
         static TimeSpan BOOKINGDURATION = TimeSpan.FromMinutes(10);
         static String appPath = "com.ba.mobile.apk";
-        static Version minimumVersion = new Version(5, 1, 1);
-        static Version maximumVersion = new Version(8, 0, 0);
-        static int maxDeviceCount = 1;
+
+        #region autoselectDevices
+        // static Version minimumVersion = new Version(5, 1, 1);
+        // static Version maximumVersion = new Version(8, 0, 0);
+        // static int maxDeviceCount = 1;
+        #endregion
+
 
         public static ITestDataSource[] pCloudyDeviceList()
         {
@@ -47,14 +51,15 @@ namespace pCloudyNUnitTestProject
 
                 log("-------------------------------");
 
-                log("maxDeviceCount:" + maxDeviceCount);
+                #region autoselectDevices
+                //   log("maxDeviceCount:" + maxDeviceCount);
                 //   var selectedDevices = con.getAvailableDevices(authToken, BOOKINGDURATION, "android", minimumVersion, maximumVersion, maxDeviceCount).ToList();
+                #endregion
 
                 var deviceFullNameArray = (from itm in pCloudyDeviceList() select itm.getDeviceName()).ToArray();
                 var selectedDevices = con.getAvailableDevicesByArrayOfFullNames(authToken, BOOKINGDURATION, "android", deviceFullNameArray).ToList();
 
-                log("Total Devices Booked: " + selectedDevices.Count);
-                String sessionName = "NUnit Appium-" + System.DateTime.Now;
+                String sessionName = "NUnit Appium-" + System.DateTime.Now.ToString("u");
 
                 FileInfo fileToBeuploaded = new FileInfo(appPath);
 
@@ -77,7 +82,7 @@ namespace pCloudyNUnitTestProject
 
                 log("-------------------------------");
                 var bookedDevices = con.bookDevicesForAppium(authToken, selectedDevices, BOOKINGDURATION, sessionName);
-                log("Devices Booked....");
+                log("Total Devices Booked: " + bookedDevices.Count());
                 log("-------------------------------");
 
 
