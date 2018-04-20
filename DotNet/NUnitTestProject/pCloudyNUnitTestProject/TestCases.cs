@@ -3,6 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 using pCloudyNUnitTestProject.TestDataSource;
+using ssts.util;
+using ssts.util.pCloudy;
 using ssts.util.pCloudy.AppiumAPIs;
 using ssts.util.pCloudy.DTO.appium;
 using System;
@@ -49,8 +51,9 @@ namespace pCloudyNUnitTestProject
                 String authToken = con.authenticateUser("kuldeep.kala@sstsinc.com", "3vngzzzghz267t5b2qqz3r5r");
                 log("AuthToken: " + authToken);
 
-                log("-------------------------------");
-
+                
+                printDeviceFullNames(authToken, con);
+                
                 #region autoselectDevices
                 //   log("maxDeviceCount:" + maxDeviceCount);
                 //   var selectedDevices = con.getAvailableDevices(authToken, BOOKINGDURATION, "android", minimumVersion, maximumVersion, maxDeviceCount).ToList();
@@ -102,6 +105,21 @@ namespace pCloudyNUnitTestProject
 
                 return (from itm in pCloudySessions select new TestCaseDataSource(itm)).ToArray();
             }
+        }
+
+        private static void printDeviceFullNames(String authToken, pCloudyClient con)
+        {
+           var devices = con.getAvailableDevices(authToken, (int)BOOKINGDURATION.TotalMinutes, "android", false).OrderByDescending(itm => itm.getVersion()).ThenBy(itm => itm.full_name);
+
+            int i = 0;
+            log("---------------------------------------------------------");
+            log("#\t\t" + "Available"+ "\t\t" + "FullName");
+            log("---------------------------------------------------------");
+            foreach (MobileDeviceDTO dev in devices){
+                i++;
+                log(i + "\t\t" + dev.available + "\t\t" + dev.full_name);
+            }
+            log("---------------------------------------------------------");
         }
 
         [TestCaseSource("init")]
@@ -164,7 +182,7 @@ namespace pCloudyNUnitTestProject
             finally
             {
                 appiumSession.releaseSessionNow();
-                log("Session Released");
+                log(appiumSession.getDeviceName() + " Session Released");
             }
         }
 
@@ -205,9 +223,8 @@ namespace pCloudyNUnitTestProject
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine(s);
+   
                 TestContext.Out.WriteLine(s);
-                Console.WriteLine(s);
                 using (StreamWriter logger = File.AppendText(logFile))
                 {
                     logger.WriteLine(s);
