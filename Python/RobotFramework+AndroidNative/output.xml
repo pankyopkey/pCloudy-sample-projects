@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180620 16:48:49.507" generator="Rebot 3.0.4 (Python 2.7.12 on linux2)">
+<suite id="s1" name="Test &amp; Test &amp; Test">
+<suite source="/home/shibu/Python/AndroidNative/test.txt" id="s1-s1" name="Test">
+<kw type="setup" name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${endPoint}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>appPackage=com.pcloudy.appiumdemo</arg>
+</arguments>
+<status status="PASS" endtime="20180620 16:47:50.071" starttime="20180620 16:47:09.442"></status>
+</kw>
+<test id="s1-s1-t1" name="App Presents the Login Page and click on accept button">
+<kw name="Page Should Contain Element" library="AppiumLibrary">
+<doc>Verifies that current page contains `locator` element.</doc>
+<arguments>
+<arg>id=com.pcloudy.appiumdemo:id/accept</arg>
+</arguments>
+<msg timestamp="20180620 16:47:50.404" level="INFO">Current page contains element 'id=com.pcloudy.appiumdemo:id/accept'.</msg>
+<status status="PASS" endtime="20180620 16:47:50.405" starttime="20180620 16:47:50.073"></status>
+</kw>
+<status status="PASS" endtime="20180620 16:47:50.405" critical="yes" starttime="20180620 16:47:50.071"></status>
+</test>
+<test id="s1-s1-t2" name="Move To Second Screen by clicking on Accept button">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=com.pcloudy.appiumdemo:id/accept</arg>
+</arguments>
+<msg timestamp="20180620 16:47:50.408" level="INFO">Clicking element 'id=com.pcloudy.appiumdemo:id/accept'.</msg>
+<status status="PASS" endtime="20180620 16:47:51.268" starttime="20180620 16:47:50.408"></status>
+</kw>
+<status status="PASS" endtime="20180620 16:47:51.269" critical="yes" starttime="20180620 16:47:50.406"></status>
+</test>
+<doc>To test basic demo app</doc>
+<status status="PASS" endtime="20180620 16:47:51.270" starttime="20180620 16:47:09.055"></status>
+</suite>
+<suite source="/home/shibu/Python/AndroidNative/test.txt" id="s1-s2" name="Test">
+<kw type="setup" name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${endPoint}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>appPackage=com.pcloudy.appiumdemo</arg>
+</arguments>
+<status status="PASS" endtime="20180620 16:48:48.081" starttime="20180620 16:47:09.442"></status>
+</kw>
+<test id="s1-s2-t1" name="App Presents the Login Page and click on accept button">
+<kw name="Page Should Contain Element" library="AppiumLibrary">
+<doc>Verifies that current page contains `locator` element.</doc>
+<arguments>
+<arg>id=com.pcloudy.appiumdemo:id/accept</arg>
+</arguments>
+<msg timestamp="20180620 16:48:48.358" level="INFO">Current page contains element 'id=com.pcloudy.appiumdemo:id/accept'.</msg>
+<status status="PASS" endtime="20180620 16:48:48.358" starttime="20180620 16:48:48.083"></status>
+</kw>
+<status status="PASS" endtime="20180620 16:48:48.359" critical="yes" starttime="20180620 16:48:48.081"></status>
+</test>
+<test id="s1-s2-t2" name="Move To Second Screen by clicking on Accept button">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=com.pcloudy.appiumdemo:id/accept</arg>
+</arguments>
+<msg timestamp="20180620 16:48:48.362" level="INFO">Clicking element 'id=com.pcloudy.appiumdemo:id/accept'.</msg>
+<status status="PASS" endtime="20180620 16:48:49.299" starttime="20180620 16:48:48.361"></status>
+</kw>
+<status status="PASS" endtime="20180620 16:48:49.300" critical="yes" starttime="20180620 16:48:48.360"></status>
+</test>
+<doc>To test basic demo app</doc>
+<status status="PASS" endtime="20180620 16:48:49.300" starttime="20180620 16:47:09.127"></status>
+</suite>
+<suite source="/home/shibu/Python/AndroidNative/test.txt" id="s1-s3" name="Test">
+<kw type="setup" name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.</doc>
+<arguments>
+<arg>${endPoint}</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=${deviceName}</arg>
+<arg>appPackage=com.pcloudy.appiumdemo</arg>
+</arguments>
+<status status="PASS" endtime="20180620 16:47:58.604" starttime="20180620 16:47:09.367"></status>
+</kw>
+<test id="s1-s3-t1" name="App Presents the Login Page and click on accept button">
+<kw name="Page Should Contain Element" library="AppiumLibrary">
+<doc>Verifies that current page contains `locator` element.</doc>
+<arguments>
+<arg>id=com.pcloudy.appiumdemo:id/accept</arg>
+</arguments>
+<msg timestamp="20180620 16:47:59.188" level="INFO">Current page contains element 'id=com.pcloudy.appiumdemo:id/accept'.</msg>
+<status status="PASS" endtime="20180620 16:47:59.189" starttime="20180620 16:47:58.607"></status>
+</kw>
+<status status="PASS" endtime="20180620 16:47:59.190" critical="yes" starttime="20180620 16:47:58.605"></status>
+</test>
+<test id="s1-s3-t2" name="Move To Second Screen by clicking on Accept button">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>id=com.pcloudy.appiumdemo:id/accept</arg>
+</arguments>
+<msg timestamp="20180620 16:47:59.193" level="INFO">Clicking element 'id=com.pcloudy.appiumdemo:id/accept'.</msg>
+<status status="PASS" endtime="20180620 16:48:00.258" starttime="20180620 16:47:59.192"></status>
+</kw>
+<status status="PASS" endtime="20180620 16:48:00.258" critical="yes" starttime="20180620 16:47:59.190"></status>
+</test>
+<doc>To test basic demo app</doc>
+<status status="PASS" endtime="20180620 16:48:00.260" starttime="20180620 16:47:09.052"></status>
+</suite>
+<status status="PASS" endtime="20180620 16:48:49.493" starttime="20180620 16:47:08.185"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="6">Critical Tests</stat>
+<stat fail="0" pass="6">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test &amp; Test &amp; Test" pass="6">Test &amp; Test &amp; Test</stat>
+<stat fail="0" id="s1-s1" name="Test" pass="2">Test &amp; Test &amp; Test.Test</stat>
+<stat fail="0" id="s1-s2" name="Test" pass="2">Test &amp; Test &amp; Test.Test</stat>
+<stat fail="0" id="s1-s3" name="Test" pass="2">Test &amp; Test &amp; Test.Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
