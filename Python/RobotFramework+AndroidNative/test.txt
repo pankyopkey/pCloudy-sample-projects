@@ -1,0 +1,18 @@
+
+*** Settings ***
+Documentation    To test basic demo app
+
+Library          AppiumLibrary
+
+
+Suite Setup      Open Application    ${endPoint}   platformName=Android   deviceName=${deviceName}   appPackage=com.pcloudy.appiumdemo
+
+
+*** Keywords ***
+
+*** Test Cases ***
+App Presents the Login Page and click on accept button
+    Page Should Contain Element  id=com.pcloudy.appiumdemo:id/accept
+
+Move To Second Screen by clicking on Accept button
+    Click Element  id=com.pcloudy.appiumdemo:id/accept
