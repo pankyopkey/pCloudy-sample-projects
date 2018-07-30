@@ -1,0 +1,13 @@
+package Chapter2_TestNgwithpCloudyonMultipleDevice.Chapter2_TestNgwithpCloudyonMultipleDevice;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

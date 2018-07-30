@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+  <test name="Test">
+    <classes>
+      <class name="com.pCloudy.testNG.Runner"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
