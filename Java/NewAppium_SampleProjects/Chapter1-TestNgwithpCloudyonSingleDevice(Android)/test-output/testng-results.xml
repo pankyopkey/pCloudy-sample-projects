@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="57273" started-at="2018-07-31T11:57:52Z" finished-at="2018-07-31T11:58:49Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="57273" started-at="2018-07-31T11:57:52Z" finished-at="2018-07-31T11:58:49Z">
+      <class name="com.pCloudy.testNG.Runner">
+        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.pCloudy.testNG.Runner@64bf3bbf]" name="setUpSuite" is-config="true" duration-ms="14" started-at="2018-07-31T17:27:52Z" finished-at="2018-07-31T17:27:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpSuite -->
+        <test-method status="PASS" signature="prepareTest()[pri:0, instance:com.pCloudy.testNG.Runner@64bf3bbf]" name="prepareTest" is-config="true" duration-ms="42019" started-at="2018-07-31T17:27:52Z" finished-at="2018-07-31T17:28:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method status="PASS" signature="Test()[pri:0, instance:com.pCloudy.testNG.Runner@64bf3bbf]" name="Test" duration-ms="14257" started-at="2018-07-31T17:28:34Z" finished-at="2018-07-31T17:28:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test -->
+        <test-method status="PASS" signature="endTest()[pri:0, instance:com.pCloudy.testNG.Runner@64bf3bbf]" name="endTest" is-config="true" duration-ms="952" started-at="2018-07-31T17:28:48Z" finished-at="2018-07-31T17:28:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+      </class> <!-- com.pCloudy.testNG.Runner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
