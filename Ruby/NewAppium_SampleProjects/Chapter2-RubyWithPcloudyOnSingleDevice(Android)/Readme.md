@@ -9,5 +9,5 @@ Enter pCloudy username & APIKey in Runner class
 Enter apk name which should be already there in the cloud driver.
 Open Terminal
 cd to the directory which contains the project
-Run the command ruby appiumios.rb
+Run the command ruby SampleTestCase.rb
 For more details, please refer below link: https://www.pcloudy.com/appium-integration-architecture-redefined-appium-runs-become-simpler-with-pcloudy/
