@@ -17,8 +17,8 @@ class LoginClass < Test::Unit::TestCase
     caps['pCloudy_DurationInMinutes'] = '10'
     caps['platformName'] = 'Android'
     caps['pCloudy_DeviceManafacturer'] = "Samsung"
-   #caps['pCloudy_DeviceFullName'] = 'Lenovo_VibeZ2Pro_Android_5.0.2'
-   #caps['pCloudy_DeviceVersion'] = '8.1.0'   
+   #caps['pCloudy_DeviceFullName'] = 'Samsung_GalaxyTabA_Android_7.1.1'
+   #caps['pCloudy_DeviceVersion'] = '7.1.1'   
     caps['newCommandTimeout'] = '600'
     caps['launchTimeout'] = '90000'
     caps['appPackage'] = 'com.pcloudy.appiumdemo'

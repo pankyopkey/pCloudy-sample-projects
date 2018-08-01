@@ -42,10 +42,10 @@ class LoginClass < Test::Unit::TestCase
 
     el1 = driver.find_element(:xpath, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField[1]")
     el1.send_keys "test@testname.com"
-    puts 'email id inserted'
+    puts 'Email-id entered'
     el2 = driver.find_element(:xpath, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField[1]")
     el2.send_keys "testmunk"
-    puts 'password inserted'
+    puts 'Password entered'
     el3 = driver.find_element(:xpath, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]")
     el3.click
     puts 'login button clicked'
