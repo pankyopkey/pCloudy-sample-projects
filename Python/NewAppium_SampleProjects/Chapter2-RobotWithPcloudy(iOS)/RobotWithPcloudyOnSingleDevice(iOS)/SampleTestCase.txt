@@ -1,0 +1,34 @@
+*** Settings ***
+
+Library         AppiumLibrary
+
+***Variables***
+${UserName}      test@testname.com   
+${Password}      testmunk
+
+*** Test Cases ***
+
+Open Demo Application
+
+    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName   pCloudy_ApiKey=Enter API_KEY        	  platformName=ios   pCloudy_ApplicationName=TestmunkDemo.ipa  pCloudy_DeviceManafacturer=Apple  automationName=XCUITest   
+
+*** Test Cases ***
+Login Page 
+
+    Input Text    xpath=//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField[1]    ${UserName}
+    Log To Console	UserName is entered 
+
+
+    Input Text    xpath=//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField[1]   ${Password}
+    Log To Console	Password is entered 
+
+
+    Click Element  xpath=//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]
+    Log To Console	Submit button is clicked
+
+Close All Apps
+    Close All Applications
+
+
+
+
