@@ -1,0 +1,23 @@
+
+*** Settings ***
+Documentation    To test basic demo app
+
+Library          AppiumLibrary
+
+
+Suite Setup      Open Application    ${endPoint}   platformName=Android   deviceName=${deviceName}   browserName=Chrome
+
+
+*** Keywords ***
+
+*** Test Cases ***
+Navigate To Url
+
+	Go To Url    https://www.google.com
+	Input Text	name=q   'pCloudy'
+        Log To Console	Input text in search box	
+	Click Element  class=Tg7LZd
+	Log To Console	Click on google search icon 
+
+Close All Apps
+	Close All Applications
