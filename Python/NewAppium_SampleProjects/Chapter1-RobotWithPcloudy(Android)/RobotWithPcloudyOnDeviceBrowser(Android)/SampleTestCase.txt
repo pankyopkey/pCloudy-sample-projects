@@ -6,11 +6,15 @@ Library         AppiumLibrary
 
 Open Browser
 
-	Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName   		    			   	   pCloudy_ApiKey=Enter API_KEY       platformName=Android    pCloudy_DeviceManafacturer=Samsung   browserName=Chrome  automationName=appium 
+	Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName   		    			   	   		pCloudy_ApiKey=Enter API_KEY       platformName=Android    pCloudy_DeviceManafacturer=Samsung   browserName=Chrome  automationName=appium 
 
 Navigate To Url
 
 	Go To Url    https://www.google.com
+	Input Text	name=q   'pCloudy'
+        Log To Console	Input text in search box	
+	Click Element	class=Tg7LZd
+	Log To Console	Click on google search icon 
 
 Close All Apps
 

@@ -6,7 +6,7 @@ Library         AppiumLibrary
 
 Open Test Application
 
-    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName   pCloudy_ApiKey=Enter API_KEY        	  platformName=Android   pCloudy_ApplicationName=pCloudyAppiumDemo.apk  pCloudy_DeviceManafacturer=${deviceManufacturer}   appPackage=com.pcloudy.appiumdemo      	     	 appActivity=com.ba.mobile.LaunchActivity automationName=appium 
+    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName   pCloudy_ApiKey=Enter API_KEY        	 	   	      	  platformName=Android   pCloudy_ApplicationName=pCloudyAppiumDemo.apk  pCloudy_DeviceManafacturer=${deviceManufacturer}   appPackage=com.pcloudy.appiumdemo         	   appActivity=com.ba.mobile.LaunchActivity automationName=appium 
 
 Book A Flight
 
