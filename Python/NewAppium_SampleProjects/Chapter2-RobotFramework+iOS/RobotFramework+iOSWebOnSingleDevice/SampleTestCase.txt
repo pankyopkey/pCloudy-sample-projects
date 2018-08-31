@@ -6,7 +6,7 @@ Library         AppiumLibrary
 
 Open Browser
 
-	Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName	pCloudy_ApiKey=Enter API Key    platformName=iOS    pCloudy_DeviceManafacturer=Apple   browserName=Safari  automationName=XCUITest 
+	Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=<EnterYourMailId>	pCloudy_ApiKey=<EnterYourApiKey>   platformName=iOS    pCloudy_DeviceManafacturer=Apple   browserName=Safari  automationName=XCUITest 
 
 Navigate To Url
 

@@ -1,1 +1,2 @@
 --variable deviceManufacturer:Apple
+--variable automationName:XCUITest
