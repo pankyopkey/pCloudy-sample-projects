@@ -6,7 +6,7 @@ Library         AppiumLibrary
 
 Open Test Application
 
-    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName     pCloudy_ApiKey=Enter API_Key    platformName=android    	pCloudy_ApplicationName=pCloudyAppiumDemo.apk   pCloudy_DeviceManafacturer=Samsung   appPackage=com.pcloudy.appiumdemo  	appActivity=com.ba.mobile.LaunchActivity    automationName=appium 
+    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=<EnterYourMailId>     pCloudy_ApiKey=<EnterYourApiKey>    platformName=android	pCloudy_ApplicationName=pCloudyAppiumDemo.apk   pCloudy_DeviceManafacturer=Samsung   appPackage=com.pcloudy.appiumdemo  	appActivity=com.ba.mobile.LaunchActivity    automationName=uiAutomator2 
 
 Book A Flight
 
@@ -14,7 +14,7 @@ Book A Flight
     Log To Console	Accept Button is clicked
 
     Click Element	id=com.pcloudy.appiumdemo:id/flightButton
-    Log To Console	Booked a flight button clicked
+    Log To Console	Book a flight button clicked
 
     Click Element	id=com.pcloudy.appiumdemo:id/spinnerfrom
     Log To Console	From location drop down is clicked
@@ -42,8 +42,8 @@ Book A Flight
   
 
 Close All Apps
-
-    Close All Applications
+	
+	Close All Applications
 
 
 

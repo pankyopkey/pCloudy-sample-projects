@@ -1,2 +1,3 @@
---variable deviceManufacturer:Samsung
+--variable deviceManufacturer:Samsung	
+--variable automationName:uiAutomator2
 
