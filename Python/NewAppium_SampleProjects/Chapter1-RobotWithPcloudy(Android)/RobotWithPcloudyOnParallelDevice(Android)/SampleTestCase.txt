@@ -9,7 +9,6 @@ Open Test Application
     Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter pCloudy_Username pCloudy_ApiKey=Enter API_KEY    		platformName=android    pCloudy_ApplicationName=pCloudyAppiumDemo.apk  pCloudy_DeviceManafacturer=${deviceManufacturer}   appPackage=com.pcloudy.appiumdemo         	   appActivity=com.ba.mobile.LaunchActivity    automationName=appium 
 
 Book A Flight
-Book A Flight
 
     Click Element   id=com.pcloudy.appiumdemo:id/accept 
     Log To Console  Accept Button is clicked
