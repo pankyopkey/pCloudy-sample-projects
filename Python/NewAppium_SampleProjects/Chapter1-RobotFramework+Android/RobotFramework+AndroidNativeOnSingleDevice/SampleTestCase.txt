@@ -1,0 +1,50 @@
+*** Settings ***
+
+Library         AppiumLibrary
+
+*** Test Cases ***
+
+Open Test Application
+
+    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=Enter UserName     pCloudy_ApiKey=Enter API_Key    platformName=android    	pCloudy_ApplicationName=pCloudyAppiumDemo.apk   pCloudy_DeviceManafacturer=Samsung   appPackage=com.pcloudy.appiumdemo  	appActivity=com.ba.mobile.LaunchActivity    automationName=appium 
+
+Book A Flight
+
+    Click Element	id=com.pcloudy.appiumdemo:id/accept 
+    Log To Console	Accept Button is clicked
+
+    Click Element	id=com.pcloudy.appiumdemo:id/flightButton
+    Log To Console	Booked a flight button clicked
+
+    Click Element	id=com.pcloudy.appiumdemo:id/spinnerfrom
+    Log To Console	From location drop down is clicked
+
+    Click Element	//*[@id='android:id/text1' or @text='Bangalore, India (BLR)']
+    Log To Console	From Location is selected
+
+    Click Element	id=com.pcloudy.appiumdemo:id/spinnerto
+    Log To Console	To location drop down is clicked  
+
+    Click Element	//*[@id='android:id/text1' or @text='Pune, India (PNQ)']
+    Log To Console	To location is selected 
+
+    Click Element	id=com.pcloudy.appiumdemo:id/singleTrip
+    Log To Console	One way trip selected
+
+    Click Element	id=com.pcloudy.appiumdemo:id/txtdepart
+    Log To Console	Departure time is Selected
+
+    Click Element	//*[@id='android:id/button1' or @text='OK']
+    Log To Console	Departure time is Selected
+
+    Click Element	id=com.pcloudy.appiumdemo:id/searchFlights
+    Log To Console	Search flight button is clicked
+  
+
+Close All Apps
+
+    Close All Applications
+
+
+
+
