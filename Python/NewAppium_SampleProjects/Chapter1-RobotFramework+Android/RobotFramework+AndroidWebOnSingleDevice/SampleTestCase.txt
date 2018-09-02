@@ -6,7 +6,7 @@ Library         AppiumLibrary
 
 Open Browser
 
-	Open Application 	https://device.pcloudy.com/appiumcloud/wd/hub	pCloudy_Username=<EnterYourMailId>   		    			   		pCloudy_ApiKey=<EnterYourApiKey>	platformName=Android	pCloudy_DeviceManafacturer=Samsung	browserName=Chrome  automationName=uiAutomator2 
+	Open Application	https://device.pcloudy.com/appiumcloud/wd/hub	pCloudy_Username=<EnterYourEmailId>   		    		pCloudy_ApiKey=<EnterYourApiKey>	platformName=Android	pCloudy_DeviceManafacturer=Samsung	browserName=${browserName}  automationName=${automationName} 
 
 Navigate To Url
 

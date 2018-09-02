@@ -10,8 +10,9 @@ Step-7: pip install -U robotframework-pabot<https://github.com/mkorpela/pabot>
 Step-8: Enter your <MailId> in ***pCloudy_Username="Enter your Email-id"***
 Step-9: Enter your <ApiKey> in ***pCloudy_ApiKey="Enter your API Key"***
 Step-10: Open Terminal where the project is located.
-Step-10: Run the script with the following cmd: ***pabot SampleTestCase.txt***
+Step-10: Run the script with the following cmd: ***pabot --argumentfile1 arg.txt SampleTestCase.txt***
 Step-11: Optional Capabilities : Can choose anyone of the below-:
 Option1: pCloudy_DeviceManafacturer
 Option2: pCloudy_DeviceVersion
 Option3: pCloudy_DeviceFullName
+Step-12: Go to arg.txt : Variable automationName can be change based on the device version.

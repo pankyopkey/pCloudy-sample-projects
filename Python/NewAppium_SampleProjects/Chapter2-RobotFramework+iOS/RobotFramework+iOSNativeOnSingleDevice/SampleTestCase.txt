@@ -11,7 +11,7 @@ ${Password}      testmunk
 
 Open Test Application
 
-    Open Applications 	https://device.pcloudy.com/appiumcloud/wd/hub	pCloudy_Username=<EnterYourMailId>   pCloudy_ApiKey=<EnterYourApiKey>	platformName=ios	pCloudy_ApplicationName=TestmunkDemo.ipa	pCloudy_DeviceManafacturer=Apple  automationName=XCUITest   
+    Open Application 	https://device.pcloudy.com/appiumcloud/wd/hub	pCloudy_Username=<EnterYourEmailId>   pCloudy_ApiKey=<EnterYourApiKey>	platformName=iOS	pCloudy_ApplicationName=TestmunkDemo.ipa	pCloudy_DeviceManafacturer=Apple  automationName=${automationName}   
 
 *** Test Cases ***
 

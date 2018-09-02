@@ -1,0 +1,3 @@
+--variable automationName:uiAutomator2
+--variable browserName:Chrome
+
