@@ -15,4 +15,5 @@ Step-11: Optional Capabilities : Can choose anyone of the below-:
 Option1: pCloudy_DeviceManafacturer
 Option2: pCloudy_DeviceVersion
 Option3: pCloudy_DeviceFullName
+Go to arg1.txt and arg2.txt : Variable automationName can be change based on the device version.
 
