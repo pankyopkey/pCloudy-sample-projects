@@ -1,0 +1,31 @@
+
+*** Settings ***
+Documentation    To test basic demo app
+
+Library			AppiumLibrary
+
+
+Suite Setup		Open Application 	${endPoint}   platformName=iOS   deviceName=${deviceName}   bundleId=com.pcloudy.TestmunkDemo   automationName=XCUITest   usePrebuiltWDA=False   showXcodeLog=True  
+
+***Variables***
+${UserName}      test@testname.com   
+${Password}      testmunk
+
+*** Keywords ***
+
+*** Test Cases ***
+App Presents the Login Page and Enter username
+    Input Text    xpath=//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextField[1]    ${UserName}
+
+Enter Password
+    Input Text    xpath=//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeSecureTextField[1]   ${Password}
+
+Click on submit button
+    Click Element  xpath=//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[1]
+
+Close All Apps
+
+    Close All Applications
+
+
+
