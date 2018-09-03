@@ -11,14 +11,16 @@ class LoginClass < Test::Unit::TestCase
     server_url = "https://device.pcloudy.com/appiumcloud/wd/hub"
 
     caps = {}
-    caps['pCloudy_Username'] = 'Enter your Email-id'
-    caps['pCloudy_ApiKey'] = 'Enter your API Key'
+    caps['pCloudy_Username'] = 'EnterYourMailId'
+    caps['pCloudy_ApiKey'] = 'EnterYourApiKey'
     caps['pCloudy_ApplicationName'] = 'pCloudyAppiumDemo.apk'
     caps['pCloudy_DurationInMinutes'] = '10'
     caps['platformName'] = 'Android'
-    caps['pCloudy_DeviceManafacturer'] = "Samsung"
-   #caps['pCloudy_DeviceFullName'] = 'Samsung_GalaxyTabA_Android_7.1.1'
-   #caps['pCloudy_DeviceVersion'] = '7.1.1'   
+    caps['pCloudy_DeviceManafacturer'] = 'Samsung'
+    #pCloudy_DeviceFullName is an optional capability
+    #caps['pCloudy_DeviceFullName'] = 'Samsung_GalaxyTabA_Android_7.1.1'
+    #pCloudy_DeviceVersion is an optional capability
+    #caps['pCloudy_DeviceVersion'] = '7.1.1'   
     caps['newCommandTimeout'] = '600'
     caps['launchTimeout'] = '90000'
     caps['appPackage'] = 'com.pcloudy.appiumdemo'
