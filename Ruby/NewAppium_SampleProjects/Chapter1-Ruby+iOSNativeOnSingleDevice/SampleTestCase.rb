@@ -10,14 +10,16 @@ class LoginClass < Test::Unit::TestCase
     server_url = "https://device.pcloudy.com/appiumcloud/wd/hub"
 
     caps = {}
-    caps['pCloudy_Username'] = 'Enter your Email-id'
-    caps['pCloudy_ApiKey'] = 'Enter your API Key'
+    caps['pCloudy_Username'] = 'EnterYourMailid'
+    caps['pCloudy_ApiKey'] = 'EnterYourApiKey'
     caps['pCloudy_ApplicationName'] = 'TestmunkDemo.ipa'
     caps['pCloudy_DurationInMinutes'] = '10'
-    caps['platformName'] = 'ios'
-    caps['pCloudy_DeviceManafacturer'] = "Apple"
+    caps['platformName'] = 'iOS'
+    caps['pCloudy_DeviceManafacturer'] = 'Apple'
+    #pCloudy_DeviceVersion is an optional capability
     #caps['pCloudy_DeviceVersion'] = '10.3.3'
-    #caps['pCloudy_DeviceFullName'] = ''   
+    #pCloudy_DeviceFullName is an optional capability
+    #caps['pCloudy_DeviceFullName'] = 'Apple_iPhone6S_Ios_11.2.0'   
     caps['newCommandTimeout'] = '600'
     caps['launchTimeout'] = '90000'
     caps['bundleId'] = 'com.pcloudy.TestmunkDemo'
@@ -35,7 +37,6 @@ class LoginClass < Test::Unit::TestCase
 
     driver = appium_driver.start_driver
     Appium.promote_appium_methods Object
-    #sleep(5)
  end
 
  def test_login
@@ -53,7 +54,7 @@ class LoginClass < Test::Unit::TestCase
  end
 
  def teardown
-    #driver.quit
+    driver.quit
  end
 
 end
