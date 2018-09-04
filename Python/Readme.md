@@ -6,11 +6,3 @@ pCloudy platform provides single click access to real Android and IOS devices di
 pCloudy is a popular mobile testing platform integrated with Appium script which enables you to automate test of mobile apps as well.
 
 Read more here https://www.pcloudy.com
-
-Clone the project
-Enter pCloudy username & APIKey in Runner class
-Enter apk name which should be already there in the cloud driver.
-Open Terminal
-cd to the directory which contains the project
-Run the command mvn test
-For more details, please refer below link: https://www.pcloudy.com/appium-integration-architecture-redefined-appium-runs-become-simpler-with-pcloudy/
