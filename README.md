@@ -1,4 +1,4 @@
-<h1 style="display:flex;flex-direction:row;align-items: center;"><a target="_blank" rel="noopener noreferrer" href="https://www.pcloudy.com"><img src="/pankyopkey/pCloudy-sample-projects/raw/master/images/pcloudy.png" style="max-width:100%;"></a><span>pCloudy Appium Sample Projects</span></h1>
+<h1 style="display:flex;flex-direction:row;align-items: center;"><a target="_blank" rel="noopener noreferrer" href="https://www.pcloudy.com" img src="/pankyopkey/pCloudy-sample-projects/raw/master/images/pcloudy.png" style="max-width:100%;"></a><span>pCloudy Appium Sample Projects</span></h1>
 
 ## About [pCloudy](https://www.pcloudy.com)
 
