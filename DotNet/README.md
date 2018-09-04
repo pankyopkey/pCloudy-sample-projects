@@ -1,4 +1,4 @@
-<h1><img src="/images/pcloudy.png" align="top"> &nbsp;&nbsp; pCloudy dotNet Appium Sample Projects</h1>
+<h1 style="display:flex;flex-direction:row;align-items: center;"><a target="_blank" rel="noopener noreferrer" href="https://www.pcloudy.com"><img src="/pankyopkey/pCloudy-sample-projects/raw/master/images/pcloudy.png" style="max-width:100%;"></a><span>pCloudy Appium Sample Projects</span></h1>
 
 ## Appium dotNet Integrations
 As of now this contains only two sample projects:
