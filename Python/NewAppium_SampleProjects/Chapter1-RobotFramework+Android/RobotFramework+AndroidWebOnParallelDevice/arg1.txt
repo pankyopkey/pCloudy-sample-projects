@@ -1,0 +1,4 @@
+--variable deviceManufacturer:Samsung	
+--variable automationName:uiAutomator2
+--variable browserName:Chrome
+
