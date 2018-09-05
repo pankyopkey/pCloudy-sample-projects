@@ -1,0 +1,3 @@
+--variable deviceManufacturer:Google	
+--variable automationName:uiAutomator2
+--variable browserName:Chrome

@@ -1,0 +1,4 @@
+--variable deviceManufacturer:Apple	
+--variable automationName:XCUITest
+--variable browserName:Safari
+

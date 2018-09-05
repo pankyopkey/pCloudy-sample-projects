@@ -1,0 +1,26 @@
+*** Settings ***
+
+Library         AppiumLibrary
+
+*** Test Cases ***
+
+Open Test Application
+
+    Open Application    https://device.pcloudy.com/appiumcloud/wd/hub   pCloudy_Username=<EnterYourEmailId>	pCloudy_ApiKey=<EnterYourApiKey>  platformName=android	pCloudy_DeviceManafacturer=${deviceManufacturer}   automation_Name=${automationName}	browserName=${browserName} 
+
+Navigate To Url
+
+	Go To Url	https://www.google.com
+	Input text 	name=q   'pCloudy'
+    	Log To Console	Text is input in search box	
+	Click Element	class=Tg7LZd
+	Log To Console	Clicked on google search icon 
+  
+
+Close All Apps
+
+    Close All Applications
+
+
+
+
