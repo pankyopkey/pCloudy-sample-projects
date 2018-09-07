@@ -478,6 +478,35 @@ Namespace pCloudy
             Return p.result.device_ids
         End Function
 
+        Function bookDevicesForAppium(AuthToken As String, selectedDevices As List(Of String), platformName As String,
+                                      duration As TimeSpan, friendlySessionName As String) As appium.BookingDtoDevice()
+            'curl -H 'Content-Type: application/json' -d '{"token": "token", "duration": 15, "platform": "android", "devices" : [10]}' https://192.168.0.100/api/appium/init -k
+            Dim url = String.Format("{0}/appium/init", endpoint)
+
+
+            Dim jsonData = <json>
+                               {"token": "@token", "duration": @duration, "platform": "@platform", 
+                                "devices" : [@devices], "session" : "@session", 
+                                "minimum_device_count" : "@minimum_device_count", 
+                                "overwrite_location" : @overwrite_location}
+                           </json>.Value.Trim
+
+            jsonData = jsonData.Replace("@token", AuthToken)
+            jsonData = jsonData.Replace("@duration", duration.TotalMinutes.ToString)
+            jsonData = jsonData.Replace("@platform", platformName)
+            jsonData = jsonData.Replace("@devices", String.Join(",", (selectedDevices.ToArray())))
+
+            jsonData = jsonData.Replace("@session", friendlySessionName)
+            jsonData = jsonData.Replace("@minimum_device_count", selectedDevices.Count.ToString) 'we need every devices to be booked, or the whole booking request to be cancelled
+            jsonData = jsonData.Replace("@overwrite_location", True.ToString.ToLower)
+
+            Dim p = callService(Of appium.BookingDTO)(url, jsonData)
+
+            If p.result.error IsNot Nothing Then Throw New ConnectError(p.result.error)
+
+            Return p.result.device_ids
+        End Function
+
         Public Function initAppiumHubForApp(authToken As String, pDriveFile As pDriveFileDTO) As Uri
             Dim jsonData = <json>
                                {"token": "@token", "app" : "@app"}
