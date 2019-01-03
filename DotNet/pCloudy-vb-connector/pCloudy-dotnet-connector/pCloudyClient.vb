@@ -444,7 +444,21 @@ Namespace pCloudy
 #Region "            Appium Specific Apis"
 
         Function bookDevicesForAppium(AuthToken As String,
-                                      devices As IEnumerable(Of MobileDeviceDTO),
+                                      devices As IEnumerable(Of MobileDeviceDTO), platformName As String,
+                                      duration As TimeSpan, friendlySessionName As String) As appium.BookingDtoDevice()
+            'curl -H 'Content-Type: application/json' -d '{"token": "token", "duration": 15, "platform": "android", "devices" : [10]}' https://192.168.0.100/api/appium/init -k
+            Dim url = String.Format("{0}/appium/init", endpoint)
+
+            Dim deviceIds As New List(Of String)
+            For i = 0 To devices.Count - 1
+                deviceIds.Add(devices(i).id)
+            Next
+
+            Return bookDevicesForAppium(AuthToken, deviceIds, platformName, duration, friendlySessionName)
+
+        End Function
+
+        Function bookDevicesForAppium(AuthToken As String, selectedDevices As List(Of String), platformName As String,
                                       duration As TimeSpan, friendlySessionName As String) As appium.BookingDtoDevice()
             'curl -H 'Content-Type: application/json' -d '{"token": "token", "duration": 15, "platform": "android", "devices" : [10]}' https://192.168.0.100/api/appium/init -k
             Dim url = String.Format("{0}/appium/init", endpoint)
@@ -459,21 +473,16 @@ Namespace pCloudy
 
             jsonData = jsonData.Replace("@token", AuthToken)
             jsonData = jsonData.Replace("@duration", duration.TotalMinutes.ToString)
-            jsonData = jsonData.Replace("@platform", devices.First.platform)
-            jsonData = jsonData.Replace("@devices", String.Join(", ", (From itm In devices Select itm.id)))
+            jsonData = jsonData.Replace("@platform", platformName)
+            jsonData = jsonData.Replace("@devices", String.Join(",", (selectedDevices.ToArray())))
 
             jsonData = jsonData.Replace("@session", friendlySessionName)
-            jsonData = jsonData.Replace("@minimum_device_count", devices.Count.ToString) 'we need every devices to be booked, or the whole booking request to be cancelled
+            jsonData = jsonData.Replace("@minimum_device_count", selectedDevices.Count.ToString) 'we need every devices to be booked, or the whole booking request to be cancelled
             jsonData = jsonData.Replace("@overwrite_location", True.ToString.ToLower)
 
             Dim p = callService(Of appium.BookingDTO)(url, jsonData)
 
             If p.result.error IsNot Nothing Then Throw New ConnectError(p.result.error)
-
-            'lets change the ids of the devices with the booking ids
-            For i = 0 To devices.Count - 1
-                devices(i).id = p.result.device_ids(i).capabilities.deviceName
-            Next
 
             Return p.result.device_ids
         End Function
