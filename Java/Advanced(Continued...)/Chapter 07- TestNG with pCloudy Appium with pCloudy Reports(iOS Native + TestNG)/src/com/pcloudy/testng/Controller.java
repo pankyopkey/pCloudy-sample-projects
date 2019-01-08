@@ -105,7 +105,6 @@ public class Controller {
 			capabilities.setCapability("newCommandTimeout", 600);
 			capabilities.setCapability("launchTimeout", 90000);
 			capabilities.setCapability("deviceName", aDevice.capabilities.deviceName);
-			capabilities.setCapability("browserName", aDevice.capabilities.browserName);
 			capabilities.setCapability("platformName", "iOS");
 			capabilities.setCapability("bundleId", "com.pcloudy.TestmunkDemo");
 

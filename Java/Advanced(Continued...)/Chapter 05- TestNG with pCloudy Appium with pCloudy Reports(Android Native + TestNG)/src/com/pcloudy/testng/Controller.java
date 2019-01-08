@@ -106,7 +106,6 @@ public class Controller {
 			capabilities.setCapability("newCommandTimeout", 600);
 			capabilities.setCapability("launchTimeout", 90000);
 			capabilities.setCapability("deviceName", aDevice.capabilities.deviceName);
-			capabilities.setCapability("browserName", aDevice.capabilities.deviceName);
 			capabilities.setCapability("platformName", "Android");
 			capabilities.setCapability("appPackage", "com.pcloudy.appiumdemo");
 			capabilities.setCapability("appActivity", "com.ba.mobile.LaunchActivity");
