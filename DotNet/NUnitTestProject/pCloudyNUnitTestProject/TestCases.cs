@@ -132,7 +132,6 @@ namespace pCloudyNUnitTestProject
             var capabilities = new DesiredCapabilities();
 
             capabilities.SetCapability("deviceName", appiumSession.bookingDto.capabilities.deviceName);
-            capabilities.SetCapability("browserName", appiumSession.bookingDto.capabilities.browserName);
             capabilities.SetCapability("platformName", "Android");
             capabilities.SetCapability("appActivity", "com.ba.mobile.LaunchActivity");
             capabilities.SetCapability("appPackage", "com.ba.mobile");

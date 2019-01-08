@@ -77,7 +77,6 @@ namespace AppiumAndroidExecution_dotNet
                 var capabilities = new DesiredCapabilities();
 
                 capabilities.SetCapability("deviceName", bookedDeviceID);
-                capabilities.SetCapability("browserName", bookedDeviceID);
                 capabilities.SetCapability("platformName", "Android");
                 capabilities.SetCapability("appActivity", "com.ba.mobile.LaunchActivity");
                 capabilities.SetCapability("appPackage", "com.ba.mobile");
