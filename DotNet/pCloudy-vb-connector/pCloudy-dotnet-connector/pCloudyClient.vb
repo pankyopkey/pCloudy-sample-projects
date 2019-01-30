@@ -256,25 +256,37 @@ Namespace pCloudy
 
         End Sub
 
+        <Obsolete>
         Public Function bookDevice(authToken As String, duration As TimeSpan, device As MobileDeviceDTO) As generic.BookingDTOResult
-            Return Me.bookDevice(authToken, duration, device.id)
+            Return Me.bookDevice(authToken, duration, device.id, BookingType.Manual)
         End Function
 
-        Public Function bookDevice(authToken As String, duration As TimeSpan, deviceID As Integer) As generic.BookingDTOResult
+        Public Function bookDevice(authToken As String, duration As TimeSpan, device As MobileDeviceDTO, bookingType As BookingType) As generic.BookingDTOResult
+            Return Me.bookDevice(authToken, duration, device.id, bookingType)
+        End Function
+
+        Public Function bookDevice(authToken As String, duration As TimeSpan, deviceID As Integer, bookingType As BookingType) As generic.BookingDTOResult
             ' https://localhost/api/book_device.php
             ' input :{"token": "xxxxx", "duration": 5, "id": 2}
             ' output :{"token": "xxxxx", "code": 200, "rid": 2}
 
             Dim url = String.Format("{0}/book_device", endpoint)
+            Dim bookingTypeStr = bookingType.ToString()
+
+            If (bookingType = BookingType.OpKey_iOS_Playback OrElse bookingType = BookingType.OpKey_iOS_Recorder) Then
+                bookingTypeStr = "ios recorder"
+            End If
 
             Dim jsonData = <json>
                                {"token": "@token",
                                 "duration":@duration,
-                                "id":@id}
+                                "id":@id,
+                                "booking_type":"@booking_type"}
                            </json>.Value.Trim
             jsonData = jsonData.Replace("@token", authToken)
             jsonData = jsonData.Replace("@duration", duration.TotalMinutes.ToString)
             jsonData = jsonData.Replace("@id", deviceID.ToString)
+            jsonData = jsonData.Replace("@booking_type", bookingTypeStr)
 
             Dim p = callService(Of generic.BookingDTO)(url, jsonData)
 

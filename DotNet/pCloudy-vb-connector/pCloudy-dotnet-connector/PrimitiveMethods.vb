@@ -29,7 +29,7 @@
             If IsNothing(deviceDto) Then Throw New Exception("Device was not found")
 
 
-            Dim bookingDto = _connector.bookDevice(authToken, TimeSpan.FromMinutes(durationInMinutes), CInt(deviceDto.id))
+            Dim bookingDto = _connector.bookDevice(authToken, TimeSpan.FromMinutes(durationInMinutes), CInt(deviceDto.id), BookingType.Manual)
 
             Return bookingDto.rid
         End Function

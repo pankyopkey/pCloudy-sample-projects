@@ -94,7 +94,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
-      <HintPath>..\..\Appium dotNet Integrations\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookingDtoDevice.vb" />
+    <Compile Include="BookingType.vb" />
     <Compile Include="ConnectError.vb" />
     <Compile Include="DTOs\accessDTO.vb" />
     <Compile Include="DTOs\AdbCommandResponseDTO.vb" />
