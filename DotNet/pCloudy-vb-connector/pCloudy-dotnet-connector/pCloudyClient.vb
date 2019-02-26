@@ -275,6 +275,8 @@ Namespace pCloudy
 
             If (bookingType = BookingType.OpKey_iOS_Playback OrElse bookingType = BookingType.OpKey_iOS_Recorder) Then
                 bookingTypeStr = "ios recorder"
+            Else
+                bookingTypeStr = Nothing
             End If
 
             Dim jsonData = <json>
@@ -283,10 +285,19 @@ Namespace pCloudy
                                 "id":@id,
                                 "booking_type":"@booking_type"}
                            </json>.Value.Trim
+
+            If bookingTypeStr Is Nothing Then
+                jsonData = <json>
+                               {"token": "@token",
+                                "duration":@duration,
+                                "id":@id}
+                           </json>.Value.Trim
+            End If
+
             jsonData = jsonData.Replace("@token", authToken)
             jsonData = jsonData.Replace("@duration", duration.TotalMinutes.ToString)
             jsonData = jsonData.Replace("@id", deviceID.ToString)
-            jsonData = jsonData.Replace("@booking_type", bookingTypeStr)
+            If bookingTypeStr IsNot Nothing Then jsonData = jsonData.Replace("@booking_type", bookingTypeStr)
 
             Dim p = callService(Of generic.BookingDTO)(url, jsonData)
 
