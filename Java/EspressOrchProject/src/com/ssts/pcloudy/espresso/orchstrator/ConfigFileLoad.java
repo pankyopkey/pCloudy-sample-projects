@@ -69,6 +69,10 @@ public class ConfigFileLoad {
 		return prop.getProperty("Suites");
 	}
 	
+	public String get_TestRunner(){
+		return prop.getProperty("TestRunner");
+	}
+	
 	public String get_cycleName(){
 		return prop.getProperty("TestCycleName");
 	}

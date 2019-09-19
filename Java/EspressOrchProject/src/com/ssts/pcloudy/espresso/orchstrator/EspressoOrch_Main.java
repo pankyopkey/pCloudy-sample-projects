@@ -18,24 +18,44 @@ public class EspressoOrch_Main {
 
 	static Connector con;
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
+	
 		String apiEndpoint = ConfigFileLoad.getInstance().get_pCloudyEndpoint();
 		System.out.println("Api Endpoint: " + apiEndpoint);
+		
 		String userName = ConfigFileLoad.getInstance().get_pCloudyUserName();
 		System.out.println("User Name: " + userName);
+		
 		String accessKey = ConfigFileLoad.getInstance().get_pCloudyApiKey();
 		System.out.println("AccessKey: " + accessKey);
 
 		int duration = ConfigFileLoad.getInstance().get_Duration();
-		String deviceIds = ConfigFileLoad.getInstance().get_DeviceIds();
-		String cycleName = ConfigFileLoad.getInstance().get_cycleName();
-		String apkPath = ConfigFileLoad.getInstance().get_ApplicationPath();
-		String testApkPath = ConfigFileLoad.getInstance().get_TestApkPath();
-		String orchApkPath = ConfigFileLoad.getInstance().get_OrchApkPath();
+		
+		String deviceIds 	= ConfigFileLoad.getInstance().get_DeviceIds();
+		
+		String cycleName 	= ConfigFileLoad.getInstance().get_cycleName();
+		
+		String apkPath 		= ConfigFileLoad.getInstance().get_ApplicationPath();
+		
+		String testApkPath 	= ConfigFileLoad.getInstance().get_TestApkPath();
+		
+		String orchApkPath 	= ConfigFileLoad.getInstance().get_OrchApkPath();
+		
 		String serviceApkPath = ConfigFileLoad.getInstance().get_ServiceApkPath();
 		
-		String testSuites = ConfigFileLoad.getInstance().get_TestSuites();
+		String testSuites 	= ConfigFileLoad.getInstance().get_TestSuites();
+		
+		String testRunner 	= ConfigFileLoad.getInstance().get_TestRunner();
 
+		if(testRunner.isEmpty()) {
+			System.out.println("TestRunner Can't be empty");
+			System.exit(0);
+		}
+		
+		System.out.println("testSuites: " + testSuites);
+		System.out.println("TestRunner: " + testRunner);
+		
 		File apkFile = new File(apkPath);
 		File testFile = new File(testApkPath);
 
