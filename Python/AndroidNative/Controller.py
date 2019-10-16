@@ -24,6 +24,14 @@ class Connector:
         except:
             raise KeyError
         return auth_token
+    
+    def getUserDetails(self, auth_token,):
+        data = {"token": auth_token}
+        response = requests.post(self.base_url + '/get_user_details', headers=self.headers, data=json.dumps(data),
+                                 verify=False)
+
+        user_details = json.loads(response.text)
+        return user_details["result"]
 
     def getDevices(self, authToken, duration_minutes, platform, showOnlyAvailable):
         data = {"token": authToken, "duration": 5, "platform": platform, "available_now": showOnlyAvailable}
