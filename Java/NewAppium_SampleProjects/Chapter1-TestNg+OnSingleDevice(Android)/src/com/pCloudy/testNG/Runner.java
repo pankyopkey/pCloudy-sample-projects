@@ -42,8 +42,11 @@ public class Runner {
 		capabilities.setCapability("pCloudy_ApplicationName", "pCloudyAppiumDemo.apk");
 		capabilities.setCapability("pCloudy_DurationInMinutes", 10);
 		capabilities.setCapability("pCloudy_DeviceManafacturer", "Samsung");
-		//capabilities.setCapability("pCloudy_DeviceVersion", "8.0.0");
+		capabilities.setCapability("pCloudy_DeviceVersion", "8.0.0");
 		//capabilities.setCapability("pCloudy_DeviceFullName", "Samsung_GalaxyTabA_Android_7.1.1");
+		capabilities.setCapability("automationName", "uiautomator2");
+		capabilities.setCapability("platformVersion", "8.0.0");
+		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("newCommandTimeout", 600);
 		capabilities.setCapability("launchTimeout", 90000);
 		capabilities.setCapability("appPackage", "com.pcloudy.appiumdemo");
