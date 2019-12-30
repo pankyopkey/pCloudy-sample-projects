@@ -46,12 +46,12 @@ public class Runner {
 		capabilities.setCapability("pCloudy_ApplicationName", "TestmunkDemo.ipa");		
 		capabilities.setCapability("pCloudy_DurationInMinutes", 10);
 		capabilities.setCapability("pCloudy_DeviceManafacturer", deviceName);
-		//capabilities.setCapability("pCloudy_DeviceVersion", "10.3.2");
+		capabilities.setCapability("pCloudy_DeviceVersion", "10.3.2");
 		//capabilities.setCapability("pCloudy_DeviceFullName", "Apple_iPhone6S_Ios_11.2.0");
+		capabilities.setCapability("platformVersion", "10.3.2");
 		capabilities.setCapability("newCommandTimeout", 600);
 		capabilities.setCapability("launchTimeout", 90000);
 		capabilities.setCapability("bundleId", "com.pcloudy.TestmunkDemo");
-		capabilities.setCapability("usePrebuiltWDA", false);
 		capabilities.setCapability("acceptAlerts", true);
 		capabilities.setCapability("automationName", "XCUITest");
 		driver = new IOSDriver(new URL("https://device.pcloudy.com/appiumcloud/wd/hub"), capabilities);
