@@ -52,6 +52,7 @@ public class Runner {
 		capabilities.setCapability("newCommandTimeout", 600);
 		capabilities.setCapability("launchTimeout", 90000);
 		capabilities.setBrowserName("Safari");
+		capabilities.setCapability("includeSafariInWebviews", true);
 		capabilities.setCapability("acceptAlerts", true);
 		capabilities.setCapability("automationName", "XCUITest");
 		driver = new IOSDriver(new URL("https://device.pcloudy.com/appiumcloud/wd/hub"), capabilities);
