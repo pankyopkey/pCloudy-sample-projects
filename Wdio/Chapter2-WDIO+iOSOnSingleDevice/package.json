@@ -1,0 +1,16 @@
+{
+  "name": "WDIO",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wdio.iOS.conf.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "keywords": [],
+  "author": "Shibu Prasad Panda",
+  "license": "ISC",
+  "dependencies": {
+    "wdio-jasmine-framework": "^0.3.8",
+    "wdio-screenshot": "^0.6.0"
+  }
+}
