@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="37542" started-at="2020-09-29T07:09:36Z" finished-at="2020-09-29T07:10:13Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="37542" started-at="2020-09-29T07:09:36Z" finished-at="2020-09-29T07:10:13Z">
+      <class name="com.seleniumWebdriver.SeleniumRunner">
+        <test-method status="PASS" signature="setUpSuite()[pri:0, instance:com.seleniumWebdriver.SeleniumRunner@51565ec2]" name="setUpSuite" is-config="true" duration-ms="10" started-at="2020-09-29T12:39:36Z" finished-at="2020-09-29T12:39:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpSuite -->
+        <test-method status="PASS" signature="prepareTest()[pri:0, instance:com.seleniumWebdriver.SeleniumRunner@51565ec2]" name="prepareTest" is-config="true" duration-ms="17020" started-at="2020-09-29T12:39:36Z" finished-at="2020-09-29T12:39:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method status="PASS" signature="Test()[pri:0, instance:com.seleniumWebdriver.SeleniumRunner@51565ec2]" name="Test" duration-ms="20293" started-at="2020-09-29T12:39:53Z" finished-at="2020-09-29T12:40:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.seleniumWebdriver.SeleniumRunner@51565ec2]" name="afterMethod" is-config="true" duration-ms="198" started-at="2020-09-29T12:40:13Z" finished-at="2020-09-29T12:40:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.seleniumWebdriver.SeleniumRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
