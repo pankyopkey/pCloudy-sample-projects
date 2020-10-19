@@ -16,4 +16,4 @@ Enter avaiable os name,osVersion name,and browserVersion.
 Open Terminal
 cd to the directory which contains the project
 Run the command mvn test
-For more details, please refer below link: https://www.pcloudy.com/appium-integration-architecture-redefined-appium-runs-become-simpler-with-pcloudy/
+For more details, please refer below link: https://www.pcloudy.com/mobile-application-testing-documentation/desktop-web-testing.php

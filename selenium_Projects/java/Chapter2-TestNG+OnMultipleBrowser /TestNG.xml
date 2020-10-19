@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
-  <test name="Test">
+  <test name="BrowserTestFirefox">
         <parameter name="os" value="Windows" />
 		<parameter name="osVersion" value="10" />
 		<parameter name="browserName" value="firefox" />
@@ -11,7 +11,7 @@
     </classes>
   </test>  
   
-    <test name="Test1">
+    <test name="BrowserTestmedge">
         <parameter name="os" value="Windows" />
 		<parameter name="osVersion" value="10" />
 		<parameter name="browserName" value="msedge" />
