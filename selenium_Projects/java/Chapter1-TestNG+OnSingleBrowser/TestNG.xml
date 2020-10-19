@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" name="pCloudy Suite" parallel="false">
+  <test name="BrowserTestchrome">
+    <classes>
+      <class name="com.seleniumWebdriver.SeleniumRunner"/>
+    </classes>
+  </test>  
+</suite> <!-- Suite -->
