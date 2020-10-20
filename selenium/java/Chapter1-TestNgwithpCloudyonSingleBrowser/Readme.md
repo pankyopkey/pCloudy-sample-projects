@@ -12,7 +12,7 @@ Read more [here](https://www.pcloudy.com/scale-cross-browser-testing-with-browse
 * Open Runner class file and Enter below details </br>
      * Enter email & APIKey
      * Enter clientName
-     * Enter osName, osVersion and browserVersion
+     * Enter os, osVersion and browserVersion
     
 * Open Terminal </br>
 * Goto the root directory which is having pom.xml </br>
