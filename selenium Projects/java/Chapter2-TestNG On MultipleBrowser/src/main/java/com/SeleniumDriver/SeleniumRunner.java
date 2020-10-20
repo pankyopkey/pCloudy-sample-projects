@@ -1,4 +1,4 @@
-package com.seleniumWebdriver;
+package com.SeleniumDriver;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +20,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 public class SeleniumRunner {
+	
 
 	WebDriver driver;
 	DesiredCapabilities caps ;
@@ -116,4 +118,3 @@ public class SeleniumRunner {
 	}
 
 }
-
