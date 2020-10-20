@@ -2,9 +2,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>SeleniumRemoteDriver</groupId>
-	<artifactId>SeleniumRemoteDriver</artifactId>
+
+	<groupId>Chapter2-TestNgwithpCloudyonMultipleBrowser</groupId>
+	<artifactId>Chapter2-TestNgwithpCloudyonMultipleBrowser</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>Chapter2-TestNgwithpCloudyonMultipleBrowser</name>
+	<url>http://maven.apache.org</url>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -28,12 +34,9 @@
 				</configuration>
 			</plugin>
 
+
 		</plugins>
 	</build>
-	<packaging>jar</packaging>
-
-	<name>Chapter4-TestNgwithpCloudyonSingleDeviceIOS</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,10 +54,5 @@
 			<artifactId>testng</artifactId>
 			<version>6.11</version>
 		</dependency>
-
-
 	</dependencies>
-
-
-
 </project>

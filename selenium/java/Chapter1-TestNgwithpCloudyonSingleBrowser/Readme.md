@@ -6,14 +6,17 @@ pCloudy platform provides an easy access to a varied range of browsers and their
 
 pCloudy is a expert mobile & web app testing platform integrated with Selenium scripts which enable you to automate your web testing effortlessly.
 
-Read more here https://www.pcloudy.com/scale-cross-browser-testing-with-browser-cloud/?utm_source=topbar&utm_medium=website&utm_term=p&utm_campaign=website
+Read more [here](https://www.pcloudy.com/scale-cross-browser-testing-with-browser-cloud/?utm_source=topbar&utm_medium=website&utm_term=p&utm_campaign=website)
 
-Clone the project
-Enter email & APIKey in Runner class
-Enter clientName same as your email
-Enter avaiable os name,osVersion name,and browserVersion.
+* Clone the project </br>
+* Open Runner class file and Enter below details </br>
+     * Enter email & APIKey
+     * Enter clientName
+     * Enter osName, osVersion and browserVersion
+    
+* Open Terminal </br>
+* Goto the root directory which is having pom.xml </br>
+* Run the command (mvn test) </br>
 
-Open Terminal
-cd to the directory which contains the project
-Run the command mvn test
-For more details, please refer below link: https://www.pcloudy.com/mobile-application-testing-documentation/desktop-web-testing.php
+
+For more details, please refer the [link](https://www.pcloudy.com/mobile-application-testing-documentation/desktop-web-testing.php)
