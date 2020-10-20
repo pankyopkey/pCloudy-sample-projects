@@ -1,4 +1,5 @@
-package com.seleniumWebdriver;
+package com.pCloudy.testNg;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -15,14 +16,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-public class SeleniumRunner {
+import org.testng.annotations.*;
+
+public class Runner {
 
 	WebDriver driver;
-	DesiredCapabilities caps ;
+	DesiredCapabilities capabilities ;
 	String folder_name;
 	DateFormat df;
 
@@ -30,17 +29,18 @@ public class SeleniumRunner {
 	public void setUpSuite() throws Exception {
 
 	}
+
 	@BeforeMethod
 	public void prepareTest() throws IOException, InterruptedException {
 
-		caps =  DesiredCapabilities.chrome();
-		caps.setCapability("os", "Windows");
-		caps.setCapability("osVersion", "10");
-		caps.setCapability("browserVersion","84");
-		caps.setCapability("clientName", "Your Email id");
-		caps.setCapability("apiKey", "your api key");
-		caps.setCapability("email", "Your Email id");
-		driver = new RemoteWebDriver(new URL("https://prod-browsercloud-in.pcloudy.com/seleniumcloud/wd/hub"), caps);
+		capabilities =  DesiredCapabilities.chrome();
+		capabilities.setCapability("os", "Windows");
+		capabilities.setCapability("osVersion", "10");
+		capabilities.setCapability("browserVersion","84");
+		capabilities.setCapability("clientName", "Your_Email_Id");
+		capabilities.setCapability("apiKey", "Your_Api_Key");
+		capabilities.setCapability("email", "Your_Email_Id");
+		driver = new RemoteWebDriver(new URL("https://prod-browsercloud-in.pcloudy.com/seleniumcloud/wd/hub"), capabilities);
 	}
 
 	@Test
@@ -51,29 +51,32 @@ public class SeleniumRunner {
 		driver.get("http://sstsinc.com/");	
 
 		WebElement contacts;
-		contacts= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='navbar-collapse collapse floated']//a[contains(text(),'Contacts')]")));
+		contacts= wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[@class='navbar-collapse collapse floated']//a[contains(text(),'Contacts')]")));
 		contacts.click();
-		takeSnapShot();
+		captureScreenShots();
 
 		WebElement careers;
-		careers=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Careers')]")));
+		careers=wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//a[contains(text(),'Careers')]")));
 		careers.click();
-		takeSnapShot();
+		captureScreenShots();
 
 		WebElement yourName;
 		yourName=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='name2']")));
 		yourName.sendKeys("pCloudy");
-		takeSnapShot();
+		captureScreenShots();
 
-		WebElement phone;
-		phone=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='Phone']")));
+		WebElement phone = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//input[@id='Phone']")));
 		phone.sendKeys("1234567");
-		takeSnapShot();
+		captureScreenShots();
 
 		WebElement email;
-		email=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='email2']")));
+		email=wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//input[@id='email2']")));
 		email.sendKeys("pCloudy@sstsinc.com");
-		takeSnapShot();
+		captureScreenShots();
 
 	}
 
@@ -85,7 +88,7 @@ public class SeleniumRunner {
 
 	}
 
-	public void takeSnapShot() throws Exception{
+	public void captureScreenShots() throws Exception{
 
 		folder_name="screenshot";
 		TakesScreenshot scrShot =((TakesScreenshot)driver);
@@ -99,6 +102,4 @@ public class SeleniumRunner {
 		FileHandler.copy(f, new File(folder_name + "/" + file_name));
 
 	}
-
 }
-
