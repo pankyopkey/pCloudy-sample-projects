@@ -32,12 +32,6 @@
         Public Email As String
         Public Phone As String
         Public IsAdmin As Boolean
-        Public Plan As String
-        Public MinuteBalance As Integer = 0
-
-        Public Function geBalanceMinutes() As TimeSpan
-            Return TimeSpan.FromMinutes(MinuteBalance)
-        End Function
 
     End Class
 
