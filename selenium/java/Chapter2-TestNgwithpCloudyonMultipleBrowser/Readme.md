@@ -12,8 +12,8 @@ Read more [here](https://www.pcloudy.com/scale-cross-browser-testing-with-browse
 * Open Runner class file and Enter below details </br>
      * Enter email & APIKey
      * Enter clientName
-     * Enter osName, osVersion and browserVersion
-    
+     
+* Change os, osVersion and browserVersion in testng.xml parameter </br> 
 * Open Terminal </br>
 * Goto the root directory which is having pom.xml </br>
 * Run the command (mvn test) </br>
