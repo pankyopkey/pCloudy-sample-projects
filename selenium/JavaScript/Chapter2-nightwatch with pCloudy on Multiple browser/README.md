@@ -17,9 +17,7 @@ Read more [here](https://www.pcloudy.com/scale-cross-browser-testing-with-browse
      * Enter os, osVersion and browserVersion
     
 * Open Terminal where the project is located </br>
-* Run the below command </br>
-     *For linux run this commmand:- ./node_modules/.bin/nightwatch -e chrome,firefox tests
-     *For windows run this commmand:- node_modules\.bin\nightwatch -e chrome,firefox tests
+* Run the `npm run test` command </br>
 
 
 For more details, please refer the [link](https://www.pcloudy.com/mobile-application-testing-documentation/desktop-web-testing.php)
