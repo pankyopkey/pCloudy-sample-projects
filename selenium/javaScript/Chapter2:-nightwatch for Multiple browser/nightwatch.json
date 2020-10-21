@@ -22,9 +22,9 @@
       },
       "skip_testcases_on_fail": false,
       "desiredCapabilities": {
-       "apiKey": "z4kuNbkRoFB2ZBNJqT",
-        "clientName": "sridatta.pani@sstsinc.com",
-        "email": "sridatta.pani@sstsinc.com"
+       "apiKey": "Enter your API Key",
+        "clientName": "Enter your Email",
+        "email": "Enter your Email"
 
       }
     },
