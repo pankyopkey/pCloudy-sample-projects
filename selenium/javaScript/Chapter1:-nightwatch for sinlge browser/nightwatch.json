@@ -1,0 +1,31 @@
+{
+  "src_folders" : ["tests"],
+  "output_folder" : "reports",
+  
+  "test_workers" : {"enabled" : true, "workers" : "auto"},
+ 
+  "test_settings" : {
+    "default" : {
+        "start_process" : false,
+       "use_ssl": true,
+      "default_path_prefix": "/seleniumcloud/wd/hub",
+      "selenium_port"  : 443,
+      "selenium_host"  : "prod-browsercloud-in.pcloudy.com",
+      "silent": false,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : ""
+      },
+ 
+      "desiredCapabilities": {
+   	"apiKey": "Enter your API Key",
+        "clientName": "Enter your Email",
+        "email": "Enter your Email",
+        "os": "Windows",
+        "browserName": "chrome",
+        "browserVersion": "84",
+	"osVersion":"10"
+      }
+    }
+  }
+}

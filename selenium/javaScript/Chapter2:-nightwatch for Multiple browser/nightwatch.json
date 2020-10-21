@@ -1,0 +1,48 @@
+{
+  "src_folders": ["tests"],
+  "output_folder": "reports",
+  "page_objects_path": "",
+  "globals_path": "",
+  "test_workers": {
+    "enabled": true,
+    "workers": 2
+     
+  },
+  "test_settings": {
+    "default": {
+     "start_process" : false,
+       "use_ssl": true,
+      "default_path_prefix": "/seleniumcloud/wd/hub",
+      "selenium_port"  : 443,
+      "selenium_host"  : "prod-browsercloud-in.pcloudy.com",
+      "silent": false,
+      "screenshots" : {
+        "enabled" : true,
+        "path" : ""
+      },
+      "skip_testcases_on_fail": false,
+      "desiredCapabilities": {
+       "apiKey": "z4kuNbkRoFB2ZBNJqT",
+        "clientName": "sridatta.pani@sstsinc.com",
+        "email": "sridatta.pani@sstsinc.com"
+
+      }
+    },
+    "chrome": {
+      "desiredCapabilities": {
+        "os": "Windows",
+        "browserName": "chrome",
+        "browserVersion": "79",
+	"osVersion":"10"
+      }
+    },
+    "firefox": {
+      "desiredCapabilities": {
+        "os": "Windows",
+        "browserName": "firefox",
+        "browserVersion": "76",
+	"osVersion":"8.1"
+      }
+    }
+  }
+}
