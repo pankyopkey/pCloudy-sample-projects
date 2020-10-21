@@ -1,0 +1,11 @@
+{
+  "name": "pcloudy-nightwatchjs",
+  "version": "1.0.0",
+  "description": "NightWatch Sample Project For Pcloudy",
+  "scripts": {
+    "test": "./node_modules/.bin/nightwatch tests"
+  },
+  "devDependencies": {
+    "nightwatch": "^1.5.0"
+  }
+}
