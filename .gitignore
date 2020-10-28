@@ -27,3 +27,5 @@ target/
 *.dll
 *.png
 /.metadata/
+
+*.vs/
