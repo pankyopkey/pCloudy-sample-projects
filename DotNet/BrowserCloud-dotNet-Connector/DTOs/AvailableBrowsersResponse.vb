@@ -16,6 +16,7 @@
         Public ping As Integer = -1
         Public choosenRelayServer As String
         Public status As String
+        Public supportedResolutions As String() = {}
 
         Public Overrides Function ToString() As String
             Return $"{SystemOS.OSName}{SystemOS.OSVersion} - {location} - {ping}ms"

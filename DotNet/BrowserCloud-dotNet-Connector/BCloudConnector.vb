@@ -1,5 +1,6 @@
 ﻿
 
+
 Public Class BCloudConnector
 
     Private _browserCloudUrl As String = Nothing
@@ -94,4 +95,51 @@ Public Class BCloudConnector
         Return p.result
     End Function
 
+    Public Function releaseBrowser(browserCloudAuthToken As String, instance_id As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
+        Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)
+        Dim jsonData = <json>
+                               {"browserCloudAuthToken": "@browserCloudAuthToken",
+                                "instance_id": "@instance_id"}
+                           </json>.Value.Trim
+
+
+        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+        jsonData = jsonData.Replace("@instance_id", instance_id)
+
+
+        Dim p = callService(Of ReleaseBrowserResponseDTO)(url, jsonData)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
+
+    Public Function initiateOpKeySpockClientUtility(browserCloudAuthToken As String, instance_id As String, Spock_Client_Id As String,
+                                                    Spock_ClientName As String, Spock_ServerURL As String,
+                                                    Spock_Username As String, Spock_APIKey As String) As InitiateOpKeySpockClientUtilityResponseDTO.InitiateOpKeySpockClientUtilityResponseResult
+        Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)
+        Dim jsonData = <json>
+                               {"browserCloudAuthToken": "@browserCloudAuthToken",
+                                "instance_id": "@instance_id",
+                                "Spock_Client_Id": "@Spock_Client_Id",
+                                "Spock_ClientName": "@Spock_ClientName",
+                                "Spock_ServerURL": "@Spock_ServerURL",
+                                "Spock_Username": "@Spock_Username",
+                                "Spock_APIKey": "@Spock_APIKey"}
+                           </json>.Value.Trim
+
+
+        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+        jsonData = jsonData.Replace("@instance_id", instance_id)
+        jsonData = jsonData.Replace("@Spock_Client_Id", Spock_Client_Id)
+        jsonData = jsonData.Replace("@Spock_ClientName", Spock_ClientName)
+        jsonData = jsonData.Replace("@Spock_ServerURL", Spock_ServerURL)
+        jsonData = jsonData.Replace("@Spock_Username", Spock_Username.ToString)
+        jsonData = jsonData.Replace("@Spock_APIKey", Spock_APIKey)
+
+
+        Dim p = callService(Of InitiateOpKeySpockClientUtilityResponseDTO)(url, jsonData)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
 End Class
