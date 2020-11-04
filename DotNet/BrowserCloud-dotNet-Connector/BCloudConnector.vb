@@ -84,14 +84,15 @@ Public Class BCloudConnector
         opkey
     End Enum
 
-    Public Function bookBrowser(browserCloudAuthToken As String, instance_id As String, systemOS As String, browserDetails As String, userEmail As String, session_type As SessionType_ENUM, session_name As String) As BookBrowserResponse.BookBrowserResponseResult
+    Public Function bookBrowser(browserCloudAuthToken As String, instance_id As String, OSName As String, OSVersion As String,
+                                browserName As String, browserVersion As String, browserArchitecture As String, userEmail As String, session_type As SessionType_ENUM, session_name As String) As BookBrowserResponse.BookBrowserResponseResult
         'isset($POST_JSON['browserCloudAuthToken']) && isset($POST_JSON['instance_id']) && isset($POST_JSON['systemOS']) && isset($POST_JSON['browserDetails']) && isset($POST_JSON['userEmail']) && isset($POST_JSON['session_type']) && isset($POST_JSON['session_name']))
         Dim url = String.Format("{0}/api/bookBrowser.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id",
-                                "systemOS": "@systemOS",
-                                "browserDetails": "@browserDetails",
+                                "systemOS": {"OSName":"@OSName", "OSVersion":"@OSVersion" },
+                                "browserDetails": {"browserName":"@browserName", "browserVersion":"@browserVersion", "browserArchitecture":"@browserArchitecture"},
                                 "userEmail": "@userEmail",
                                 "session_type": "@session_type",
                                 "session_name": "@session_name"}
@@ -100,8 +101,11 @@ Public Class BCloudConnector
 
         jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
         jsonData = jsonData.Replace("@instance_id", instance_id)
-        jsonData = jsonData.Replace("@systemOS", systemOS)
-        jsonData = jsonData.Replace("@browserDetails", browserDetails)
+        jsonData = jsonData.Replace("@OSName", OSName)
+        jsonData = jsonData.Replace("@OSVersion", OSVersion)
+        jsonData = jsonData.Replace("@browserName", browserName)
+        jsonData = jsonData.Replace("@browserVersion", browserVersion)
+        jsonData = jsonData.Replace("@browserArchitecture", browserArchitecture)
         jsonData = jsonData.Replace("@userEmail", userEmail)
         jsonData = jsonData.Replace("@session_type", session_type.ToString)
         jsonData = jsonData.Replace("@session_name", session_name)
@@ -131,13 +135,15 @@ Public Class BCloudConnector
         Return p.result
     End Function
 
-    Public Function initiateOpKeySpockClientUtility(browserCloudAuthToken As String, instance_id As String, Spock_Client_Id As String,
+    Public Function initiateOpKeySpockClientUtility(browserCloudAuthToken As String, instance_id As String, userEmail As String,
+                                                    Spock_Client_Id As String,
                                                     Spock_ClientName As String, Spock_ServerURL As String,
                                                     Spock_Username As String, Spock_APIKey As String) As InitiateOpKeySpockClientUtilityResponseDTO.InitiateOpKeySpockClientUtilityResponseResult
-        Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)
+        Dim url = String.Format("{0}/api/initiateOpKeySpockClientUtility.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id",
+                                "userEmail": "@userEmail",
                                 "Spock_Client_Id": "@Spock_Client_Id",
                                 "Spock_ClientName": "@Spock_ClientName",
                                 "Spock_ServerURL": "@Spock_ServerURL",
@@ -148,6 +154,7 @@ Public Class BCloudConnector
 
         jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
         jsonData = jsonData.Replace("@instance_id", instance_id)
+        jsonData = jsonData.Replace("@userEmail", userEmail)
         jsonData = jsonData.Replace("@Spock_Client_Id", Spock_Client_Id)
         jsonData = jsonData.Replace("@Spock_ClientName", Spock_ClientName)
         jsonData = jsonData.Replace("@Spock_ServerURL", Spock_ServerURL)
