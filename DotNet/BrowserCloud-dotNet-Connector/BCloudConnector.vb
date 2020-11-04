@@ -45,7 +45,7 @@ Public Class BCloudConnector
     End Function
 
 
-    Public Function getAvailableBrowsers(browserCloudAuthToken As String) As AvailableBrowsersResponse.AvailableBrowsersResponseResult
+    Public Function getAvailableBrowsers(browserCloudAuthToken As String) As AvailableBrowsersResponse.BrowserInstance()
         Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken"}
@@ -57,7 +57,25 @@ Public Class BCloudConnector
         Dim p = callService(Of AvailableBrowsersResponse)(url, jsonData)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
-        Return p.result
+        Return p.result.instances
+    End Function
+
+    Public Function getPreferredBrowser(browserCloudAuthToken As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As AvailableBrowsersResponse.BrowserInstance
+        Dim allInstances = Me.getAvailableBrowsers(browserCloudAuthToken)
+        For Each itm In allInstances
+            If itm.status <> "available" Then Continue For
+            If itm.SystemOS.OSName = OS_Name AndAlso itm.SystemOS.OSVersion = OS_Version Then
+                For Each browser In itm.browsersDetails
+                    If browser.browserName = BrowserName AndAlso browser.browserVersion = BrowserVersion Then
+                        Return itm
+                    End If
+                Next
+            End If
+
+
+        Next
+
+        Throw New BrowserCloudError("Unable to find browser with the given criteria. It may have been booked by someone else")
     End Function
 
     Public Enum SessionType_ENUM
@@ -68,7 +86,7 @@ Public Class BCloudConnector
 
     Public Function bookBrowser(browserCloudAuthToken As String, instance_id As String, systemOS As String, browserDetails As String, userEmail As String, session_type As SessionType_ENUM, session_name As String) As BookBrowserResponse.BookBrowserResponseResult
         'isset($POST_JSON['browserCloudAuthToken']) && isset($POST_JSON['instance_id']) && isset($POST_JSON['systemOS']) && isset($POST_JSON['browserDetails']) && isset($POST_JSON['userEmail']) && isset($POST_JSON['session_type']) && isset($POST_JSON['session_name']))
-        Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)
+        Dim url = String.Format("{0}/api/bookBrowser.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id",
