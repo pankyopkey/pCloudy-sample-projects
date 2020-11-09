@@ -118,7 +118,7 @@ Public Class BCloudConnector
     End Function
 
     Public Function releaseBrowser(browserCloudAuthToken As String, instance_id As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
-        Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)
+        Dim url = String.Format("{0}/api/releaseBrowser.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id"}
@@ -167,4 +167,27 @@ Public Class BCloudConnector
 
         Return p.result
     End Function
+
+
+    Public Function initiateScreenSharing(browserCloudAuthToken As String, instance_id As String, userEmail As String) As InitiateScreenSharingResponse.InitiateScreenSharingResponseResult
+        Dim url = String.Format("{0}/api/initiateScreenSharing.php", _browserCloudUrl)
+        Dim jsonData = <json>
+                               {"browserCloudAuthToken": "@browserCloudAuthToken",
+                                "instance_id": "@instance_id",
+                                "userEmail": "@userEmail"}
+                           </json>.Value.Trim
+
+
+        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+        jsonData = jsonData.Replace("@instance_id", instance_id)
+        jsonData = jsonData.Replace("@userEmail", userEmail)
+
+
+
+        Dim p = callService(Of InitiateScreenSharingResponse)(url, jsonData)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
+
 End Class
