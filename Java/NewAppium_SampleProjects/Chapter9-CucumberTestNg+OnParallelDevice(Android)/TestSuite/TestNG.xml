@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+ 
+   <test name="Test1">
+  <parameter name="deviceName" value="ONEPLUS_5_Android_9.0.0_d9e3e"/>
+    <classes>
+      <class name="runner.RunTest"/>
+    </classes>
+  </test> 
+  
+  
+  <test name="Test">
+  <parameter name="deviceName" value="SAMSUNG_GalaxyJ52016_Android_7.1.1_09c99"/>
+    <classes>
+      <class name="runner.RunTest"/>
+    </classes>
+  </test> 
+ </suite> <!-- Suite -->
