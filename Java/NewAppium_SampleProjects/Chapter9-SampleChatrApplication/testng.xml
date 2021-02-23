@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+  <test name="Test">
+  <parameter name="deviceName" value="SAMSUNG_GalaxyJ4Plus_Android_9.0.0_94cc6"/>
+    <classes>
+      <class name="com.pCloudy.testNG.Runner"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test1">
+  <parameter name="deviceName" value="SAMSUNG_GalaxyS8_Android_8.0.0_7a932"/>
+    <classes>
+      <class name="com.pCloudy.testNG.TestCase"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
