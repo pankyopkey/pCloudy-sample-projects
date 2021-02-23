@@ -3,22 +3,30 @@ package com.pCloudy.testNG;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.AppiumDriver;
+
 public class TestCase extends Runner{
+	
+	public  AppiumDriver<WebElement> Hostdriver;
+	public  AppiumDriver<WebElement> Childdriver;
 	
 	@Test
 	public void Test() throws IOException, InterruptedException {     
 
-		System.out.println(driverAppium.size());
-		driverAppium.get(0).findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept']")).click(); 
+		Hostdriver=driverlistAppium.get(0);
+		Childdriver=driverlistAppium.get(1);
+		
+		System.out.println(driverlistAppium.size());
+		Hostdriver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/accept']")).click(); 
 		Thread.sleep(5000);
 
 
-		driverAppium.get(1).findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/btnrefuse']")).click();
+		Childdriver.findElement(By.xpath("//android.widget.Button[@resource-id='com.pcloudy.appiumdemo:id/btnrefuse']")).click();
         Thread.sleep(5000);
 
 
@@ -26,8 +34,8 @@ public class TestCase extends Runner{
 	@AfterMethod
 	public void endTest() throws  IOException {
 
-		driverAppium.get(0).quit();
-		driverAppium.get(1).quit();
+		Hostdriver.quit();
+		Childdriver.quit();
 		
 	}
 	

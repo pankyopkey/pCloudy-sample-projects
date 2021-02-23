@@ -27,10 +27,10 @@ public class Runner {
 
 	AppiumDriverLocalService service;
 	public AppiumDriver<WebElement> driver;
-	driverIntialize ob=new driverIntialize();
+	DriverIntialize driverIntial=new DriverIntialize();
 	String folder_name;
 	DateFormat df;
-    static ArrayList<AppiumDriver> driverAppium=new ArrayList();
+    static ArrayList<AppiumDriver> driverlistAppium=new ArrayList();
 	
 
 	@Parameters({"deviceName"})
@@ -52,9 +52,9 @@ public class Runner {
 		capabilities.setCapability("appActivity", "com.ba.mobile.LaunchActivity");
 		capabilities.setCapability("pCloudy_EnableVideo", true);
 		
-		ob.capability=capabilities;
-		ob.driver= new AndroidDriver(new URL("https://device.pcloudy.com/appiumcloud/wd/hub"), ob.capability);
-		driverAppium.add(ob.driver);
+		driverIntial.capability=capabilities;
+		driverIntial.driver= new AndroidDriver(new URL("https://device.pcloudy.com/appiumcloud/wd/hub"), driverIntial.capability);
+		driverlistAppium.add(driverIntial.driver);
 
 	}
 	
