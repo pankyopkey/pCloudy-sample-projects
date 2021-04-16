@@ -66,7 +66,7 @@ Public Class BCloudConnector
             If itm.status <> "available" Then Continue For
             If itm.SystemOS.OSName = OS_Name AndAlso itm.SystemOS.OSVersion = OS_Version Then
                 For Each browser In itm.browsersDetails
-                    If browser.browserName = BrowserName AndAlso browser.browserVersion = BrowserVersion Then
+                    If browser.browserName = BrowserName AndAlso getBrowserMajorVersion(browser.browserVersion) = getBrowserMajorVersion(BrowserVersion) Then
                         Return itm
                     End If
                 Next
@@ -76,6 +76,16 @@ Public Class BCloudConnector
         Next
 
         Throw New BrowserCloudError("Unable to find browser with the given criteria. It may have been booked by someone else")
+    End Function
+
+    Private Function getBrowserMajorVersion(browserVersion As String) As String
+        If (browserVersion.Contains(".")) Then
+
+            Return browserVersion.Split("."c)(0)
+
+        Else
+            Return browserVersion
+        End If
     End Function
 
     Public Enum SessionType_ENUM
