@@ -8,9 +8,9 @@ exports.config = {
       browserVersion: "79",
       os: "Windows",
       osVersion: "8.1",
-      clientName: "sridatta.pani@sstsinc.com",
-      apiKey: "z4kuNbkRoFB2ZBNJqT",
-      email: "sridatta.pani@sstsinc.com"
+      clientName: "your email id",
+      apiKey: "your api key",
+      email: "your email id"
     }
   ],
 

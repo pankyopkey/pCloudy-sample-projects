@@ -7,9 +7,9 @@ exports.config = {
 
   maxInstances: 10,
   commonCapabilities: {
-      clientName: "sridatta.pani@sstsinc.com",
-      apiKey: "z4kuNbkRoFB2ZBNJqT",
-      email: "sridatta.pani@sstsinc.com"
+      clientName: "your email id",
+      apiKey: "your Api key",
+      email: "your email id"
   },
 
   capabilities: [
