@@ -200,4 +200,53 @@ Public Class BCloudConnector
         Return p.result
     End Function
 
+    Public Function setResolution(browserCloudAuthToken As String, instance_id As String, userEmail As String, width As Integer, height As Integer) As SetResolutionResponse.SetResolutionResponseResult
+        Dim url = String.Format("{0}/api/setResolution.php", _browserCloudUrl)
+        Dim jsonData = <json>
+                               {"browserCloudAuthToken": "@browserCloudAuthToken",
+                                "instance_id": "@instance_id",
+                                "userEmail": "@userEmail",
+                                "width": "@width",
+                                "height": "@height"}
+                           </json>.Value.Trim
+
+
+        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+        jsonData = jsonData.Replace("@instance_id", instance_id)
+        jsonData = jsonData.Replace("@userEmail", userEmail)
+        jsonData = jsonData.Replace("@width", width)
+        jsonData = jsonData.Replace("@height", height)
+
+
+
+        Dim p = callService(Of SetResolutionResponse)(url, jsonData)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
+
+    Public Function getResolution(browserCloudAuthToken As String, instance_id As String, userEmail As String) As GetResolutionResponse.GetResolutionResponseResult
+        Dim url = String.Format("{0}/api/setResolution.php", _browserCloudUrl)
+        Dim jsonData = <json>
+                               {"browserCloudAuthToken": "@browserCloudAuthToken",
+                                "instance_id": "@instance_id",
+                                "userEmail": "@userEmail",
+                                "width": "@width",
+                                "height": "@height"}
+                           </json>.Value.Trim
+
+
+        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+        jsonData = jsonData.Replace("@instance_id", instance_id)
+        jsonData = jsonData.Replace("@userEmail", userEmail)
+        jsonData = jsonData.Replace("@width", width)
+        jsonData = jsonData.Replace("@height", height)
+
+
+
+        Dim p = callService(Of SetResolutionResponse)(url, jsonData)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
 End Class
