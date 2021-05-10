@@ -75,6 +75,8 @@
     <Compile Include="DTOs\InitiateScreenSharingResponse.vb" />
     <Compile Include="DTOs\InitiateOpKeySpockClientUtilityResponseResult.vb" />
     <Compile Include="DTOs\ReleaseBrowserResponseDTO.vb" />
+    <Compile Include="DTOs\GetResolutionResponse.vb" />
+    <Compile Include="DTOs\SetResolutionResponse.vb" />
     <Compile Include="Helper.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

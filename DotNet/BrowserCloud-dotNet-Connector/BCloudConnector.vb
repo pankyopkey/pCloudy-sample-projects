@@ -230,21 +230,18 @@ Public Class BCloudConnector
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id",
-                                "userEmail": "@userEmail",
-                                "width": "@width",
-                                "height": "@height"}
+                                "userEmail": "@userEmail"}
                            </json>.Value.Trim
 
 
         jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
         jsonData = jsonData.Replace("@instance_id", instance_id)
         jsonData = jsonData.Replace("@userEmail", userEmail)
-        jsonData = jsonData.Replace("@width", width)
-        jsonData = jsonData.Replace("@height", height)
 
 
 
-        Dim p = callService(Of SetResolutionResponse)(url, jsonData)
+
+        Dim p = callService(Of GetResolutionResponse)(url, jsonData)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result
