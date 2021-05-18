@@ -1,4 +1,6 @@
-﻿Public Class AvailableBrowsersResponse
+﻿Imports System.Linq
+
+Public Class AvailableBrowsersResponse
 
     Public result As AvailableBrowsersResponseResult
 
@@ -18,10 +20,21 @@
         Public status As String
         Public supportedResolutions As String() = {}
 
+        Public Function getSupportedResolutions() As BrowserResolution()
+            Return (From itm In supportedResolutions Select New BrowserResolution With {
+                                                        .Width = Convert.ToInt32(itm.Split("x")(0)),
+                                                        .Height = Convert.ToInt32(itm.Split("x")(1))
+                                                        }).ToArray()
+        End Function
+
         Public Overrides Function ToString() As String
             Return $"{SystemOS.OSName}{SystemOS.OSVersion} - {location} - {ping}ms"
         End Function
 
+        Public Class BrowserResolution
+            Public Height As Integer
+            Public Width As Integer
+        End Class
 
         Public Class BrowserDetail
             Public browserName As String
