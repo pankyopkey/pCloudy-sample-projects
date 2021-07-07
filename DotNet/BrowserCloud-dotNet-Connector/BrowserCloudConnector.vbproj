@@ -72,6 +72,7 @@
     <Compile Include="DTOs\AuthenticateResponseDTO.vb" />
     <Compile Include="DTOs\AvailableBrowsersResponse.vb" />
     <Compile Include="DTOs\BookBrowserResponse.vb" />
+    <Compile Include="DTOs\InitiateFollowMeAgentResponseDTO.vb" />
     <Compile Include="DTOs\InitiateScreenSharingResponse.vb" />
     <Compile Include="DTOs\InitiateOpKeySpockClientUtilityResponseResult.vb" />
     <Compile Include="DTOs\ReleaseBrowserResponseDTO.vb" />

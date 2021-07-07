@@ -178,6 +178,33 @@ Public Class BCloudConnector
         Return p.result
     End Function
 
+    Public Function initiateFollowMeAgent(browserCloudAuthToken As String, instance_id As String, userEmail As String,
+                                                     FollowMe_HubUrl As String, FollowMe_SessionId As String,
+                                                     FollowMe_RoutingKey As String) As InitiateFollowMeAgentResponseDTO.InitiateFollowMeAgentResponseResult
+        Dim url = String.Format("{0}/api/initiateFollowMeAgent.php", _browserCloudUrl)
+        Dim jsonData = <json>
+                               {"browserCloudAuthToken": "@browserCloudAuthToken",
+                                "instance_id": "@instance_id",
+                                "userEmail": "@userEmail",
+                                "FollowMe_HubUrl": "@FollowMe_HubUrl",
+                                "FollowMe_SessionId": "@FollowMe_SessionId",
+                                "FollowMe_RoutingKey": "@FollowMe_RoutingKey"}
+                           </json>.Value.Trim
+
+
+        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+        jsonData = jsonData.Replace("@instance_id", instance_id)
+        jsonData = jsonData.Replace("@userEmail", userEmail)
+        jsonData = jsonData.Replace("@FollowMe_HubUrl", FollowMe_HubUrl)
+        jsonData = jsonData.Replace("@FollowMe_SessionId", FollowMe_SessionId)
+        jsonData = jsonData.Replace("@FollowMe_RoutingKey", FollowMe_RoutingKey)
+
+
+        Dim p = callService(Of InitiateFollowMeAgentResponseDTO)(url, jsonData)
+        If p.result.Error IsNot Nothing Then Throw New BrowserCloudError(p.result.Error)
+
+        Return p.result
+    End Function
 
     Public Function initiateScreenSharing(browserCloudAuthToken As String, instance_id As String, userEmail As String) As InitiateScreenSharingResponse.InitiateScreenSharingResponseResult
         Dim url = String.Format("{0}/api/initiateScreenSharing.php", _browserCloudUrl)
@@ -246,4 +273,5 @@ Public Class BCloudConnector
 
         Return p.result
     End Function
+
 End Class
