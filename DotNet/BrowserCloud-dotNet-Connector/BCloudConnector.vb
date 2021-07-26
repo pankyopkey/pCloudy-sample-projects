@@ -180,7 +180,9 @@ Public Class BCloudConnector
 
     Public Function initiateFollowMeAgent(browserCloudAuthToken As String, instance_id As String, userEmail As String,
                                                      FollowMe_HubUrl As String, FollowMe_SessionId As String,
-                                                     FollowMe_RoutingKey As String) As InitiateFollowMeAgentResponseDTO.InitiateFollowMeAgentResponseResult
+                                                     FollowMe_RoutingKey As String, FollowMe_PluginName As String,
+                                                     FollowMe_BrowserName As String, FollowMe_BrowserUrl As String,
+                                                     FollowMe_BrowserResolution As String) As InitiateFollowMeAgentResponseDTO.InitiateFollowMeAgentResponseResult
         Dim url = String.Format("{0}/api/initiateFollowMeAgent.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
@@ -188,7 +190,11 @@ Public Class BCloudConnector
                                 "userEmail": "@userEmail",
                                 "FollowMe_HubUrl": "@FollowMe_HubUrl",
                                 "FollowMe_SessionId": "@FollowMe_SessionId",
-                                "FollowMe_RoutingKey": "@FollowMe_RoutingKey"}
+                                "FollowMe_RoutingKey": "@FollowMe_RoutingKey",
+                                "FollowMe_PluginName": "@FollowMe_PluginName",
+                                "FollowMe_BrowserName": "@FollowMe_BrowserName",
+                                "FollowMe_BrowserUrl": "@FollowMe_BrowserUrl",
+                                "FollowMe_BrowserResolution": "@FollowMe_BrowserResolution"}
                            </json>.Value.Trim
 
 
@@ -198,6 +204,10 @@ Public Class BCloudConnector
         jsonData = jsonData.Replace("@FollowMe_HubUrl", FollowMe_HubUrl)
         jsonData = jsonData.Replace("@FollowMe_SessionId", FollowMe_SessionId)
         jsonData = jsonData.Replace("@FollowMe_RoutingKey", FollowMe_RoutingKey)
+        jsonData = jsonData.Replace("@FollowMe_PluginName", FollowMe_PluginName)
+        jsonData = jsonData.Replace("@FollowMe_BrowserName", FollowMe_BrowserName)
+        jsonData = jsonData.Replace("@FollowMe_BrowserUrl", FollowMe_BrowserUrl)
+        jsonData = jsonData.Replace("@FollowMe_BrowserResolution", FollowMe_BrowserResolution)
 
 
         Dim p = callService(Of InitiateFollowMeAgentResponseDTO)(url, jsonData)
@@ -253,7 +263,7 @@ Public Class BCloudConnector
     End Function
 
     Public Function getResolution(browserCloudAuthToken As String, instance_id As String, userEmail As String) As GetResolutionResponse.GetResolutionResponseResult
-        Dim url = String.Format("{0}/api/setResolution.php", _browserCloudUrl)
+        Dim url = String.Format("{0}/api/getResolution.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id",
