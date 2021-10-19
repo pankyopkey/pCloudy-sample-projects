@@ -273,11 +273,11 @@ Namespace pCloudy
             Dim url = String.Format("{0}/book_device", endpoint)
             Dim bookingTypeStr = bookingType.ToString()
 
-            If (bookingType = BookingType.OpKey_iOS_Playback OrElse bookingType = BookingType.OpKey_iOS_Recorder) Then
-                bookingTypeStr = "ios recorder"
-            Else
-                bookingTypeStr = Nothing
-            End If
+            'If (bookingType = BookingType.OpKey_iOS_Playback OrElse bookingType = BookingType.OpKey_iOS_Recorder) Then
+            '    bookingTypeStr = "ios recorder"
+            'Else
+            '    bookingTypeStr = Nothing
+            'End If
 
             Dim jsonData = <json>
                                {"token": "@token",
@@ -286,18 +286,20 @@ Namespace pCloudy
                                 "booking_type":"@booking_type"}
                            </json>.Value.Trim
 
-            If bookingTypeStr Is Nothing Then
-                jsonData = <json>
-                               {"token": "@token",
-                                "duration":@duration,
-                                "id":@id}
-                           </json>.Value.Trim
-            End If
+            'If bookingTypeStr Is Nothing Then
+            '    jsonData = <json>
+            '                   {"token": "@token",
+            '                    "duration":@duration,
+            '                    "id":@id}
+            '               </json>.Value.Trim
+            'End If
 
             jsonData = jsonData.Replace("@token", authToken)
             jsonData = jsonData.Replace("@duration", duration.TotalMinutes.ToString)
             jsonData = jsonData.Replace("@id", deviceID.ToString)
-            If bookingTypeStr IsNot Nothing Then jsonData = jsonData.Replace("@booking_type", bookingTypeStr)
+            'If bookingTypeStr IsNot Nothing Then
+            jsonData = jsonData.Replace("@booking_type", bookingTypeStr)
+            'End If
 
             Dim p = callService(Of generic.BookingDTO)(url, jsonData)
 
@@ -467,21 +469,17 @@ Namespace pCloudy
 #Region "            Appium Specific Apis"
 
         Function bookDevicesForAppium(AuthToken As String,
-                                      devices As IEnumerable(Of MobileDeviceDTO), platformName As String,
+                                      devices As IEnumerable(Of IEnumerable(Of MobileDeviceDTO)), platformName As String,
                                       duration As TimeSpan, friendlySessionName As String) As appium.BookingDtoDevice()
             'curl -H 'Content-Type: application/json' -d '{"token": "token", "duration": 15, "platform": "android", "devices" : [10]}' https://192.168.0.100/api/appium/init -k
             Dim url = String.Format("{0}/appium/init", endpoint)
 
-            Dim deviceIds As New List(Of String)
-            For i = 0 To devices.Count - 1
-                deviceIds.Add(devices(i).id)
-            Next
 
-            Return bookDevicesForAppium(AuthToken, deviceIds, platformName, duration, friendlySessionName)
+            Return bookDevicesForAppium(AuthToken, devices, platformName, duration, friendlySessionName)
 
         End Function
 
-        Function bookDevicesForAppium(AuthToken As String, selectedDevices As List(Of String), platformName As String,
+        Function bookDevicesForAppium(AuthToken As String, selectedDevices As IEnumerable(Of MobileDeviceDTO), platformName As String,
                                       duration As TimeSpan, friendlySessionName As String) As appium.BookingDtoDevice()
             'curl -H 'Content-Type: application/json' -d '{"token": "token", "duration": 15, "platform": "android", "devices" : [10]}' https://192.168.0.100/api/appium/init -k
             Dim url = String.Format("{0}/appium/init", endpoint)
@@ -497,7 +495,7 @@ Namespace pCloudy
             jsonData = jsonData.Replace("@token", AuthToken)
             jsonData = jsonData.Replace("@duration", duration.TotalMinutes.ToString)
             jsonData = jsonData.Replace("@platform", platformName)
-            jsonData = jsonData.Replace("@devices", String.Join(",", (selectedDevices.ToArray())))
+            jsonData = jsonData.Replace("@devices", String.Join(",", (From itm In selectedDevices Select itm.id)))
 
             jsonData = jsonData.Replace("@session", friendlySessionName)
             jsonData = jsonData.Replace("@minimum_device_count", selectedDevices.Count.ToString) 'we need every devices to be booked, or the whole booking request to be cancelled
@@ -739,16 +737,21 @@ Namespace pCloudy
         End Sub
 
         Public Function takeDeviceScreenshot(authToken As String, rid As Integer) As CaptureDeviceScreenshotResultDto
+            Return takeDeviceScreenshot(authToken, rid, True)
+        End Function
+
+        Public Function takeDeviceScreenshot(authToken As String, rid As Integer, embedInSkin As Boolean) As CaptureDeviceScreenshotResultDto
 
             Dim url = String.Format("{0}/capture_device_screenshot", endpoint)
 
 
             Dim jsonData = <json>
-                               {"token": "@token", "rid": "@rid"}
+                               {"token": "@token", "rid": "@rid", "skin":"@skin"}
                            </json>.Value.Trim
 
             jsonData = jsonData.Replace("@token", authToken)
             jsonData = jsonData.Replace("@rid", "" & rid)
+            jsonData = jsonData.Replace("@skin", "" & embedInSkin.ToString().ToLower())
             'jsonData = jsonData.Replace("@release_after", "" + releaseAfter.TotalMinutes)
 
             Dim p = callService(Of CaptureDeviceScreenshotDto)(url, jsonData)
