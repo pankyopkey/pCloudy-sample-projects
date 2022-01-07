@@ -60,6 +60,8 @@ Partial Class BCloudConnector
             'ServicePointManager.ServerCertificateValidationCallback = Function()
             '                                                              Return True
             '                                                          End Function
+            ' ServicePointManager.Expect100Continue = True
+            ' ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
             Dim uri = New Uri(URL)
             _webClient.Headers.Add("Content-Type", "application/json")

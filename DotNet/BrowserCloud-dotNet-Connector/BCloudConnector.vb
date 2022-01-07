@@ -3,13 +3,13 @@
 
 Public Class BCloudConnector
 
-    Private _browserCloudUrl As String = Nothing
+    Private _browserCloudUrl As Uri = Nothing
 
     Public Sub New(Optional browserCloudUrl As String = "https://prod-browsercloud-in.pcloudy.com")
-        _browserCloudUrl = browserCloudUrl
+        _browserCloudUrl = New Uri(browserCloudUrl)
     End Sub
 
-    Public Function authenticateUser(pCloudyEndpoint As String, userEmail As String, pCloudyAccessKey As String) As String
+    Public Function authenticateUser(pCloudyEndpoint As Uri, userEmail As String, pCloudyAccessKey As String) As String
         Dim url = String.Format("{0}/api/authenticateWithBrowserCloud.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"pCloudyEndpoint": "@pCloudyEndpoint",
@@ -17,7 +17,7 @@ Public Class BCloudConnector
                                 "pCloudyAccessKey": "@pCloudyAccessKey"}
                            </json>.Value.Trim
 
-        jsonData = jsonData.Replace("@pCloudyEndpoint", pCloudyEndpoint)
+        jsonData = jsonData.Replace("@pCloudyEndpoint", pCloudyEndpoint.ToString())
         jsonData = jsonData.Replace("@userEmail", userEmail)
         jsonData = jsonData.Replace("@pCloudyAccessKey", pCloudyAccessKey)
 
