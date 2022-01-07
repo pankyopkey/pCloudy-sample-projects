@@ -83,11 +83,6 @@
     <Compile Include="DTOs\SetResolutionResponse.vb" />
     <Compile Include="Helper.vb" />
     <Compile Include="Module1.vb" />
-    <Compile Include="My Project\Application1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
