@@ -145,34 +145,26 @@ Public Class BCloudConnector
         Return p.result
     End Function
 
-    Public Function initiateOpKeySpockClientUtility(browserCloudAuthToken As String, instance_id As String, userEmail As String,
-                                                    Spock_Client_Id As String,
-                                                    Spock_ClientName As String, Spock_ServerURL As String,
-                                                    Spock_Username As String, Spock_APIKey As String) As InitiateOpKeySpockClientUtilityResponseDTO.InitiateOpKeySpockClientUtilityResponseResult
-        Dim url = String.Format("{0}/api/initiateOpKeySpockClientUtility.php", _browserCloudUrl)
+    Public Function initiateOpKeySpockTeleportingTunnel(browserCloudAuthToken As String, instance_id As String, userEmail As String,
+                                                    Spock_Token As String) As InitiateOpKeySpockTeleportingTunnelResponseDTO.InitiateOpKeySpockTeleportingTunnelResponseResult
+        Dim url = String.Format("{0}/api/initiateOpKeySpockTeleportingTunnel.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"browserCloudAuthToken": "@browserCloudAuthToken",
                                 "instance_id": "@instance_id",
                                 "userEmail": "@userEmail",
-                                "Spock_Client_Id": "@Spock_Client_Id",
-                                "Spock_ClientName": "@Spock_ClientName",
-                                "Spock_ServerURL": "@Spock_ServerURL",
-                                "Spock_Username": "@Spock_Username",
-                                "Spock_APIKey": "@Spock_APIKey"}
+                                "Spock_Token": "@Spock_Token"
+                               }
                            </json>.Value.Trim
 
 
         jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
         jsonData = jsonData.Replace("@instance_id", instance_id)
         jsonData = jsonData.Replace("@userEmail", userEmail)
-        jsonData = jsonData.Replace("@Spock_Client_Id", Spock_Client_Id)
-        jsonData = jsonData.Replace("@Spock_ClientName", Spock_ClientName)
-        jsonData = jsonData.Replace("@Spock_ServerURL", Spock_ServerURL)
-        jsonData = jsonData.Replace("@Spock_Username", Spock_Username.ToString)
-        jsonData = jsonData.Replace("@Spock_APIKey", Spock_APIKey)
+        jsonData = jsonData.Replace("@Spock_Token", Spock_Token)
 
 
-        Dim p = callService(Of InitiateOpKeySpockClientUtilityResponseDTO)(url, jsonData)
+
+        Dim p = callService(Of InitiateOpKeySpockTeleportingTunnelResponseDTO)(url, jsonData)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result

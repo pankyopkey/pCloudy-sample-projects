@@ -77,7 +77,7 @@
     <Compile Include="DTOs\BookBrowserResponse.vb" />
     <Compile Include="DTOs\InitiateFollowMeAgentResponseDTO.vb" />
     <Compile Include="DTOs\InitiateScreenSharingResponse.vb" />
-    <Compile Include="DTOs\InitiateOpKeySpockClientUtilityResponseResult.vb" />
+    <Compile Include="DTOs\InitiateOpKeySpockTeleportingTunnelResponseResult.vb" />
     <Compile Include="DTOs\ReleaseBrowserResponseDTO.vb" />
     <Compile Include="DTOs\GetResolutionResponse.vb" />
     <Compile Include="DTOs\SetResolutionResponse.vb" />
