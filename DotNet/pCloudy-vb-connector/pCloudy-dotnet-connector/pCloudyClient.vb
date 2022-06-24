@@ -55,6 +55,8 @@ Namespace pCloudy
                 'ServicePointManager.ServerCertificateValidationCallback = Function()
                 '                                                              Return True
                 '                                                          End Function
+                ServicePointManager.Expect100Continue = True
+                ServicePointManager.SecurityProtocol = 3072
 
                 Dim uri = New Uri(URL)
                 Dim Str = _webClient.DownloadString(uri)
@@ -310,6 +312,25 @@ Namespace pCloudy
             Dim returnVal = p.result
             Return returnVal
         End Function
+
+        Public Sub tryOpeningScreenLock(authToken As String, rid As Integer, passCode As String, deviceWidth As Integer, deviceHeight As Integer)
+            ' https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb
+
+            'Press Home Button
+            Me.executeAdbCommand(authToken, rid, "adb shell input keyevent KEYCODE_HOME")
+
+
+            'Swipe to Unlock
+            Dim x1 = deviceWidth / 2
+            Dim y1 = deviceHeight - (deviceHeight * 10 / 100)
+            Dim x2 = x1
+            Dim y2 = deviceHeight - (deviceHeight * 90 / 100)
+            Me.executeAdbCommand(authToken, rid, String.Format("adb shell input touchscreen swipe {0} {1} {2} {3}", x1, y1, x2, y2))
+            'Enter the Passcode
+            Me.executeAdbCommand(authToken, rid, "adb shell input text " & passCode)
+            'Press return
+            Me.executeAdbCommand(authToken, rid, "adb shell input keyevent 66")
+        End Sub
 
         Public Function getDevicePageURL(authToken As String, deviceBookingDto As generic.BookingDTOResult) As Uri
             Dim url = String.Format("{0}/get_device_url", endpoint)
