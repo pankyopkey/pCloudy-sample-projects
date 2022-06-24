@@ -315,10 +315,10 @@ Namespace pCloudy
 
         Public Sub tryOpeningScreenLock(authToken As String, rid As Integer, passCode As String, deviceWidth As Integer, deviceHeight As Integer)
             ' https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb
-
+            Threading.Thread.Sleep(500)
             'Press Home Button
             Me.executeAdbCommand(authToken, rid, "adb shell input keyevent KEYCODE_HOME")
-
+            Threading.Thread.Sleep(500)
 
             'Swipe to Unlock
             Dim x1 = deviceWidth / 2
@@ -326,8 +326,10 @@ Namespace pCloudy
             Dim x2 = x1
             Dim y2 = deviceHeight - (deviceHeight * 90 / 100)
             Me.executeAdbCommand(authToken, rid, String.Format("adb shell input touchscreen swipe {0} {1} {2} {3}", x1, y1, x2, y2))
+            Threading.Thread.Sleep(500)
             'Enter the Passcode
             Me.executeAdbCommand(authToken, rid, "adb shell input text " & passCode)
+            Threading.Thread.Sleep(500)
             'Press return
             Me.executeAdbCommand(authToken, rid, "adb shell input keyevent 66")
         End Sub
