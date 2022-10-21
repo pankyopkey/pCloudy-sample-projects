@@ -102,7 +102,9 @@ public class pCloudyRunner {
 
 	@AfterMethod
 	public void endTest() throws ConnectError, IOException {
-
+		//	Generate pcloudy shareable report URL to stakeholders for reporting purposes,
+		String link = (String)driver.executeScript("pCloudy_getReportLink");
+		System.out.println("pCloudy Report URL is: " + link);
 		driver.quit();
 	}
 
