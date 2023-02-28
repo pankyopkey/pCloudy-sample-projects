@@ -1,7 +1,7 @@
 exports.config = {
 
     protocol: 'https',
-    host: 'device.pcloudy.com', 
+    hostname: 'device.pcloudy.com', 
     port: 443,    
     path: '/appiumcloud/wd/hub',
 
