@@ -9,6 +9,6 @@
 4. Enter your "ApiKey" in ***pCloudy_ApiKey="Enter your API Key"*** in "Singledevice.test.js". 
 5. Open the terminal where the project is located and run the script by running the following command in your terminal :
  ```bash 
-    npm test Singledevice.test.js
+    npm test singleDevice.test.js
 ``` 
        
