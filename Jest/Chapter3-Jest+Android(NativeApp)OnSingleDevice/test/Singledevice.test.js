@@ -3,8 +3,8 @@
 
   const Capabilities={
     browserName: '',
-    pCloudy_Username: 'Enter your Email-id',
-    pCloudy_ApiKey: 'Enter your API Key',
+    pCloudy_Username: 'abhinav.purokait@sstsinc.com',
+    pCloudy_ApiKey: '49zfjq28dxchvnxgg35nqpfd',
     pCloudy_ApplicationName: 'pCloudyAppiumDemo-1674560861.apk',
     pCloudy_DurationInMinutes: '10',
     pCloudy_DeviceFullName: 'GOOGLE_Pixel7Pro_Android_13.0.0_dbf82',

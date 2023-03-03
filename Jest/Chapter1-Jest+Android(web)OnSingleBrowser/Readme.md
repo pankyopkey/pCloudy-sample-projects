@@ -3,7 +3,7 @@
 1. Need to install Node And NPM [Recomended latest version]
 2. Need to install JEST by the following command : 
     ```bash 
-    npm install --save-dev jest --force
+    npm i
     ```
 3. Enter your "MailId" in ***pCloudy_Username="Enter your Email-id"*** in "Singledevice.test.js".
 4. Enter your "ApiKey" in ***pCloudy_ApiKey="Enter your API Key"*** in "Singledevice.test.js". 
