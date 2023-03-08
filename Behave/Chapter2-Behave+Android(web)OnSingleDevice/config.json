@@ -1,0 +1,17 @@
+{
+    "capabilities": 
+    {
+        "browserName": "chrome",
+        "pCloudy_Username": "abhinav.purokait@sstsinc.com",
+        "pCloudy_ApiKey": "49zfjq28dxchvnxgg35nqpfd", 
+        "pCloudy_DurationInMinutes": "10",
+        "pCloudy_DeviceFullName": "GOOGLE_Pixel7_Android_13.0.0_81870",
+        "pCloudy_DeviceManafacturer": "Google",
+        "pCloudy_platformVersion": "13.0.0",
+        "platformName": "Android",
+        "automationName": "uiautomator2",
+        "newCommandTimeout": "600",
+        "launchTimeout": "90000",
+        "pCloudy_EnableVideo" : "true"
+    }
+}
