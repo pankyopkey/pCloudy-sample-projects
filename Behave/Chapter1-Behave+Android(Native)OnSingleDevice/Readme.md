@@ -1,7 +1,7 @@
 **<font color ="skyblue"><h2>Prerequisite and execution of the Test script in Behave</h2>**</font><br>
 
 1. Need to install Python and PIP [Recomended latest version]<br><br>
-2. Create a Virtual Environmrnt <a href="https://docs.python.org/3/library/venv.html">venv</a><br><br>
+2. Create a Virtual Environmrnt <a target="_blank" href="https://docs.python.org/3/library/venv.html">venv</a><br><br>
 3. Copy all the file in the venv directory<br><br>
 4. Run the following command to install all the dependencies <br><br>
     ```
