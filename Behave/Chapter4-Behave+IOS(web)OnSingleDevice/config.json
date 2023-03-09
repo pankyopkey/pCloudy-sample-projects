@@ -2,8 +2,8 @@
     "capabilities": 
     {
         "browserName": "safari",
-        "pCloudy_Username": "abhinav.purokait@sstsinc.com",
-        "pCloudy_ApiKey": "49zfjq28dxchvnxgg35nqpfd", 
+        "pCloudy_Username": "Enter your Email-id",
+        "pCloudy_ApiKey": "Enter your API Key",  
         "pCloudy_DurationInMinutes": "10",
         "pCloudy_DeviceFullName": "APPLE_iPadAir5_iOS_15.6.1_2ae29",
         "pCloudy_platformVersion": "15.6.1",

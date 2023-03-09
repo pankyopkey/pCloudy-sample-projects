@@ -1,6 +1,6 @@
-  Feature: Appium demo app
+  Feature: Appium demo Phone Browser
 
-    Scenario: Android Native App testing
+    Scenario: Phone Browser Testing
       Given Browser open
       Then URL open
       
