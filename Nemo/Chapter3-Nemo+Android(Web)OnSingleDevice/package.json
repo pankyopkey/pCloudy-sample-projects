@@ -6,7 +6,7 @@
     "Nemo",
     "selenium-webdriver"
   ],
-  "author": "Abhinav",
+  "author": "pCloudy",
   "dependencies": {
     "nemo": "^4.13.1",
     "nemo-view": "^3.1.1"
