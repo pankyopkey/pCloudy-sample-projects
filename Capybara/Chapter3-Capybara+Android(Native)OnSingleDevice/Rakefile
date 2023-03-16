@@ -1,0 +1,14 @@
+  require 'rake'
+  require 'cucumber/rake/task'
+
+  Cucumber::Rake::Task.new(:single) do |task|
+    ENV['CONFIG_NAME'] ||= "singleDevice"
+    task.cucumber_opts = ['--format=pretty', 'features/singleDevice.feature']
+  end
+
+  task :default => :single
+
+  task :test do |t, args|
+    Rake::Task["single"].invoke
+    Rake::Task["single"].reenable
+  end
