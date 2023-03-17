@@ -10,8 +10,8 @@
   Capybara.register_driver :pcloudy do |app|
     caps={
       "appium:browserName" => "safari",
-      "appium:pCloudy_Username" => "abhinav.purokait@sstsinc.com",
-      "appium:pCloudy_ApiKey" => "49zfjq28dxchvnxgg35nqpfd",                
+      "appium:pCloudy_Username" => "Enter your Email-id",
+      "appium:pCloudy_ApiKey" => "Enter your API Key",               
       "appium:pCloudy_DurationInMinutes" => "10",
       "appium:pCloudy_DeviceFullName" =>"APPLE_iPadPro3rdGen_iOS_15.5.0_c727b",
       "appium:platformName" =>  "ios",   

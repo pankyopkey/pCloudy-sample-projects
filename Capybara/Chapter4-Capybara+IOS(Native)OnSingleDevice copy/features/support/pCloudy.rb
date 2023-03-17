@@ -3,8 +3,8 @@ require 'appium_capybara'
 Capybara.register_driver(:pcloudy) do |app|
   Appium::Capybara::Driver.new app, capabilities: {
             "appium:browserName" => "",
-            "appium:pCloudy_Username" => "abhinav.purokait@sstsinc.com",
-            "appium:pCloudy_ApiKey" => "49zfjq28dxchvnxgg35nqpfd",  
+            "appium:pCloudy_Username" => "Enter your Email-id",
+            "appium:pCloudy_ApiKey" => "Enter your API Key",
             "appium:pCloudy_ApplicationName" => "TestmunkDemo_Resigned1675153426.ipa",              
             "appium:pCloudy_DurationInMinutes" => "10",
             "appium:pCloudy_DeviceFullName" =>"APPLE_iPhone11ProMax_iOS_15.0.0_b99a8",

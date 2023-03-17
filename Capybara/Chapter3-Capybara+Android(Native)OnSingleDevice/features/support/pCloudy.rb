@@ -3,8 +3,8 @@ require 'appium_capybara'
 Capybara.register_driver(:pcloudy) do |app|
   Appium::Capybara::Driver.new app, capabilities: {
             "appium:browserName" => "",
-            "appium:pCloudy_Username" => "abhinav.purokait@sstsinc.com",
-            "appium:pCloudy_ApiKey" => "49zfjq28dxchvnxgg35nqpfd",  
+            "appium:pCloudy_Username" => "Enter your Email-id",
+            "appium:pCloudy_ApiKey" => "Enter your API Key", 
             "appium:pCloudy_ApplicationName" => "pCloudyAppiumDemo-1674560861.apk",              
             "appium:pCloudy_DurationInMinutes" => "10",
             "appium:pCloudy_DeviceFullName" =>"GOOGLE_Pixel7Pro_Android_13.0.0_dbf82",
