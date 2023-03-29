@@ -1,4 +1,4 @@
-const { default: driver } = require("appium-android-driver/build/lib/driver");
+const driver= require("appium-base-driver")
 const { By } = require("selenium-webdriver");
 const { capabilities } = require("../conf/singleDevice.conf");
 

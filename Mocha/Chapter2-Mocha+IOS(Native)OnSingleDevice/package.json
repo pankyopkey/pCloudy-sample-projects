@@ -1,9 +1,9 @@
 {
-  "name": "mocha-selenium-sample",
+  "name": "mocha-appium-sample",
   "description": " Selenium examples for Mocha and pCloudy",
   "scripts": {
     "test": "npm run ios",
-    "android": "cross-env CONFIG_FILE=ios ./node_modules/.bin/mocha specs/singleDevice.js conf/singleDevice.conf.js"
+    "ios": "cross-env CONFIG_FILE=ios ./node_modules/.bin/mocha specs/singleDevice.js conf/singleDevice.conf.js"
   },
   "keywords": [
     "mocha",
