@@ -23,8 +23,8 @@ module.exports = {
     concurrency: 1,
     capabilities: [{
         browserName: '',
-        pCloudy_Username: 'abhinav.purokait@sstsinc.com',
-        pCloudy_ApiKey: 'h267j8ktrwj27wrdhcxthqxx',
+        pCloudy_Username: 'Enter Email',
+        pCloudy_ApiKey: 'Enter API-KEY', 
         pCloudy_ApplicationName: 'pCloudyAppiumDemo-1674560861.apk',
         pCloudy_DurationInMinutes: '10',
         pCloudy_DeviceFullName: 'GOOGLE_Pixel3_Android_12.0.0_a6091',

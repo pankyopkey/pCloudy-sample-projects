@@ -15,13 +15,13 @@
   <p>Run the following command in the terminal to install the project dependencies:</p>
   
   ```bash
-  npm install```
+  npm install
 ```   
 </ol>
 <h2>Configuration</h2>
 <ol>
   <li>Update Email</li>
-  <p>In the "oxygen.conf.js" file, locate the line containing "pCloudy_Username" and enter your email address as the value.</p>
+  <p>In the "TestCaseAndroidParallelDevices.js" file, locate the line containing "pCloudy_Username" and enter your email address as the value.</p>
   <li>Update API Key</li>
   <p>Similarly, find the line with "pCloudy_ApiKey" and replace "Enter your API Key" with your actual API key.</p>
 </ol>
