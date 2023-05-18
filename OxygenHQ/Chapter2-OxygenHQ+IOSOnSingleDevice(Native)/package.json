@@ -1,0 +1,14 @@
+{
+  "name": "oxygen",
+  "version": "1.0.0",
+  "description": "Integration of OxygenHQ with pCLoudy",
+  "main": "oxygen.conf.js",
+  "scripts": {
+    "oxygen": "oxygen oxygen.conf.js"
+  },
+  "author": "pCloudy",
+  "license": "ISC",
+  "dependencies": {
+    "oxygen-cli": "^1.27.5"
+  }
+}
