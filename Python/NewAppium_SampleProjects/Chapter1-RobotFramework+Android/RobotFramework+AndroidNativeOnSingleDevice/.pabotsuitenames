@@ -1,0 +1,5 @@
+datasources:24dcbf76e126c806a48f3bce032ec8862841d068
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:765647a21b17fc2c0588f3ec9ca669fbf623c96f
+--suite SampleTestCase
