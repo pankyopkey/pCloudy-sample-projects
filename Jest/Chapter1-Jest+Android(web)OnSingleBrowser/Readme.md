@@ -1,14 +1,25 @@
-**<font color ="Blue"><h2>Prerequisite and execution of the Test script in JEST</h2>**</font><br>
+# JEST Test Script Setup and Execution Guide
 
-1. Need to install Node And NPM [Recomended latest version]
-2. Need to install JEST by the following command : 
-    ```bash 
-    npm i
-    ```
-3. Enter your "MailId" in ***pCloudy_Username="Enter your Email-id"*** in "Singledevice.test.js".
-4. Enter your "ApiKey" in ***pCloudy_ApiKey="Enter your API Key"*** in "Singledevice.test.js". 
-5. Open the terminal where the project is located and run the script by running the following command in your terminal :
- ```bash 
-    npm test singleDevice.test.js
-``` 
-       
+## Prerequisites
+
+1. **Install Node.js and NPM:** Ensure the latest Node.js and NPM are installed.
+
+2. **Install JEST:** Run `npm install` to set up JEST.
+
+## Configuration
+
+1. **Personal Info:** In "Singledevice.test.js", replace placeholders with your details:
+
+   - `pCloudy_Username`: Your email address.
+   - `pCloudy_ApiKey`: Your API key.
+
+## Running the Test
+
+Execute the JEST test script:
+
+1. Navigate to the project directory in the terminal.
+
+2. Run:
+
+```bash 
+npm test singleDevice.test.js

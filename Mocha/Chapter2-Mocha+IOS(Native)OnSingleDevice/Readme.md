@@ -1,16 +1,48 @@
-**<font color ="Blue"><h2>Prerequisite and execution of the Test script in Mocha</h2>**</font><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mocha Test Script Setup and Execution Guide</title>
+</head>
+<body>
 
-1. Need to install Node and NPM [Recomended latest version]<br><br>
+<h1><font color="Blue">Prerequisite and Execution of the Test script in Mocha</font></h1>
 
-2. Clone the project in an empty directory  
+<h2>Prerequisites</h2>
 
-2. Run the below command to install the required packages which are available in package.json  <br><br>
+<ol>
+    <li><strong>Install Node and NPM:</strong> Make sure you have the latest version of Node.js and NPM installed on your system.</li>
+    <li><strong>Clone the Project:</strong> Clone the project into an empty directory.</li>
+</ol>
 
-    ```bash 
-    npm i 
-    ```
-5. Enter your "MailId" in ***pCloudy_Username="Enter your Email-id"*** in "conf/singleDevice.conf.js".<br><br>
-6. Enter your "ApiKey" in ***pCloudy_ApiKey="Enter your API Key"*** in "conf/singleDevice.conf.js". <br><br>
-6. Open the terminal where the project is located and run the script by running the following command in your terminal :<br><br>
- ```bash 
-    npm run ios
+<h2>Installation and Setup</h2>
+
+<ol>
+    <li>Run the following command to install the required packages listed in package.json:</li>
+</ol>
+
+<pre><code>npm install</code></pre>
+
+<h2>Configuration</h2>
+
+<ol>
+    <li><strong>Personal Info:</strong> In "conf/singleDevice.conf.js", provide your personal details:
+        <ul>
+            <li><code>pCloudy_Username</code>: Your email address.</li>
+            <li><code>pCloudy_ApiKey</code>: Your API key.</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>Running the Test</h2>
+
+<p>To execute the Mocha test script:</p>
+
+<ol>
+    <li>Open the terminal where the project is located.</li>
+    <li>Run the following command:</li>
+</ol>
+
+<pre><code>npm run ios</code></pre>
+
+</body>
+</html>
