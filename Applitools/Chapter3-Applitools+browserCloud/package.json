@@ -1,0 +1,16 @@
+{
+  "name": "pcloudy-applitools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pCloudyDemo.js",
+  "scripts": {
+    "test": "node pCloudyDemo.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@applitools/eyes-selenium": "^4.66.8",
+    "selenium-webdriver": "^4.0"
+  }
+}

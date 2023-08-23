@@ -1,14 +1,42 @@
-**<font color ="Blue"><h2>Prerequisite and execution of the Test script in Selenide</h2>**</font><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selenide Test Script Setup and Execution Guide</title>
+</head>
+<body>
 
-1. Need to install Java and JDK [Recomended latest version]<br><br>
+<h1><font color="Blue">Prerequisite and Execution of the Test script in Selenide</font></h1>
 
-2. Set up the Environment variables  <br><br>
+<h2>Prerequisites</h2>
 
-3. Need to install Gradle [Recomended latest version]<br><br>
+<ol>
+    <li><strong>Install Java and JDK:</strong> Ensure you have the latest version of Java and JDK installed on your system.</li>
+    <li><strong>Set Up Environment Variables:</strong> Configure necessary environment variables.</li>
+    <li><strong>Install Gradle:</strong> Install the latest version of Gradle.</li>
+</ol>
 
-5. Enter your "MailId" in ***pCloudy_Username="Enter your Email-id"*** in "src/test/java/org/selenide/examples/pcloudy/pcloudyconnection.java".<br><br>
-6. Enter your "ApiKey" in ***pCloudy_ApiKey="Enter your API Key"*** in "src/test/java/org/selenide/examples/pcloudy/pcloudyconnection.java". <br><br>
-6. Open the terminal where the project is located and run the script by running the following command in your terminal :<br><br>
- ```bash 
-    ./gradlew test --info
-``` 
+<h2>Configuration</h2>
+
+<ol>
+    <li><strong>Personal Info:</strong> In "src/test/java/org/selenide/examples/pcloudy/pcloudyconnection.java", provide your personal details:
+        <ul>
+            <li><code>pCloudy_Username</code>: Your email address.</li>
+            <li><code>pCloudy_ApiKey</code>: Your API key.</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>Running the Test</h2>
+
+<p>To execute the Selenide test script:</p>
+
+<ol>
+    <li>Open the terminal in the project directory.</li>
+    <li>Run the following command:</li>
+</ol>
+
+<pre><code>./gradlew test --info</code></pre>
+
+
+</body>
+</html>

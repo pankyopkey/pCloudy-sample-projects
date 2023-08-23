@@ -1,15 +1,48 @@
-**<font color ="Blue"><h2>Prerequisite and execution of the Test script in Nemo</h2>**</font><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nemo Test Script Setup and Execution Guide</title>
+</head>
+<body>
 
-1. Need to install Node And NPM [Recomended latest version]<br><br>
+<h1><font color="Blue">Prerequisite and Execution of the Test script in Nemo</font></h1>
 
-2. Run the below command inside the new directory to install the required packages available in package.json which include “Nemo” also <br><br>
+<h2>Prerequisites</h2>
 
-    ```bash 
-    npm i 
-    ```
-5. Enter your "MailId" in ***pCloudy_Username="Enter your Email-id"*** in "nemo.config.js".<br><br>
-6. Enter your "ApiKey" in ***pCloudy_ApiKey="Enter your API Key"*** in "nemo.config.js". <br><br>
-6. Open the terminal where the project is located and run the script by running the following command in your terminal :<br><br>
- ```bash 
-    npx nemo nemo.config.js
-``` 
+<ol>
+    <li><strong>Install Node.js and NPM:</strong> Make sure you have the latest version of Node.js and NPM installed on your system.</li>
+</ol>
+
+<h2>Installation and Setup</h2>
+
+<ol>
+    <li>Inside a new directory, run the following command to install required packages, including "Nemo", listed in package.json:</li>
+</ol>
+
+<pre><code>npm install</code></pre>
+
+<h2>Configuration</h2>
+
+<ol>
+    <li><strong>Personal Info:</strong> In "nemo.config.js", provide your personal details:
+        <ul>
+            <li><code>pCloudy_Username</code>: Your email address.</li>
+            <li><code>pCloudy_ApiKey</code>: Your API key.</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>Running the Test</h2>
+
+<p>To execute the Nemo test script:</p>
+
+<ol>
+    <li>Open the terminal and navigate to the project directory.</li>
+    <li>Run the following command:</li>
+</ol>
+
+<pre><code>npx nemo nemo.config.js</code></pre>
+
+
+</body>
+</html>
