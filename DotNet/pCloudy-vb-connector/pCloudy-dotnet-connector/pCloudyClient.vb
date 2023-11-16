@@ -42,7 +42,7 @@ Namespace pCloudy
 
 
 
-
+        <Obsolete("Use the Keycloak Authentication JWT Token base overloads now")>
         Private Function callService(Of T)(ByVal URL As String, ByVal username As String, ByVal token As String) As T
             SyncLock _webClient
 
@@ -66,27 +66,25 @@ Namespace pCloudy
 
         End Function
 
-        'Private Function callService(Of T)(ByVal URL As String, ByVal data As Dictionary(Of String, String)) As T
-        '    SyncLock _webClient
+        Private Function callServiceWithKeycloakToken(Of T)(ByVal URL As String, keycloakToken As String) As T
+            SyncLock _webClient
 
-        '        'TODO: Remove this before moving to production
-        '        'ServicePointManager.ServerCertificateValidationCallback = Function()
-        '        '                                                              Return True
-        '        '                                                          End Function
-        '        Dim reqparm As New Specialized.NameValueCollection
+                _webClient.Headers.Add(HttpRequestHeader.Cookie, "keycloak-token=" + keycloakToken)
 
-        '        For Each itm In data
-        '            reqparm.Add(itm.Key, itm.Value)
-        '        Next
+                'TODO: Remove this before moving to production
+                'ServicePointManager.ServerCertificateValidationCallback = Function()
+                '                                                              Return True
+                '                                                          End Function
+                ServicePointManager.Expect100Continue = True
+                ServicePointManager.SecurityProtocol = 3072
 
-        '        Dim uri = New Uri(URL)
+                Dim uri = New Uri(URL)
+                Dim Str = _webClient.DownloadString(uri)
+                Dim p = Newtonsoft.Json.JsonConvert.DeserializeObject(Str, GetType(T))
+                Return CType(p, T)
+            End SyncLock
 
-        '        Dim responseBytes = _webClient.UploadValues(uri, "POST", reqparm)
-        '        Dim responseString = Text.Encoding.UTF8.GetString(responseBytes)
-        '        Dim p = Newtonsoft.Json.JsonConvert.DeserializeObject(responseString, GetType(T))
-        '        Return CType(p, T)
-        '    End SyncLock
-        'End Function
+        End Function
 
         Private Function callService(Of T)(ByVal URL As String, ByVal jsonData As String) As T
             SyncLock _webClient
@@ -134,6 +132,15 @@ Namespace pCloudy
             'curl -u "uname:pwd" https://10.0.0.2/api/access -k
             Dim url = String.Format("{0}/access", endpoint)
             Dim p = callService(Of pCloudy.DTO.pCloudyResponseDTO)(url, Username, API_AccessKey)
+            If p.result.error IsNot Nothing Then Throw New UnauthorizedAccessException(p.result.error)
+
+            Return p.result.token
+        End Function
+
+        Function authenticateKeycloakUser(keycloakToken As String) As String
+            'curl -u "uname:pwd" https://10.0.0.2/api/access -k
+            Dim url = String.Format("{0}/access", endpoint)
+            Dim p = callServiceWithKeycloakToken(Of pCloudy.DTO.pCloudyResponseDTO)(url, keycloakToken)
             If p.result.error IsNot Nothing Then Throw New UnauthorizedAccessException(p.result.error)
 
             Return p.result.token
