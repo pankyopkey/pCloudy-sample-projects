@@ -28,7 +28,7 @@ Public Class BCloudConnector
     End Function
 
 
-    Public Function authenticateUser(userEmail As String, browserCloudAccessKey As String) As String
+    Public Function authenticateUser(userEmail As String, browserCloudApiKey As String) As String
         Dim url = String.Format("{0}/api/authenticateClient.php", _browserCloudUrl)
         Dim jsonData = <json>
                                {"clientName": "@clientName",
@@ -36,14 +36,13 @@ Public Class BCloudConnector
                            </json>.Value.Trim
 
         jsonData = jsonData.Replace("@clientName", userEmail)
-        jsonData = jsonData.Replace("@apiKey", browserCloudAccessKey)
+        jsonData = jsonData.Replace("@apiKey", browserCloudApiKey)
 
         Dim p = callService(Of AuthenticateResponseDTO)(url, jsonData)
         If p.result.error IsNot Nothing Then Throw New UnauthorizedAccessException(p.result.error)
 
         Return p.result.browserCloudAuthToken
     End Function
-
 
     Public Function getAvailableBrowsers(browserCloudAuthToken As String) As AvailableBrowsersResponse.BrowserInstance()
         Dim url = String.Format("{0}/api/getAvailableBrowsers.php", _browserCloudUrl)

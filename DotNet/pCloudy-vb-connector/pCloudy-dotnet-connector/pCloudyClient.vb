@@ -137,13 +137,13 @@ Namespace pCloudy
             Return p.result.token
         End Function
 
-        Function authenticateKeycloakUser(keycloakToken As String) As String
+        Function authenticateKeycloakUser(keycloakToken As String) As pCloudyResponseDtoResult
             'curl -u "uname:pwd" https://10.0.0.2/api/access -k
             Dim url = String.Format("{0}/access", endpoint)
             Dim p = callServiceWithKeycloakToken(Of pCloudy.DTO.pCloudyResponseDTO)(url, keycloakToken)
             If p.result.error IsNot Nothing Then Throw New UnauthorizedAccessException(p.result.error)
 
-            Return p.result.token
+            Return p.result
         End Function
 
         Function getUserDetails(authToken As String) As UserDetailResultDTO
@@ -341,7 +341,7 @@ Namespace pCloudy
             Me.executeAdbCommand(authToken, rid, "adb shell input keyevent 66")
         End Sub
 
-        Public Function getDevicePageURL(authToken As String, deviceBookingDto As generic.BookingDTOResult) As Uri
+        Public Function getDevicePageURL(authToken As String, deviceBookingDto As generic.BookingDTOResult) As String
             Dim url = String.Format("{0}/get_device_url", endpoint)
 
             Dim jsonData = <json>
@@ -356,7 +356,7 @@ Namespace pCloudy
 
             If p.result.error IsNot Nothing Then Throw New ConnectError(p.result.error)
 
-            Return New Uri(p.result.url)
+            Return p.result.url
         End Function
 
         Public Sub installAndLaunchApp(authToken As String, deviceBookingDto As generic.BookingDTOResult, filename As pDriveFileDTO)

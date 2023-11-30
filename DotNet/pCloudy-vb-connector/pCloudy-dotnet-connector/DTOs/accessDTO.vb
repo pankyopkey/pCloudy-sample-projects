@@ -8,7 +8,7 @@
     Public Class pCloudyResponseDtoResult
         Public Property token As String
         Public Property code As Integer
-
+        Public Property accessKey As String
         Public Property [error] As String
 
     End Class
