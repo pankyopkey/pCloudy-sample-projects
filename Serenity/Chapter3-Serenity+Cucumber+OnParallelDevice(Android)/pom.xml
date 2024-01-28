@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Chapter3-SerenityCucumberOnParallelDeviceAndroid</groupId>
+    <artifactId>Chapter3-SerenityCucumberOnParallelDeviceAndroid</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+  <name>Serenity pCloudy Integration</name>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <java.source.version>${java.version}</java.source.version>
+        <java.target.version>${java.version}</java.target.version>
+        <maven.version>3.9.6</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <serenity.version>2.0.48</serenity.version>
+        <serenity.cucumber.version>1.9.37</serenity.cucumber.version>
+
+        <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
+        <maven.surefire-plugin.version>3.0.0-M3</maven.surefire-plugin.version>
+        
+      
+
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity.cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+        
+         <dependency>
+        <groupId>com.googlecode.json-simple</groupId>
+        <artifactId>json-simple</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+        
+         <dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.11</version>
+		</dependency>
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire-plugin.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven.failsafe-plugin.version}</version>
+                <configuration>
+					
+                    <includes>
+                        <include>com/lambdatest/cucumber/Runner.java</include>
+                    </includes>
+                    <reuseForks>true</reuseForks>
+                   
+                     <argLine>-Xmx1024m -XX:MaxMetaspaceSize=256m</argLine>
+                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>parallel</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>${maven.failsafe-plugin.version}</version>
+                        <configuration>
+							
+							
+                            <includes>
+                                <include>com/pcloudy/cucumber/Runner.java</include>
+                            </includes>
+	
+                            <reuseForks>true</reuseForks>
+                             <argLine>-Xmx1024m -XX:MaxMetaspaceSize=256m</argLine>
+                            <!--<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
+                            <systemPropertyVariables>
+                                <environment>single</environment>
+                                <taskID>MY_TEST_SCHEMA_${surefire.forkNumber}</taskID>
+                            </systemPropertyVariables>
+                        </configuration>
+                    
+                    </plugin>
+                    
+                </plugins>
+            </build>
+        </profile>
+        
+      
+    </profiles>
+</project>
