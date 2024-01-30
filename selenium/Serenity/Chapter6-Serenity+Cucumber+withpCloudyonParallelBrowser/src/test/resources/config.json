@@ -1,0 +1,14 @@
+[
+  {
+    "os": "Windows",
+    "osVersion": "10",
+    "browserName": "chrome",
+    "browserVersions": "120"
+  },
+  {
+    "os": "Mac",
+    "osVersion": "BigSur",
+    "browserName": "chrome",
+    "browserVersions": "118"
+  }
+]
