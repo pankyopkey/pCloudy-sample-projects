@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+
+ <test name="Initialization">
+    <classes>
+      <class name="com.pCloudy.testNG.Tunnel"/>
+    </classes>
+  </test>
+  <test name="Test">
+  <!-- <parameter name="deviceName" value="Samsung"/>-->
+  <parameter name="deviceName" value="Apple"/>
+    <classes>
+      <class name="com.pCloudy.testNG.Runner"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test1">
+  <!-- <parameter name="deviceName" value="Google"/>-->
+  <parameter name="deviceName" value="Apple"/>
+    <classes>
+      <class name="com.pCloudy.testNG.Runner"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
