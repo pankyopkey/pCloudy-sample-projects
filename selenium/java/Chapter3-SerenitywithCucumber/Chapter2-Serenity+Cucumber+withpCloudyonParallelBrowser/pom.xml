@@ -68,7 +68,7 @@
                 <version>${maven.failsafe-plugin.version}</version>
                 <configuration>
                     <includes>
-                        <include>com/lambdatest/cucumber/SingleTest.java</include>
+                        <include>com/pCloudy/cucumber/SingleTest.java</include>
                     </includes>
                     <reuseForks>true</reuseForks>
                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
