@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="BCloudConnectorV2.vb" />
     <Compile Include="BrowserCloudError.vb" />
+    <Compile Include="DTOs\AgentResponseDTO.vb" />
     <Compile Include="DTOs\AuthenticateResponseDTO.vb" />
     <Compile Include="DTOs\AvailableBrowsersResponse.vb" />
     <Compile Include="DTOs\BookBrowserNew.vb" />

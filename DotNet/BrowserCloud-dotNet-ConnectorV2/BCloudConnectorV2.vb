@@ -12,25 +12,32 @@ Imports Newtonsoft.Json
 Public Class BCloudConnectorV2
 
     Private _browserCloudUrl As Uri = Nothing
-    Private Const _pCloudyAuthOrigin As String = "https://node-stg.pcloudy.com/api/access"
-    Private Const _pCloudyBrowserOrigin As String = "https://browser.node-stg.pcloudy.com"
+    Private _browserCloudAuthUrl As String = Nothing
+    Private _opkeyBaseUrl As String = Nothing
 
-    Public Sub New(Optional browserCloudUrl As String = "https://qa1.dev.opkeyone.com/pcloudy/browser_cloud")
-        _browserCloudUrl = New Uri(browserCloudUrl)
+
+    Public Sub New(opkeyBaseUrl As String)
+        _opkeyBaseUrl = opkeyBaseUrl
+        Dim fullUrl As String = opkeyBaseUrl & "/pcloudy/browser_cloud"
+        Dim fullAuthUrl As String = opkeyBaseUrl
+        _browserCloudUrl = New Uri(fullUrl)
+        _browserCloudAuthUrl = fullAuthUrl
+
+
     End Sub
 
 
 
-
     Public Function authenticateUser(userEmail As String, pCloudyAccessKey As String) As String
-
+        '  Dim url = String.Format("{0}/pcloudy/api/access", _browserCloudUrl)
+        Dim url As String = String.Format("{0}/pcloudy/api/access?userEmail={1}&pCloudyAccessKey={2}", _browserCloudAuthUrl, Uri.EscapeDataString(userEmail), Uri.EscapeDataString(pCloudyAccessKey))
         _webClient.Headers.Clear()
         _webClient.Headers(HttpRequestHeader.Authorization) = $"Basic {EncodeToBase64($"{userEmail}:{pCloudyAccessKey}")}"
         _webClient.Headers(HttpRequestHeader.ContentType) = "application/json"
 
-
         Try
-            Dim responseString = _webClient.DownloadString(_pCloudyAuthOrigin)
+
+            Dim responseString = _webClient.DownloadString(url)
             Dim p = Newtonsoft.Json.JsonConvert.DeserializeObject(Of AuthenticateResponseDTO)(responseString)
 
             If p.result IsNot Nothing AndAlso p.result.error IsNot Nothing Then
@@ -48,6 +55,7 @@ Public Class BCloudConnectorV2
         End Try
     End Function
 
+
     Private Function EncodeToBase64(text As String) As String
         Dim textBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(text)
         Return Convert.ToBase64String(textBytes)
@@ -58,7 +66,7 @@ Public Class BCloudConnectorV2
     Public Function getAvailableBrowsers(browserCloudAuthToken As String, VMID As String)
         Dim url = String.Format("{0}/api/v1/" + VMID + "/get-browsers", _browserCloudUrl)
 
-        Dim p As BrowserDTO = callServiceGet(Of BrowserDTO)(url, browserCloudAuthToken)
+        Dim p As BrowserDTO = callServiceGet(Of BrowserDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
         Dim browserData As Dictionary(Of String, List(Of String)) = p.data
 
 
@@ -66,32 +74,67 @@ Public Class BCloudConnectorV2
     End Function
 
 
-    Public Sub ProcessVmDetailsForBrowserSelection(url As String, token As String, browserName As String, browserVersion As String)
+    'Public Function determineVMID(browserCloudAuthToken As String, BrowserName As String, BrowserVersion As String) As String
+
+    '    Dim allVms = GetAllVms(browserCloudAuthToken)
+    '    For Each vm In allVms
+    '        If Not vm.isBooked AndAlso vm.browser.ContainsKey(BrowserName) AndAlso vm.browser(BrowserName).Contains(BrowserVersion) Then
+    '            Return vm.vmId
+    '        End If
+    '    Next
+    '    Throw New Exception("No suitable VM found.")
+    'End Function
+
+    Public Function ProcessVmDetailsForBrowserSelection(token As String, browserName As String, browserVersion As String) As List(Of VmDetails)
         Dim vmDetailsList = GetAllVms(token)
+        Dim matchedVms As New List(Of VmDetails)()
+
         For Each vmDetail In vmDetailsList
-            If Not String.IsNullOrEmpty(vmDetail.os) AndAlso Not String.IsNullOrEmpty(vmDetail.osVer) Then
-                Dim browserInstance = getPreferredBrowser(token, vmDetail.os, vmDetail.osVer, browserName, browserVersion, vmDetail.vmId)
+            If vmDetail.isBooked = False AndAlso Not String.IsNullOrEmpty(vmDetail.os) AndAlso Not String.IsNullOrEmpty(vmDetail.osVer) Then
+
+                If vmDetail.browser.ContainsKey(browserName) AndAlso vmDetail.browser(browserName).Contains(browserVersion) Then
+                    matchedVms.Add(vmDetail)
+                    Console.WriteLine($"VM ID {vmDetail.vmId} with {browserName} version {browserVersion} is available.")
+                End If
             End If
         Next
-    End Sub
 
-    Public Function getPreferredBrowser(browserCloudAuthToken As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String, VMID As String) As AvailableBrowsersResponse.BrowserInstance
-
-        Dim allInstances = Me.getAvailableBrowsers(browserCloudAuthToken, VMID)
-        For Each itm In allInstances
-            If itm.status <> "available" Then Continue For
-            If itm.SystemOS.OSName = OS_Name AndAlso itm.SystemOS.OSVersion = OS_Version Then
-                For Each browser In itm.browsersDetails
-                    If browser.browserName = BrowserName AndAlso getBrowserMajorVersion(browser.browserVersion) = getBrowserMajorVersion(BrowserVersion) Then
-                        Return itm
-                    End If
-                Next
-            End If
-        Next
-        Throw New Exception("No matching browser instance found.")
+        Return matchedVms
     End Function
 
 
+
+
+    'Public Function getPreferredBrowser(browserCloudAuthToken As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As AvailableBrowsersResponse.BrowserInstance
+    '    Dim allInstances = Me.getAvailableBrowsers(browserCloudAuthToken)
+    '    For Each itm In allInstances
+    '        If itm.status <> "available" Then Continue For
+    '        If itm.SystemOS.OSName = OS_Name AndAlso itm.SystemOS.OSVersion = OS_Version Then
+    '            For Each browser In itm.browsersDetails
+    '                If browser.browserName = BrowserName AndAlso getBrowserMajorVersion(browser.browserVersion) = getBrowserMajorVersion(BrowserVersion) Then
+    '                    Return itm
+    '                End If
+    '            Next
+    '        End If
+
+
+    '    Next
+
+    '    Throw New BrowserCloudError("Unable to find browser with the given criteria. It may have been booked by someone else")
+    'End Function
+
+
+    Public Function getPreferredBrowser(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String, VMID As String) As VmDetails
+        Dim allVms = Me.GetAllVms(token)
+        For Each vmDetail In allVms
+            If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version Then
+                If vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
+                    Return vmDetail
+                End If
+            End If
+        Next
+        Throw New Exception("No available VM found with the specified browser.")
+    End Function
 
 
     Private Function getBrowserMajorVersion(browserVersion As String) As String
@@ -144,6 +187,7 @@ Public Class BCloudConnectorV2
     'End Function
 
     Public Function bookBrowser(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
+        'Dim VMID = determineVMID(browserCloudAuthToken, browser, version)
         Dim url = String.Format("{0}/api/v1/" + VMID + "/book", _browserCloudUrl)
         Dim jsonData = <json>
                            {"browser":"@browser", "version":"@version"}
@@ -152,7 +196,7 @@ Public Class BCloudConnectorV2
         jsonData = jsonData.Replace("@browser", browser)
         jsonData = jsonData.Replace("@version", version)
 
-        Dim p = callServicePost(Of ApiResponse)(url, browserCloudAuthToken, jsonData)
+        Dim p = callServicePost(Of ApiResponse)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
         If p Is Nothing OrElse p.data Is Nothing OrElse p.data.bookingDetails Is Nothing OrElse p.data.bookingDetails.Count = 0 Then
             Throw New Exception("API call failed or returned no valid booking data.")
         End If
@@ -165,9 +209,6 @@ Public Class BCloudConnectorV2
     End Function
 
 
-
-
-
     Public Function releaseBrowser(browserCloudAuthToken As String, VMID As String, bookingId As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
         Dim url = String.Format("{0}/api/v1/" + VMID + "/release", _browserCloudUrl)
         Dim jsonData = <json>
@@ -177,39 +218,47 @@ Public Class BCloudConnectorV2
 
         jsonData = jsonData.Replace("@bookingId", bookingId)
 
-        Dim p = callServicePost(Of ReleaseBrowserResponseDTO)(url, browserCloudAuthToken, jsonData)
+        Dim p = callServicePost(Of ReleaseBrowserResponseDTO)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result
     End Function
 
 
+    'Public Function initiateOpKeySpockTeleportingTunnel(browserCloudAuthToken As String, instance_id As String, userEmail As String,
+    '                                                Spock_Token As String) As InitiateOpKeySpockTeleportingTunnelResponseDTO.InitiateOpKeySpockTeleportingTunnelResponseResult
+    '    Dim url = String.Format("{0}/api/initiateOpKeySpockTeleportingTunnel.php", _browserCloudUrl)
+    '    Dim jsonData = <json>
+    '                           {"browserCloudAuthToken": "@browserCloudAuthToken",
+    '                            "instance_id": "@instance_id",
+    '                            "userEmail": "@userEmail",
+    '                            "Spock_Token": "@Spock_Token"
+    '                           }
+    '                       </json>.Value.Trim
 
 
-    Public Function initiateOpKeySpockTeleportingTunnel(browserCloudAuthToken As String, instance_id As String, userEmail As String,
-                                                    Spock_Token As String) As InitiateOpKeySpockTeleportingTunnelResponseDTO.InitiateOpKeySpockTeleportingTunnelResponseResult
-        Dim url = String.Format("{0}/api/initiateOpKeySpockTeleportingTunnel.php", _browserCloudUrl)
-        Dim jsonData = <json>
-                               {"browserCloudAuthToken": "@browserCloudAuthToken",
-                                "instance_id": "@instance_id",
-                                "userEmail": "@userEmail",
-                                "Spock_Token": "@Spock_Token"
-                               }
-                           </json>.Value.Trim
-
-
-        jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
-        jsonData = jsonData.Replace("@instance_id", instance_id)
-        jsonData = jsonData.Replace("@userEmail", userEmail)
-        jsonData = jsonData.Replace("@Spock_Token", Spock_Token)
+    '    jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
+    '    jsonData = jsonData.Replace("@instance_id", instance_id)
+    '    jsonData = jsonData.Replace("@userEmail", userEmail)
+    '    jsonData = jsonData.Replace("@Spock_Token", Spock_Token)
 
 
 
-        Dim p = callService(Of InitiateOpKeySpockTeleportingTunnelResponseDTO)(url, jsonData)
+    '    Dim p = callService(Of InitiateOpKeySpockTeleportingTunnelResponseDTO)(url, jsonData)
+    '    If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+    '    Return p.result
+    'End Function
+
+    Public Function initiateDotNetCoreAgent(browserCloudAuthToken As String, VMID As String) As AgentResponseDTO.AgentResponseResult
+        Dim url = String.Format("{0}/api/v1/" + VMID + "/start-opkey-agent", _browserCloudUrl)
+
+        Dim p = callServiceGet(Of AgentResponseDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result
     End Function
+
 
 
     Public Function initiateScreenSharing(browserCloudAuthToken As String, instance_id As String, userEmail As String) As InitiateScreenSharingResponse.InitiateScreenSharingResponseResult
@@ -244,36 +293,47 @@ Public Class BCloudConnectorV2
         jsonData = jsonData.Replace("@width", width)
         jsonData = jsonData.Replace("@height", height)
 
-        Dim p = callServicePost(Of SetResolutionResponse)(url, browserCloudAuthToken, jsonData)
+        Dim p = callServicePost(Of SetResolutionResponse)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result
     End Function
 
 
+    'Public Function getResolution(browserCloudAuthToken As String, VMID As String) As String
+    '    Dim url = String.Format("{0}/api/v1/" + VMID + "/get-resolution", _browserCloudUrl)
 
-    Public Function getResolution(browserCloudAuthToken As String, VMID As String) As String
-        Dim url = String.Format("{0}/api/v1/" + VMID + "/get-resolution", _browserCloudUrl)
+    '    Try
+    '        Dim p = callServiceGet(Of GetResolutionResponseVm)(url, browserCloudAuthToken)
+    '        If p Is Nothing Then
+    '            Throw New ApplicationException("No data returned from the server.")
+    '        End If
 
-        Try
-            Dim p = callServiceGet(Of GetResolutionResponseVm)(url, browserCloudAuthToken)
-            If p Is Nothing Then
-                Throw New ApplicationException("No data returned from the server.")
-            End If
+    '        Return p.resolution
 
-            Return p.resolution
+    '    Catch ex As ApplicationException
+    '        Console.WriteLine("error: " & ex.Message)
+    '        Throw
+    '    Catch ex As Exception
+    '        Console.WriteLine("Unexpected error: " & ex.ToString())
+    '        Throw New ApplicationException("Failed to retrieve resolution: " & ex.Message)
+    '    End Try
+    'End Function
 
-        Catch ex As ApplicationException
-            Console.WriteLine("error: " & ex.Message)
-            Throw
-        Catch ex As Exception
-            Console.WriteLine("Unexpected error: " & ex.ToString())
-            Throw New ApplicationException("Failed to retrieve resolution: " & ex.Message)
-        End Try
+    Public Function getResolution(browserCloudAuthToken As String) As List(Of String)
+        ' Hardcoded list of resolutions for all VM's suggested by nishadh sir as Mac resolution response not working
+        Dim resolutions As New List(Of String) From {
+        "1920x1080",
+        "1440x900",
+        "1280x1024",
+        "1024x768"
+    }
+
+        Return resolutions
     End Function
 
 
-    Public Function GetAllVms(token As String) As List(Of VmDetails)
+    Public Function GetAllVms(browserCloudAuthToken As String) As List(Of VmDetails)
         Dim url = String.Format("{0}/api/v1/get-vms", _browserCloudUrl)
         Dim httpResponse As HttpWebResponse = Nothing
         Dim responseStream As Stream = Nothing
@@ -281,8 +341,8 @@ Public Class BCloudConnectorV2
 
         Dim httpRequest As HttpWebRequest = WebRequest.Create(url)
         httpRequest.Method = "POST"
-        httpRequest.Headers.Add("token", token)
-        httpRequest.Headers.Add("origin", _pCloudyBrowserOrigin)
+        httpRequest.Headers.Add("token", browserCloudAuthToken)
+        httpRequest.Headers.Add("origin", _opkeyBaseUrl)
         httpRequest.ContentType = "application/json"
         httpRequest.ContentLength = 0
 
@@ -313,7 +373,7 @@ Public Class BCloudConnectorV2
         Dim httpRequest As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
         httpRequest.Method = "POST"
         httpRequest.Headers.Add("token", token)
-        httpRequest.Headers.Add("origin", _pCloudyBrowserOrigin)
+        httpRequest.Headers.Add("origin", _opkeyBaseUrl)
         httpRequest.ContentType = "application/json"
         httpRequest.ContentLength = 0
 
@@ -347,8 +407,6 @@ Public Class BCloudConnectorV2
 
         Return allBrowsers
     End Function
-
-
 
 
 End Class

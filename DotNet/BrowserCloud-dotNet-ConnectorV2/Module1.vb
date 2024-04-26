@@ -1,12 +1,13 @@
-﻿Imports System.Security.Policy
+﻿Imports System.Security.Cryptography
+Imports System.Security.Policy
 
 Module Module1
 
     Sub Main()
-        Dim con = New BCloudConnectorV2()
-        Dim token = con.authenticateUser("santanu.pradhan@sstsinc.com", "s6qhhkg986kkmcmpjwx7k2wp")
-        'Dim token As String = "p9hrg8h9xg2yks45ghpvmjbx"
-        'Dim origin As String = "https://browser.node-stg.pcloudy.com"
+        Dim opkeyurl As String = "https://qa1.dev.opkeyone.com"
+        Dim con = New BCloudConnectorV2(opkeyurl)
+        Dim token = con.authenticateUser("aakarsh.mishra@opkey.com", "3rwv5g62m6phx8mc94zxpbbp")
+
         Dim vms As List(Of VmDetails) = con.GetAllVms(token)
         ' Dim browserDetails As Dictionary(Of String, List(Of String)) = con.GetAllVmBrowserDetails("https://qa1.dev.opkeyone.com/pcloudy/browser_cloud/api/internal/v1/get-vms", token, "https://browser.node-stg.pcloudy.com")
 
@@ -21,10 +22,16 @@ Module Module1
         'End If
         'Console.WriteLine(vmIds)
         ' Dim resolution = con.setResolutionVm(token, vmIds, "1440", "900")
-        ' Dim browsers = con.getAvailableBrowsers(token, vmIds)
+        Dim browsers = con.getAvailableBrowsers(token, "00:50:56:a1:88:d5")
+        ' Dim pref = con.getPreferredBrowser(token, "Mac", "Sonoma", "chrome", "108", "5c:1b:f4:e3:a7:cc")
+        Dim pref = con.ProcessVmDetailsForBrowserSelection(token, "chrome", "108")
         ' Dim booking = con.bookVms(token, "5c:1b:f4:e3:a7:cc", "chrome", "108")
         ' Dim release = con.releaseVm("5c:1b:f4:e3:a7:cc", "cc7ba014-33e7-4b96-b55e-0b6caf7eb6c6")
         'Dim getRes = con.getResolutionVm(token, vmIds)
+        Dim vmResolutions = con.getResolution(token)
+        For Each resolution In vmResolutions
+            Console.WriteLine(resolution)
+        Next
         Console.Read()
 
     End Sub

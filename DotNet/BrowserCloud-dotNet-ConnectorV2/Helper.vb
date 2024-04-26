@@ -81,7 +81,7 @@ Partial Class BCloudConnectorV2
         End SyncLock
     End Function
 
-    Private Function callServicePost(Of T)(ByVal URL As String, token As String, ByVal jsonData As String) As T
+    Private Function callServicePost(Of T)(ByVal URL As String, token As String, ByVal jsonData As String, ByVal opkeyurl As String) As T
         SyncLock _webClient
 
             'TODO: Remove this before moving to production
@@ -116,7 +116,7 @@ Partial Class BCloudConnectorV2
 
 
 
-    Private Function callServiceGet(Of T)(ByVal URL As String, token As String) As T
+    Private Function callServiceGet(Of T)(ByVal URL As String, token As String, ByVal opkeyurl As String) As T
         SyncLock _webClient
 
             'TODO: Remove this before moving to production
@@ -130,7 +130,7 @@ Partial Class BCloudConnectorV2
             _webClient.Headers.Clear()
             _webClient.Headers.Add("Content-Type", "application/json")
             _webClient.Headers.Add("token", token)
-            _webClient.Headers.Add("origin", "https://browser.node-stg.pcloudy.com")
+            _webClient.Headers.Add("origin", _opkeyBaseUrl)
 
             '  Dim requestBytes = System.Text.Encoding.Default.GetBytes(jsonData)
             '  Dim responseBytes = _webClient.UploadData(uri, "POST", requestBytes)
