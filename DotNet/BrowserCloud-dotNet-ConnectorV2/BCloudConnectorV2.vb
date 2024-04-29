@@ -5,6 +5,7 @@ Imports System.IO
 Imports System.Linq
 Imports System.Net
 Imports System.Net.WebRequestMethods
+Imports System.Security.Cryptography
 Imports com.ssts.pcloudy.browsercloud.AvailableBrowsersResponse
 Imports Newtonsoft
 Imports Newtonsoft.Json
@@ -62,17 +63,25 @@ Public Class BCloudConnectorV2
 
 
 
-    Public Function getAvailableBrowsers(browserCloudAuthToken As String, VMID As String)
+    'Public Function getAvailableBrowsers(browserCloudAuthToken As String, VMID As String)
+    '    Dim encodedVMID As String = Uri.EscapeDataString(VMID)
+    '    Dim url = String.Format("{0}/api/v1/" + encodedVMID + "/get-browsers", _browserCloudUrl)
+
+    '    Dim p As BrowserDTO = callServiceGet(Of BrowserDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
+    '    Dim browserData As Dictionary(Of String, List(Of String)) = p.data
+
+
+    '    Return browserData
+    'End Function
+
+
+    Public Function getAvailableBrowsers(browserCloudAuthToken As String, VMID As String) As Dictionary(Of String, List(Of String))
         Dim encodedVMID As String = Uri.EscapeDataString(VMID)
         Dim url = String.Format("{0}/api/v1/" + encodedVMID + "/get-browsers", _browserCloudUrl)
 
         Dim p As BrowserDTO = callServiceGet(Of BrowserDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
-        Dim browserData As Dictionary(Of String, List(Of String)) = p.data
-
-
-        Return browserData
+        Return p.data
     End Function
-
 
     'Public Function determineVMID(browserCloudAuthToken As String, BrowserName As String, BrowserVersion As String) As String
 
@@ -124,7 +133,7 @@ Public Class BCloudConnectorV2
     'End Function
 
 
-    Public Function getPreferredBrowser(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String, VMID As String) As VmDetails
+    Public Function getAppropriateVm(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
         Dim allVms = Me.GetAllVms(token)
         For Each vmDetail In allVms
             If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version Then
@@ -135,6 +144,8 @@ Public Class BCloudConnectorV2
         Next
         Throw New Exception("No available VM found with the specified browser.")
     End Function
+
+
 
 
     Private Function getBrowserMajorVersion(browserVersion As String) As String
@@ -186,7 +197,7 @@ Public Class BCloudConnectorV2
     '    Return p.result
     'End Function
 
-    Public Function bookBrowser(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
+    Public Function bookVms(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
         'Dim VMID = determineVMID(browserCloudAuthToken, browser, version)
         Dim url = String.Format("{0}/api/v1/" + VMID + "/book", _browserCloudUrl)
         Dim jsonData = <json>
@@ -209,7 +220,7 @@ Public Class BCloudConnectorV2
     End Function
 
 
-    Public Function releaseBrowser(browserCloudAuthToken As String, VMID As String, bookingId As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
+    Public Function releaseVms(browserCloudAuthToken As String, VMID As String, bookingId As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
         Dim url = String.Format("{0}/api/v1/" + VMID + "/release", _browserCloudUrl)
         Dim jsonData = <json>
                                {"bookingId": "@bookingId"} 
