@@ -23,7 +23,6 @@ Public Class BCloudConnectorV2
         _browserCloudUrl = New Uri(fullUrl)
         _browserCloudAuthUrl = fullAuthUrl
 
-
     End Sub
 
 
@@ -64,7 +63,8 @@ Public Class BCloudConnectorV2
 
 
     Public Function getAvailableBrowsers(browserCloudAuthToken As String, VMID As String)
-        Dim url = String.Format("{0}/api/v1/" + VMID + "/get-browsers", _browserCloudUrl)
+        Dim encodedVMID As String = Uri.EscapeDataString(VMID)
+        Dim url = String.Format("{0}/api/v1/" + encodedVMID + "/get-browsers", _browserCloudUrl)
 
         Dim p As BrowserDTO = callServiceGet(Of BrowserDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
         Dim browserData As Dictionary(Of String, List(Of String)) = p.data
@@ -258,6 +258,34 @@ Public Class BCloudConnectorV2
 
         Return p.result
     End Function
+
+
+    Public Function registerDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String, authCode As String) As AgentResponseDTO.AgentResponseResult
+        Dim url = String.Format("{0}/api/v1/" + VMID + "/register-opkey-agent", serverUrl)
+
+        Dim jsonData = <json>
+                               {"authCode": "@authCode"} 
+                           </json>.Value.Trim
+
+        jsonData = jsonData.Replace("@authCode", authCode)
+
+        Dim p = callServicePost(Of AgentResponseDTO)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
+
+
+    Public Function logoutDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String) As AgentResponseDTO.AgentResponseResult
+        Dim url = String.Format("{0}/api/v1/" + VMID + "/stop-opkey-agent", serverUrl)
+        Dim jsonData As String = "{}"
+
+        Dim p = callServicePost(Of AgentResponseDTO)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
+        If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
+
+        Return p.result
+    End Function
+
 
 
 

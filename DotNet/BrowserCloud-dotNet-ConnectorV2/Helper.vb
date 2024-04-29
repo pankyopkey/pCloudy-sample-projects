@@ -94,7 +94,7 @@ Partial Class BCloudConnectorV2
             Dim uri = New Uri(URL)
             _webClient.Headers.Add("Content-Type", "application/json")
             _webClient.Headers.Add("token", token)
-            _webClient.Headers.Add("origin", "https://browser.node-stg.pcloudy.com")
+            _webClient.Headers.Add("origin", _opkeyBaseUrl)
 
 
 
