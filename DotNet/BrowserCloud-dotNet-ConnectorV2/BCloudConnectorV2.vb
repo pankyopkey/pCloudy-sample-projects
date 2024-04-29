@@ -113,24 +113,25 @@ Public Class BCloudConnectorV2
 
 
 
+    'Public Function getAppropriateVm(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As List(Of VmDetails)
+    '    Dim allVms = Me.GetAllVms(token)
+    '    Dim matchingVms As New List(Of VmDetails)
 
-    'Public Function getPreferredBrowser(browserCloudAuthToken As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As AvailableBrowsersResponse.BrowserInstance
-    '    Dim allInstances = Me.getAvailableBrowsers(browserCloudAuthToken)
-    '    For Each itm In allInstances
-    '        If itm.status <> "available" Then Continue For
-    '        If itm.SystemOS.OSName = OS_Name AndAlso itm.SystemOS.OSVersion = OS_Version Then
-    '            For Each browser In itm.browsersDetails
-    '                If browser.browserName = BrowserName AndAlso getBrowserMajorVersion(browser.browserVersion) = getBrowserMajorVersion(BrowserVersion) Then
-    '                    Return itm
-    '                End If
-    '            Next
+    '    For Each vmDetail In allVms
+    '        If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version Then
+    '            If vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
+    '                matchingVms.Add(vmDetail)
+    '            End If
     '        End If
-
-
     '    Next
 
-    '    Throw New BrowserCloudError("Unable to find browser with the given criteria. It may have been booked by someone else")
+    '    If matchingVms.Count > 0 Then
+    '        Return matchingVms
+    '    Else
+    '        Throw New Exception("No available VM found with the specified browser.")
+    '    End If
     'End Function
+
 
 
     Public Function getAppropriateVm(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
@@ -197,7 +198,7 @@ Public Class BCloudConnectorV2
     '    Return p.result
     'End Function
 
-    Public Function bookVms(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
+    Public Function bookVm(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
         'Dim VMID = determineVMID(browserCloudAuthToken, browser, version)
         Dim url = String.Format("{0}/api/v1/" + VMID + "/book", _browserCloudUrl)
         Dim jsonData = <json>
@@ -220,7 +221,7 @@ Public Class BCloudConnectorV2
     End Function
 
 
-    Public Function releaseVms(browserCloudAuthToken As String, VMID As String, bookingId As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
+    Public Function releaseVm(browserCloudAuthToken As String, VMID As String, bookingId As String) As ReleaseBrowserResponseDTO.ReleaseBrowserResponseResultDTO
         Dim url = String.Format("{0}/api/v1/" + VMID + "/release", _browserCloudUrl)
         Dim jsonData = <json>
                                {"bookingId": "@bookingId"} 
@@ -271,14 +272,19 @@ Public Class BCloudConnectorV2
     End Function
 
 
-    Public Function registerDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String, authCode As String) As AgentResponseDTO.AgentResponseResult
+    Public Function registerDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String, browserCloudAgentId As String, browserCloudAgentName As String, userName As String, apiKey As String) As AgentResponseDTO.AgentResponseResult
         Dim url = String.Format("{0}/api/v1/" + VMID + "/register-opkey-agent", serverUrl)
 
         Dim jsonData = <json>
-                               {"authCode": "@authCode"} 
+                               {"browserCloudAgentId": "@browserCloudAgentId",
+        "browserCloudAgentName": "@browserCloudAgentName",
+        "userName": "@userName", "apiKey": "@apiKey","agentName": "@agentName"} 
                            </json>.Value.Trim
 
-        jsonData = jsonData.Replace("@authCode", authCode)
+        jsonData = jsonData.Replace("@browserCloudAgentId", browserCloudAgentId)
+        jsonData = jsonData.Replace("@browserCloudAgentName", browserCloudAgentName)
+        jsonData = jsonData.Replace("@userName", userName)
+        jsonData = jsonData.Replace("@apiKey", apiKey)
 
         Dim p = callServicePost(Of AgentResponseDTO)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
