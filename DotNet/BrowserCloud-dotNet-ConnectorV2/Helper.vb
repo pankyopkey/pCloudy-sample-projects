@@ -92,6 +92,7 @@ Partial Class BCloudConnectorV2
             ' ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
             Dim uri = New Uri(URL)
+            _webClient.Headers.Clear()
             _webClient.Headers.Add("Content-Type", "application/json")
             _webClient.Headers.Add("token", token)
             _webClient.Headers.Add("origin", _opkeyBaseUrl)

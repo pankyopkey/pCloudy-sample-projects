@@ -273,14 +273,16 @@ Public Class BCloudConnectorV2
 
 
     Public Function registerDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String, browserCloudAgentId As String, browserCloudAgentName As String, userName As String, apiKey As String) As AgentResponseDTO.AgentResponseResult
-        Dim url = String.Format("{0}/api/v1/" + VMID + "/register-opkey-agent", serverUrl)
+        Dim url = String.Format("{0}/api/v1/" + VMID + "/register-opkey-agent", _browserCloudUrl)
 
         Dim jsonData = <json>
-                               {"browserCloudAgentId": "@browserCloudAgentId",
+                               {"serverUrl": "@serverUrl",
+        "browserCloudAgentId": "@browserCloudAgentId",
         "browserCloudAgentName": "@browserCloudAgentName",
-        "userName": "@userName", "apiKey": "@apiKey","agentName": "@agentName"} 
+        "userName": "@userName", "apiKey": "@apiKey"} 
                            </json>.Value.Trim
 
+        jsonData = jsonData.Replace("@serverUrl", serverUrl)
         jsonData = jsonData.Replace("@browserCloudAgentId", browserCloudAgentId)
         jsonData = jsonData.Replace("@browserCloudAgentName", browserCloudAgentName)
         jsonData = jsonData.Replace("@userName", userName)
@@ -294,10 +296,9 @@ Public Class BCloudConnectorV2
 
 
     Public Function logoutDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String) As AgentResponseDTO.AgentResponseResult
-        Dim url = String.Format("{0}/api/v1/" + VMID + "/stop-opkey-agent", serverUrl)
-        Dim jsonData As String = "{}"
+        Dim url = String.Format("{0}/api/v1/" + VMID + "/stop-opkey-agent", _browserCloudUrl)
 
-        Dim p = callServicePost(Of AgentResponseDTO)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
+        Dim p = callServiceGet(Of AgentResponseDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result

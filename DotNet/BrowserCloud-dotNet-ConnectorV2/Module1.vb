@@ -6,9 +6,9 @@ Module Module1
     Sub Main()
         Dim opkeyurl As String = "https://qa1.dev.opkeyone.com"
         Dim con = New BCloudConnectorV2(opkeyurl)
-        '  Dim token = con.authenticateUser("aakarsh.mishra@opkey.com", "3rwv5g62m6phx8mc94zxpbbp")
+        Dim token = con.authenticateUser("aakarsh.mishra@opkey.com", "3rwv5g62m6phx8mc94zxpbbp")
 
-        Dim vms As List(Of VmDetails) = con.GetAllVms("9n75yp9hnd89k2npj5cpn3zr")
+        ' Dim vms As List(Of VmDetails) = con.GetAllVms("9n75yp9hnd89k2npj5cpn3zr")
         ' Dim browserDetails As Dictionary(Of String, List(Of String)) = con.GetAllVmBrowserDetails("https://qa1.dev.opkeyone.com/pcloudy/browser_cloud/api/internal/v1/get-vms", token, "https://browser.node-stg.pcloudy.com")
 
         'Dim vmIds As String = Nothing
@@ -22,11 +22,13 @@ Module Module1
         'End If
         'Console.WriteLine(vmIds)
         ' Dim resolution = con.setResolutionVm(token, vmIds, "1440", "900")
-        Dim pref = con.getAppropriateVm("9n75yp9hnd89k2npj5cpn3zr", "Windows", "11", "chrome", "116")
+        ' Dim pref = con.getAppropriateVm(token, "Windows", "11", "chrome", "116")
         ' Dim browsers = con.getAvailableBrowsers(token, "00:50:56:a1:88:d5")
         ' Dim pref = con.getPreferredBrowser(token, "Mac", "Sonoma", "chrome", "108", "5c:1b:f4:e3:a7:cc")
         ' Dim pref = con.ProcessVmDetailsForBrowserSelection(token, "chrome", "108")
-        ' Dim booking = con.bookVms(token, "5c:1b:f4:e3:a7:cc", "chrome", "108")
+        Dim booking = con.bookVm(token, "60:45:bd:c6:07:25", "chrome", "116")
+        Dim start = con.initiateDotNetCoreAgent(token, "60:45:bd:c6:07:25")
+
         ' Dim release = con.releaseVm("5c:1b:f4:e3:a7:cc", "cc7ba014-33e7-4b96-b55e-0b6caf7eb6c6")
         'Dim getRes = con.getResolutionVm(token, vmIds)
         'Dim vmResolutions = con.getResolution(token)
