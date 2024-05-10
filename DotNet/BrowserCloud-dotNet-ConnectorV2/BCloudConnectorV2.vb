@@ -9,6 +9,7 @@ Imports System.Security.Cryptography
 Imports com.ssts.pcloudy.browsercloud.AvailableBrowsersResponse
 Imports Newtonsoft
 Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
 
 Public Class BCloudConnectorV2
 
@@ -202,7 +203,7 @@ Public Class BCloudConnectorV2
         'Dim VMID = determineVMID(browserCloudAuthToken, browser, version)
         Dim url = String.Format("{0}/api/v1/" + VMID + "/book", _browserCloudUrl)
         Dim jsonData = <json>
-                           {"browser":"@browser", "version":"@version"}
+                           {"browser":"@browser", "version":"@version", "automationType": "opkey"}
                        </json>.Value.Trim
 
         jsonData = jsonData.Replace("@browser", browser)
@@ -262,10 +263,15 @@ Public Class BCloudConnectorV2
     '    Return p.result
     'End Function
 
-    Public Function initiateDotNetCoreAgent(browserCloudAuthToken As String, VMID As String) As AgentResponseDTO.AgentResponseResult
+    Public Function initiateDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As AgentResponseDTO.AgentResponseResult
         Dim url = String.Format("{0}/api/v1/" + VMID + "/start-opkey-agent", _browserCloudUrl)
+        Dim jsonData = <json>
+                    {"browser":"@browser", "version":"@version"}
+                </json>.Value.Trim
 
-        Dim p = callServiceGet(Of AgentResponseDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)
+        jsonData = jsonData.Replace("@browser", browser)
+        jsonData = jsonData.Replace("@version", version)
+        Dim p = callServicePost(Of AgentResponseDTO)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
         If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
 
         Return p.result
@@ -295,7 +301,7 @@ Public Class BCloudConnectorV2
     End Function
 
 
-    Public Function logoutDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, serverUrl As String) As AgentResponseDTO.AgentResponseResult
+    Public Function logoutDotNetCoreAgent(browserCloudAuthToken As String, VMID As String) As AgentResponseDTO.AgentResponseResult
         Dim url = String.Format("{0}/api/v1/" + VMID + "/stop-opkey-agent", _browserCloudUrl)
 
         Dim p = callServiceGet(Of AgentResponseDTO)(url, browserCloudAuthToken, _opkeyBaseUrl)

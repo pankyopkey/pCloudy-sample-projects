@@ -27,7 +27,7 @@ Module Module1
         ' Dim pref = con.getPreferredBrowser(token, "Mac", "Sonoma", "chrome", "108", "5c:1b:f4:e3:a7:cc")
         ' Dim pref = con.ProcessVmDetailsForBrowserSelection(token, "chrome", "108")
         Dim booking = con.bookVm(token, "60:45:bd:c6:07:25", "chrome", "116")
-        Dim start = con.initiateDotNetCoreAgent(token, "60:45:bd:c6:07:25")
+        ' Dim start = con.initiateDotNetCoreAgent(token, "60:45:bd:c6:07:25")
 
         ' Dim release = con.releaseVm("5c:1b:f4:e3:a7:cc", "cc7ba014-33e7-4b96-b55e-0b6caf7eb6c6")
         'Dim getRes = con.getResolutionVm(token, vmIds)
