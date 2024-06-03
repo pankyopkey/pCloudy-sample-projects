@@ -114,7 +114,7 @@ Public Class BCloudConnectorV2
 
 
 
-    'Public Function getAppropriateVm(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As List(Of VmDetails)
+    'Public Function getAppropriateVmList(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As List(Of VmDetails)
     '    Dim allVms = Me.GetAllVms(token)
     '    Dim matchingVms As New List(Of VmDetails)
 
@@ -133,6 +133,29 @@ Public Class BCloudConnectorV2
     '    End If
     'End Function
 
+    Private Shared lockObject As New Object()
+    Public Function getAppropriateVmTest(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
+        Dim selectedVm As VmDetails = Nothing
+        Dim allVms = Me.GetAllVms(token)
+
+        ' Minimal locking scope
+        SyncLock lockObject
+            For Each vmDetail In allVms
+                If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version AndAlso vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
+                    vmDetail.isBooked = True
+                    selectedVm = vmDetail
+                    Exit For
+                End If
+            Next
+        End SyncLock
+
+        If selectedVm IsNot Nothing Then
+            Return selectedVm
+        Else
+            Throw New Exception("No available VM found with the specified browser.")
+        End If
+    End Function
+
 
 
     Public Function getAppropriateVm(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
@@ -144,10 +167,8 @@ Public Class BCloudConnectorV2
                 End If
             End If
         Next
-        Throw New Exception("No available VM found with the specified browser.")
+        Throw New BrowserCloudVmNotFoundError("No available VM found with the specified browser.")
     End Function
-
-
 
 
     Private Function getBrowserMajorVersion(browserVersion As String) As String
@@ -200,7 +221,7 @@ Public Class BCloudConnectorV2
     'End Function
 
     Public Function bookVm(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
-        'Dim VMID = determineVMID(browserCloudAuthToken, browser, version)
+
         Dim url = String.Format("{0}/api/v1/" + VMID + "/book", _browserCloudUrl)
         Dim jsonData = <json>
                            {"browser":"@browser", "version":"@version", "automationType": "opkey"}
@@ -208,17 +229,17 @@ Public Class BCloudConnectorV2
 
         jsonData = jsonData.Replace("@browser", browser)
         jsonData = jsonData.Replace("@version", version)
+        Dim p As ApiResponse
+        Try
+            p = callServicePostBookVm(Of ApiResponse)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
+            ' Assuming the first booking detail contains the desired booking_id
+            Return p.result.data.bookingDetails(0).booking_id
+        Catch ex As BrowserCloudBookingError
+            Throw
+        Catch ex As Exception
+            Throw New Exception("An error occurred during booking: " + ex.Message)
+        End Try
 
-        Dim p = callServicePost(Of ApiResponse)(url, browserCloudAuthToken, jsonData, _opkeyBaseUrl)
-        If p Is Nothing OrElse p.data Is Nothing OrElse p.data.bookingDetails Is Nothing OrElse p.data.bookingDetails.Count = 0 Then
-            Throw New Exception("API call failed or returned no valid booking data.")
-        End If
-        If p.data.bookingDetails(0).error IsNot Nothing Then
-            Throw New BrowserCloudError(p.data.bookingDetails(0).error)
-        End If
-
-        ' Assuming the first booking detail contains the desired booking_id
-        Return p.data.bookingDetails(0).booking_id
     End Function
 
 
@@ -382,7 +403,7 @@ Public Class BCloudConnectorV2
     'End Function
 
     Public Function getResolution(browserCloudAuthToken As String) As List(Of String)
-        ' Hardcoded list of resolutions for all VM's suggested by nishadh sir as Mac resolution response not working
+        ' Hardcoded list of resolutions for all VM's suggested by nishadh as Mac resolution response not working
         Dim resolutions As New List(Of String) From {
         "1920x1080",
         "1440x900",

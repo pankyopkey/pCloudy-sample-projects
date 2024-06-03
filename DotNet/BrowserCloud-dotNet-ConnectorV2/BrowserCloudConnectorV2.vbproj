@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BCloudConnectorV2.vb" />
+    <Compile Include="BrowserCloudVmNotFoundError.vb" />
+    <Compile Include="BrowserCloudBookingError.vb" />
     <Compile Include="BrowserCloudError.vb" />
     <Compile Include="DTOs\AgentResponseDTO.vb" />
     <Compile Include="DTOs\AuthenticateResponseDTO.vb" />

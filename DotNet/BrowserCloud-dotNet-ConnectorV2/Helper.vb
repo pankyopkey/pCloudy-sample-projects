@@ -106,15 +106,60 @@ Partial Class BCloudConnectorV2
             Dim responseString = Text.Encoding.UTF8.GetString(responseBytes)
 
             ' Console.WriteLine(responseString)
+            Try
+                Dim p = Newtonsoft.Json.JsonConvert.DeserializeObject(responseString, GetType(T))
+                Return CType(p, T)
+            Catch ex As Exception
+                Console.WriteLine("Error during deserialization: " & ex.Message)
+                Return Nothing
+            End Try
 
-            Dim p = Newtonsoft.Json.JsonConvert.DeserializeObject(responseString, GetType(T))
-
-
-            Return CType(p, T)
         End SyncLock
     End Function
 
 
+    Private Function callServicePostBookVm(Of T)(ByVal URL As String, token As String, ByVal jsonData As String, ByVal opkeyurl As String) As T
+        SyncLock _webClient
+            Try
+                Dim uri = New Uri(URL)
+                _webClient.Headers.Clear()
+                _webClient.Headers.Add("Content-Type", "application/json")
+                _webClient.Headers.Add("token", token)
+                _webClient.Headers.Add("origin", _opkeyBaseUrl)
+
+                Dim requestBytes = System.Text.Encoding.Default.GetBytes(jsonData)
+                Dim responseBytes = _webClient.UploadData(uri, "POST", requestBytes)
+                Dim responseString = Text.Encoding.UTF8.GetString(responseBytes)
+
+                Return Newtonsoft.Json.JsonConvert.DeserializeObject(Of T)(responseString)
+            Catch webEx As WebException
+
+                If webEx.Response IsNot Nothing Then
+                    Using response = webEx.Response.GetResponseStream()
+                        Using reader = New StreamReader(response)
+                            Dim responseText = reader.ReadToEnd()
+                            Dim errorResponse = Newtonsoft.Json.JsonConvert.DeserializeObject(Of ApiResponse)(responseText)
+                            If errorResponse IsNot Nothing AndAlso errorResponse.result IsNot Nothing Then
+                                If errorResponse.result.message.Contains("VM has already been booked") Then
+                                    Throw New BrowserCloudBookingError("Unable to find browser with the given criteria. It may have been booked by someone else")
+                                ElseIf errorResponse.result.message.Contains("Maximum concurrent sessions reached") Then
+                                    Throw New BrowserCloudBookingError("Maximum concurrent sessions reached")
+                                Else
+                                    Throw New BrowserCloudBookingError(errorResponse.result.message)
+                                End If
+                            Else
+                                Throw New BrowserCloudBookingError("An error occurred but no detailed message was provided.")
+                            End If
+                        End Using
+                    End Using
+                Else
+                    Throw New BrowserCloudBookingError("Network error or no response from server")
+                End If
+            Catch ex As Exception
+                Throw New Exception("An error occurred during the request: " + ex.Message)
+            End Try
+        End SyncLock
+    End Function
 
 
     Private Function callServiceGet(Of T)(ByVal URL As String, token As String, ByVal opkeyurl As String) As T
