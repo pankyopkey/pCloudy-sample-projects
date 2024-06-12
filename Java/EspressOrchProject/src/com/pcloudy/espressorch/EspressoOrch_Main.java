@@ -1,4 +1,4 @@
-package com.ssts.pcloudy.espresso.orchstrator;
+package com.pcloudy.espressorch;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,18 +9,38 @@ import java.util.List;
 import java.util.Map;
 
 import com.ssts.pcloudy.Connector;
+import com.ssts.pcloudy.dto.automation.AutomationIntrruptResponse.AutomationIntrruptResult;
 import com.ssts.pcloudy.dto.automation.ScheduleAutomationResponse.ScheduleAutomationResult;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
 import com.ssts.pcloudy.exception.ConnectError;
 
 public class EspressoOrch_Main {
-
+	static String deviceIds;
+	static String authToken;
 	static Connector con;
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
-	
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+	        public void run() {
+	            try {
+	                Thread.sleep(200);
+	                //System.out.println("Shutting down ...");
+	                Cleanup_automation(authToken, deviceIds);
+
+	            } catch (InterruptedException e) {
+	                Thread.currentThread().interrupt();
+	                e.printStackTrace();
+	            } catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ConnectError e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        }
+	    });
 		String apiEndpoint = ConfigFileLoad.getInstance().get_pCloudyEndpoint();
 		System.out.println("Api Endpoint: " + apiEndpoint);
 		
@@ -32,7 +52,7 @@ public class EspressoOrch_Main {
 
 		int duration = ConfigFileLoad.getInstance().get_Duration();
 		
-		String deviceIds 	= ConfigFileLoad.getInstance().get_DeviceIds();
+				deviceIds 	= ConfigFileLoad.getInstance().get_DeviceIds();
 		
 		String cycleName 	= ConfigFileLoad.getInstance().get_cycleName();
 		
@@ -62,17 +82,23 @@ public class EspressoOrch_Main {
 		File orchFile = new File(orchApkPath);
 		File serviceApk = new File(serviceApkPath);
 
-		scheduleEspressoTest(apiEndpoint, userName, accessKey, duration, deviceIds, apkFile, testFile, orchFile, serviceApk, testSuites,cycleName);
-
+		scheduleEspressoTest(apiEndpoint, userName, accessKey, duration, deviceIds, apkFile, testFile, orchFile, serviceApk, testSuites,cycleName, testRunner);
 	}
 
+	public static void Cleanup_automation(String authToken, String deviceIds) throws IOException, ConnectError {
+		deviceIds = "\"" + deviceIds + "\"";
+		//System.out.println("Automation force stop. "+deviceIds);
+		AutomationIntrruptResult aiResult = con.AutomationAPIs().intrruptAutomation(authToken, deviceIds);
+		System.out.println("Result "+aiResult.msg);
+	}
+	
 	@SuppressWarnings("null")
 	public static void scheduleEspressoTest(String endpoint, String userName, String accessKey, Integer duration, String deviceIds, File fileToUpload, File testFile, File orchFile, File serviceFile, String testSuites,
-			String cycleName) throws Exception {
+		String cycleName, String testRunner) throws Exception {
 
 		con = new Connector(endpoint);
 
-		String authToken = con.authenticateUser(userName, accessKey);
+		authToken = con.authenticateUser(userName, accessKey);
 
 		System.out.println("Authentication success.");
 
@@ -111,28 +137,36 @@ public class EspressoOrch_Main {
 		}
 		System.out.println("Apk files uploaded successfully.");
 
-		ScheduleAutomationResult espressoResult = con.AutomationAPIs().executeEspressoByOrch(authToken, duration, deviceIds, apkFileDto, testFileDto, orchDto, serviceApp, testSuites, cycleName);
+		ScheduleAutomationResult espressoResult = con.AutomationAPIs().executeEspressoByOrch(authToken, duration, deviceIds, apkFileDto, testFileDto, orchDto, serviceApp, testSuites, cycleName, testRunner);
 
 		System.out.println("Your Espresso test session has been scheduled sucessfully.");
 
 		waitForAutomationCompleted(con, authToken, deviceIds, espressoResult.tid);
-		// AutomationReportURL url = con.AutomationAPIs().getEspressoReportURL(authToken, espressoResult.tid);
+		//AutomationReportURL url = con.AutomationAPIs().getEspressoReportURL(authToken, espressoResult.tid);
 		
 		//System.out.println("Url Endpoint: "+con.getApiEndpoint());
 		String[] splitedString =con.getApiEndpoint().split("api");
 
-		 System.out.println("Report URL: "+splitedString[0]+"execution_report/"+espressoResult.tid+"?key="+authToken);
+		System.out.println("Report URL: "+endpoint+"/execution_report/"+espressoResult.tid+"?key="+authToken);
 		
 
 	}
 
 	public static void waitForAutomationCompleted(Connector con, String authToken, String devices, int tid) throws IOException, ConnectError, InterruptedException {
 		String status = "";
-
-		while (!status.equalsIgnoreCase("Completed")) {
-			Thread.sleep(10000);
-			status = con.AutomationAPIs().getAutomationStatus(authToken, tid, devices);
-			System.out.println("Status: " + status);
+		
+		try
+		{
+			while (!status.equalsIgnoreCase("Completed")) {
+				Thread.sleep(10000);
+				status = con.AutomationAPIs().getAutomationStatus(authToken, tid, devices);
+				System.out.println("Status: " + status);
+			}
+			
+			
+		}
+		catch(Exception ex) {
+			System.out.println("Error is "+ex.toString());
 		}
 
 	}
