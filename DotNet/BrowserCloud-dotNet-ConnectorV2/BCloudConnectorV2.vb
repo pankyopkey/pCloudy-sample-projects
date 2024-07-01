@@ -133,28 +133,20 @@ Public Class BCloudConnectorV2
     '    End If
     'End Function
 
-    Private Shared lockObject As New Object()
     Public Function getAppropriateVmTest(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
-        Dim selectedVm As VmDetails = Nothing
+
         Dim allVms = Me.GetAllVms(token)
-
-        ' Minimal locking scope
-        SyncLock lockObject
-            For Each vmDetail In allVms
-                If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version AndAlso vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
-                    vmDetail.isBooked = True
-                    selectedVm = vmDetail
-                    Exit For
+        For Each vmDetail In allVms
+            If vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version AndAlso
+           vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
+                If Not vmDetail.isBooked Then
+                    Return vmDetail
                 End If
-            Next
-        End SyncLock
-
-        If selectedVm IsNot Nothing Then
-            Return selectedVm
-        Else
-            Throw New Exception("No available VM found with the specified browser.")
-        End If
+            End If
+        Next
+        Throw New BrowserCloudVmNotFoundError("No available VM found with the specified browser or all suitable VMs are booked.")
     End Function
+
 
 
 
@@ -443,6 +435,14 @@ Public Class BCloudConnectorV2
         End If
 
         responseData = JsonConvert.DeserializeObject(Of List(Of VmDetails))(responseBody)
+        For Each vm As VmDetails In responseData
+            Dim sortedBrowsers As New Dictionary(Of String, List(Of String))
+            For Each browser As KeyValuePair(Of String, List(Of String)) In vm.browser
+                sortedBrowsers.Add(browser.Key, browser.Value.OrderByDescending(Function(version) version).ToList())
+            Next
+            vm.browser = sortedBrowsers
+        Next
+
         Return responseData
     End Function
 
