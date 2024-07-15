@@ -84,35 +84,6 @@ Public Class BCloudConnectorV2
         Return p.data
     End Function
 
-    'Public Function determineVMID(browserCloudAuthToken As String, BrowserName As String, BrowserVersion As String) As String
-
-    '    Dim allVms = GetAllVms(browserCloudAuthToken)
-    '    For Each vm In allVms
-    '        If Not vm.isBooked AndAlso vm.browser.ContainsKey(BrowserName) AndAlso vm.browser(BrowserName).Contains(BrowserVersion) Then
-    '            Return vm.vmId
-    '        End If
-    '    Next
-    '    Throw New Exception("No suitable VM found.")
-    'End Function
-
-    Public Function ProcessVmDetailsForBrowserSelection(token As String, browserName As String, browserVersion As String) As List(Of VmDetails)
-        Dim vmDetailsList = GetAllVms(token)
-        Dim matchedVms As New List(Of VmDetails)()
-
-        For Each vmDetail In vmDetailsList
-            If vmDetail.isBooked = False AndAlso Not String.IsNullOrEmpty(vmDetail.os) AndAlso Not String.IsNullOrEmpty(vmDetail.osVer) Then
-
-                If vmDetail.browser.ContainsKey(browserName) AndAlso vmDetail.browser(browserName).Contains(browserVersion) Then
-                    matchedVms.Add(vmDetail)
-                    Console.WriteLine($"VM ID {vmDetail.vmId} with {browserName} version {browserVersion} is available.")
-                End If
-            End If
-        Next
-
-        Return matchedVms
-    End Function
-
-
 
     'Public Function getAppropriateVmList(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As List(Of VmDetails)
     '    Dim allVms = Me.GetAllVms(token)
@@ -332,9 +303,6 @@ Public Class BCloudConnectorV2
         Return p.result
     End Function
 
-
-
-
     Public Function initiateScreenSharing(browserCloudAuthToken As String, instance_id As String, userEmail As String) As InitiateScreenSharingResponse.InitiateScreenSharingResponseResult
         Dim url = String.Format("{0}/api/initiateScreenSharing.php", _browserCloudUrl)
         Dim jsonData = <json>
@@ -435,59 +403,42 @@ Public Class BCloudConnectorV2
         End If
 
         responseData = JsonConvert.DeserializeObject(Of List(Of VmDetails))(responseBody)
+
+        ' Dictionary to aggregate versions for each browser under each OS and OS version combination
+        Dim versionAggregator As New Dictionary(Of String, Dictionary(Of String, List(Of String)))
+
+        ' Populate the version aggregator
         For Each vm As VmDetails In responseData
+            Dim key As String = $"{vm.os}_{vm.osVer}"
+            For Each browser As KeyValuePair(Of String, List(Of String)) In vm.browser
+                If Not versionAggregator.ContainsKey(key) Then
+                    versionAggregator(key) = New Dictionary(Of String, List(Of String))
+                End If
+                If Not versionAggregator(key).ContainsKey(browser.Key) Then
+                    versionAggregator(key)(browser.Key) = New List(Of String)
+                End If
+                versionAggregator(key)(browser.Key).AddRange(browser.Value)
+            Next
+        Next
+
+        ' Sort the versions in the aggregator
+        For Each osKey In versionAggregator.Keys
+            For Each browserKey In versionAggregator(osKey).Keys
+                versionAggregator(osKey)(browserKey).Sort(Function(x, y) y.CompareTo(x))
+            Next
+        Next
+
+        ' Assign sorted versions back to each VM
+        For Each vm As VmDetails In responseData
+            Dim key As String = $"{vm.os}_{vm.osVer}"
             Dim sortedBrowsers As New Dictionary(Of String, List(Of String))
             For Each browser As KeyValuePair(Of String, List(Of String)) In vm.browser
-                sortedBrowsers.Add(browser.Key, browser.Value.OrderByDescending(Function(version) version).ToList())
+                sortedBrowsers.Add(browser.Key, New List(Of String)(versionAggregator(key)(browser.Key)))
             Next
             vm.browser = sortedBrowsers
         Next
 
         Return responseData
-    End Function
-
-
-    Public Function GetAllVmBrowserDetails(url As String, token As String) As Dictionary(Of String, List(Of String))
-        Dim httpResponse As HttpWebResponse = Nothing
-
-        Dim responseBody As String = Nothing
-
-        Dim httpRequest As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
-        httpRequest.Method = "POST"
-        httpRequest.Headers.Add("token", token)
-        httpRequest.Headers.Add("origin", _opkeyBaseUrl)
-        httpRequest.ContentType = "application/json"
-        httpRequest.ContentLength = 0
-
-        httpResponse = CType(httpRequest.GetResponse(), HttpWebResponse)
-
-        Dim vmDetailsList As List(Of VmDetails) = Nothing
-
-        If httpResponse.StatusCode = HttpStatusCode.OK Then
-            Using responseStream As Stream = httpResponse.GetResponseStream()
-                Using reader As New StreamReader(responseStream)
-                    responseBody = reader.ReadToEnd()
-                End Using
-            End Using
-            vmDetailsList = JsonConvert.DeserializeObject(Of List(Of VmDetails))(responseBody)
-        End If
-
-
-        Dim allBrowsers As New Dictionary(Of String, List(Of String))
-        For Each vmDetail In vmDetailsList
-            For Each kvp In vmDetail.browser
-                Dim browserName As String = kvp.Key
-                Dim versions As List(Of String) = kvp.Value
-                If allBrowsers.ContainsKey(browserName) Then
-
-                    allBrowsers(browserName) = allBrowsers(browserName).Union(versions).ToList()
-                Else
-                    allBrowsers.Add(browserName, versions)
-                End If
-            Next
-        Next
-
-        Return allBrowsers
     End Function
 
 
