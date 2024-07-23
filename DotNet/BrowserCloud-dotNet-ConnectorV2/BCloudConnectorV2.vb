@@ -1,15 +1,8 @@
 ﻿
-
-
 Imports System.IO
 Imports System.Linq
 Imports System.Net
-Imports System.Net.WebRequestMethods
-Imports System.Security.Cryptography
-Imports com.ssts.pcloudy.browsercloud.AvailableBrowsersResponse
-Imports Newtonsoft
 Imports Newtonsoft.Json
-Imports Newtonsoft.Json.Linq
 
 Public Class BCloudConnectorV2
 
@@ -62,7 +55,7 @@ Public Class BCloudConnectorV2
         Return Convert.ToBase64String(textBytes)
     End Function
 
-
+    ' No longer needed as GetAllVms is handling the response data of vms and browser list now
 
     'Public Function getAvailableBrowsers(browserCloudAuthToken As String, VMID As String)
     '    Dim encodedVMID As String = Uri.EscapeDataString(VMID)
@@ -85,54 +78,25 @@ Public Class BCloudConnectorV2
     End Function
 
 
-    'Public Function getAppropriateVmList(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As List(Of VmDetails)
-    '    Dim allVms = Me.GetAllVms(token)
-    '    Dim matchingVms As New List(Of VmDetails)
-
-    '    For Each vmDetail In allVms
-    '        If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version Then
-    '            If vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
-    '                matchingVms.Add(vmDetail)
-    '            End If
-    '        End If
-    '    Next
-
-    '    If matchingVms.Count > 0 Then
-    '        Return matchingVms
-    '    Else
-    '        Throw New Exception("No available VM found with the specified browser.")
-    '    End If
-    'End Function
-
-    Public Function getAppropriateVmTest(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
-
-        Dim allVms = Me.GetAllVms(token)
-        For Each vmDetail In allVms
-            If vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version AndAlso
-           vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
-                If Not vmDetail.isBooked Then
-                    Return vmDetail
-                End If
-            End If
-        Next
-        Throw New BrowserCloudVmNotFoundError("No available VM found with the specified browser or all suitable VMs are booked.")
-    End Function
-
-
-
-
     Public Function getAppropriateVm(token As String, OS_Name As String, OS_Version As String, BrowserName As String, BrowserVersion As String) As VmDetails
         Dim allVms = Me.GetAllVms(token)
+        ' log file in c/windows/temp of both reporting servers for debugging
+        '   Dim logFilePath = IO.Path.Combine(IO.Path.GetTempPath(), "Achhe Wale Logs", "Aakarsh_Ke_Logs.txt")
+        ' IO.File.AppendAllText(logFilePath, DateTime.Now.ToString + " -> AllVms : " + JsonConvert.SerializeObject(allVms) + Environment.NewLine)
+
         For Each vmDetail In allVms
+
             If Not vmDetail.isBooked AndAlso vmDetail.os = OS_Name AndAlso vmDetail.osVer = OS_Version Then
                 If vmDetail.browser.ContainsKey(BrowserName) AndAlso vmDetail.browser(BrowserName).Contains(BrowserVersion) Then
+                    ' IO.File.AppendAllText(logFilePath, DateTime.Now.ToString + " -> vmDetail : " + JsonConvert.SerializeObject(vmDetail) + Environment.NewLine + "------------------------" + Environment.NewLine)
+
                     Return vmDetail
                 End If
             End If
         Next
-        Throw New BrowserCloudVmNotFoundError("No available VM found with the specified browser.")
-    End Function
 
+        Throw New BrowserCloudVmNotFoundError("A VM with the specified browser is not available at the moment. Execution will get started once the VM is available.")
+    End Function
 
     Private Function getBrowserMajorVersion(browserVersion As String) As String
         If (browserVersion.Contains(".")) Then
@@ -149,39 +113,6 @@ Public Class BCloudConnectorV2
         automation
         opkey
     End Enum
-
-    'Public Function bookBrowser(browserCloudAuthToken As String, instance_id As String, OSName As String, OSVersion As String,
-    '                            browserName As String, browserVersion As String, browserArchitecture As String, userEmail As String, session_type As SessionType_ENUM, session_name As String) As BookBrowserResponse.BookBrowserResponseResult
-    '    'isset($POST_JSON['browserCloudAuthToken']) && isset($POST_JSON['instance_id']) && isset($POST_JSON['systemOS']) && isset($POST_JSON['browserDetails']) && isset($POST_JSON['userEmail']) && isset($POST_JSON['session_type']) && isset($POST_JSON['session_name']))
-    '    Dim url = String.Format("{0}/api/bookBrowser.php", _browserCloudUrl)
-    '    Dim jsonData = <json>
-    '                           {"browserCloudAuthToken": "@browserCloudAuthToken",
-    '                            "instance_id": "@instance_id",
-    '                            "systemOS": {"OSName":"@OSName", "OSVersion":"@OSVersion" },
-    '                            "browserDetails": {"browserName":"@browserName", "browserVersion":"@browserVersion", "browserArchitecture":"@browserArchitecture"},
-    '                            "userEmail": "@userEmail",
-    '                            "session_type": "@session_type",
-    '                            "session_name": "@session_name"}
-    '                       </json>.Value.Trim
-
-
-    '    jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
-    '    jsonData = jsonData.Replace("@instance_id", instance_id)
-    '    jsonData = jsonData.Replace("@OSName", OSName)
-    '    jsonData = jsonData.Replace("@OSVersion", OSVersion)
-    '    jsonData = jsonData.Replace("@browserName", browserName)
-    '    jsonData = jsonData.Replace("@browserVersion", browserVersion)
-    '    jsonData = jsonData.Replace("@browserArchitecture", browserArchitecture)
-    '    jsonData = jsonData.Replace("@userEmail", userEmail)
-    '    jsonData = jsonData.Replace("@session_type", session_type.ToString)
-    '    jsonData = jsonData.Replace("@session_name", session_name)
-
-
-    '    Dim p = callService(Of BookBrowserResponse)(url, jsonData)
-    '    If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
-
-    '    Return p.result
-    'End Function
 
     Public Function bookVm(browserCloudAuthToken As String, VMID As String, browser As String, version As String) As String
 
@@ -221,31 +152,6 @@ Public Class BCloudConnectorV2
         Return p.result
     End Function
 
-
-    'Public Function initiateOpKeySpockTeleportingTunnel(browserCloudAuthToken As String, instance_id As String, userEmail As String,
-    '                                                Spock_Token As String) As InitiateOpKeySpockTeleportingTunnelResponseDTO.InitiateOpKeySpockTeleportingTunnelResponseResult
-    '    Dim url = String.Format("{0}/api/initiateOpKeySpockTeleportingTunnel.php", _browserCloudUrl)
-    '    Dim jsonData = <json>
-    '                           {"browserCloudAuthToken": "@browserCloudAuthToken",
-    '                            "instance_id": "@instance_id",
-    '                            "userEmail": "@userEmail",
-    '                            "Spock_Token": "@Spock_Token"
-    '                           }
-    '                       </json>.Value.Trim
-
-
-    '    jsonData = jsonData.Replace("@browserCloudAuthToken", browserCloudAuthToken)
-    '    jsonData = jsonData.Replace("@instance_id", instance_id)
-    '    jsonData = jsonData.Replace("@userEmail", userEmail)
-    '    jsonData = jsonData.Replace("@Spock_Token", Spock_Token)
-
-
-
-    '    Dim p = callService(Of InitiateOpKeySpockTeleportingTunnelResponseDTO)(url, jsonData)
-    '    If p.result.error IsNot Nothing Then Throw New BrowserCloudError(p.result.error)
-
-    '    Return p.result
-    'End Function
 
     Public Function initiateDotNetCoreAgent(browserCloudAuthToken As String, VMID As String, browser As String, version As String, bookingId As String) As AgentResponseDTO.AgentResponseResult
         Dim url = String.Format("{0}/api/v1/" + VMID + "/start-opkey-agent", _browserCloudUrl)
@@ -341,6 +247,7 @@ Public Class BCloudConnectorV2
         Return p.result
     End Function
 
+    'uncomment below code for when resolutions are no longer hardcoded from pcloudy end
 
     'Public Function getResolution(browserCloudAuthToken As String, VMID As String) As String
     '    Dim url = String.Format("{0}/api/v1/" + VMID + "/get-resolution", _browserCloudUrl)
@@ -403,40 +310,14 @@ Public Class BCloudConnectorV2
         End If
 
         responseData = JsonConvert.DeserializeObject(Of List(Of VmDetails))(responseBody)
-
-        ' Dictionary to aggregate versions for each browser under each OS and OS version combination
-        Dim versionAggregator As New Dictionary(Of String, Dictionary(Of String, List(Of String)))
-
-        ' Populate the version aggregator
         For Each vm As VmDetails In responseData
-            Dim key As String = $"{vm.os}_{vm.osVer}"
-            For Each browser As KeyValuePair(Of String, List(Of String)) In vm.browser
-                If Not versionAggregator.ContainsKey(key) Then
-                    versionAggregator(key) = New Dictionary(Of String, List(Of String))
-                End If
-                If Not versionAggregator(key).ContainsKey(browser.Key) Then
-                    versionAggregator(key)(browser.Key) = New List(Of String)
-                End If
-                versionAggregator(key)(browser.Key).AddRange(browser.Value)
-            Next
-        Next
-
-        ' Sort the versions in the aggregator
-        For Each osKey In versionAggregator.Keys
-            For Each browserKey In versionAggregator(osKey).Keys
-                versionAggregator(osKey)(browserKey).Sort(Function(x, y) y.CompareTo(x))
-            Next
-        Next
-
-        ' Assign sorted versions back to each VM
-        For Each vm As VmDetails In responseData
-            Dim key As String = $"{vm.os}_{vm.osVer}"
             Dim sortedBrowsers As New Dictionary(Of String, List(Of String))
             For Each browser As KeyValuePair(Of String, List(Of String)) In vm.browser
-                sortedBrowsers.Add(browser.Key, New List(Of String)(versionAggregator(key)(browser.Key)))
+                sortedBrowsers.Add(browser.Key, browser.Value.OrderByDescending(Function(version) version).ToList())
             Next
             vm.browser = sortedBrowsers
         Next
+
 
         Return responseData
     End Function
