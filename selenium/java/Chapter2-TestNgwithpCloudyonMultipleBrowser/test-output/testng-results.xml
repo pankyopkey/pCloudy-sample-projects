@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-10-18T15:48:24Z" name="pCloudy Suite" finished-at="2024-10-18T15:49:21Z" duration-ms="56778">
+    <groups>
+    </groups>
+    <test started-at="2024-10-18T15:48:24Z" name="Firefox" finished-at="2024-10-18T15:49:13Z" duration-ms="48724">
+      <class name="com.pCloudy.testNg.Runner">
+        <test-method is-config="true" signature="setupSuite()[pri:0, instance:com.pCloudy.testNg.Runner@40e6dfe1]" started-at="2024-10-18T21:18:24Z" name="setupSuite" finished-at="2024-10-18T21:18:24Z" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSuite -->
+        <test-method is-config="true" signature="prepareDriver(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.pCloudy.testNg.Runner@40e6dfe1]" started-at="2024-10-18T21:18:24Z" name="prepareDriver" finished-at="2024-10-18T21:18:45Z" duration-ms="21335" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Windows]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[120]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareDriver -->
+        <test-method signature="demoTest()[pri:0, instance:com.pCloudy.testNg.Runner@40e6dfe1]" started-at="2024-10-18T21:18:45Z" name="demoTest" finished-at="2024-10-18T21:19:12Z" duration-ms="27071" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demoTest -->
+        <test-method is-config="true" signature="aftermethod()[pri:0, instance:com.pCloudy.testNg.Runner@40e6dfe1]" started-at="2024-10-18T21:19:12Z" name="aftermethod" finished-at="2024-10-18T21:19:13Z" duration-ms="297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+      </class> <!-- com.pCloudy.testNg.Runner -->
+    </test> <!-- Firefox -->
+    <test started-at="2024-10-18T15:48:24Z" name="MsEdge" finished-at="2024-10-18T15:49:21Z" duration-ms="56778">
+      <class name="com.pCloudy.testNg.Runner">
+        <test-method is-config="true" signature="setupSuite()[pri:0, instance:com.pCloudy.testNg.Runner@e50a6f6]" started-at="2024-10-18T21:18:24Z" name="setupSuite" finished-at="2024-10-18T21:18:24Z" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSuite -->
+        <test-method is-config="true" signature="prepareDriver(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.pCloudy.testNg.Runner@e50a6f6]" started-at="2024-10-18T21:18:24Z" name="prepareDriver" finished-at="2024-10-18T21:18:38Z" duration-ms="14412" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mac]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ventura]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[128]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareDriver -->
+        <test-method signature="demoTest()[pri:0, instance:com.pCloudy.testNg.Runner@e50a6f6]" started-at="2024-10-18T21:18:38Z" name="demoTest" finished-at="2024-10-18T21:19:20Z" duration-ms="41613" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demoTest -->
+        <test-method is-config="true" signature="aftermethod()[pri:0, instance:com.pCloudy.testNg.Runner@e50a6f6]" started-at="2024-10-18T21:19:20Z" name="aftermethod" finished-at="2024-10-18T21:19:21Z" duration-ms="734" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aftermethod -->
+      </class> <!-- com.pCloudy.testNg.Runner -->
+    </test> <!-- MsEdge -->
+  </suite> <!-- pCloudy Suite -->
+</testng-results>

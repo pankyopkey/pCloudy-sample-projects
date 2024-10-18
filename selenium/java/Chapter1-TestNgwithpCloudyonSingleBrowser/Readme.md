@@ -9,7 +9,7 @@ pCloudy is a expert mobile & web app testing platform integrated with Selenium s
 Read more [here](https://www.pcloudy.com/scale-cross-browser-testing-with-browser-cloud/?utm_source=topbar&utm_medium=website&utm_term=p&utm_campaign=website)
 
 * Clone the project </br>
-* Open Runner class file and Enter below details </br>
+* Open Driver class file and Enter below details </br>
      * Enter email & APIKey
      * Enter clientName
      * Enter os, osVersion and browserVersion
@@ -19,4 +19,4 @@ Read more [here](https://www.pcloudy.com/scale-cross-browser-testing-with-browse
 * Run the command (mvn test) </br>
 
 
-For more details, please refer the [link](https://www.pcloudy.com/mobile-application-testing-documentation/desktop-web-testing.php)
+For more details, please refer the [link](https://www.pcloudy.com/docs/running-appium-scripts-2)
