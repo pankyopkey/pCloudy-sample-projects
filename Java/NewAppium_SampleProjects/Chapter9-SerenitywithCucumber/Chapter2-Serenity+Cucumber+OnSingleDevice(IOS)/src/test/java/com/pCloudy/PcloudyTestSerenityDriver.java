@@ -3,24 +3,19 @@ package com.pCloudy;
 import java.net.URL;
 import java.util.Iterator;
 
+import net.thucydides.core.environment.SystemEnvironmentVariables;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
 import net.thucydides.core.util.EnvironmentVariables;
-import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.webdriver.DriverSource;
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
 public class PcloudyTestSerenityDriver implements DriverSource {
 
-	public AppiumDriver<WebElement> newDriver() {
+	public WebDriver newDriver() {
 EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnvironmentVariables();
 		
-		String environment = System.getProperty("environment");
+String environment ="single";
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
 		Iterator it = environmentVariables.getKeys().iterator();
@@ -35,7 +30,7 @@ EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnv
 		}
 		capabilities.setCapability("pCloudy_Username", "Enter-Email");
 		capabilities.setCapability("pCloudy_ApiKey", "Enter-apiKey");
-		capabilities.setCapability("pCloudy_ApplicationName", "TestmunkDemo_Resigned1706469571.ipa");
+		capabilities.setCapability("pCloudy_ApplicationName", "TestmunkDemo_Resigned1731245983.ipa");
 		capabilities.setCapability("pCloudy_DurationInMinutes", 10);
 		capabilities.setCapability("automationName", "XCUITest");
 		capabilities.setCapability("newCommandTimeout", 600);
@@ -43,7 +38,7 @@ EnvironmentVariables environmentVariables = SystemEnvironmentVariables.createEnv
 		capabilities.setCapability("appiumVersion", "1.22.0");
 		capabilities.setCapability("bundleId", "com.pcloudy.TestmunkDemo");
 		try {
-			String url = "https://private-live.pcloudy.com/appiumcloud/wd/hub";
+			String url = "https://device.pcloudy.com/appiumcloud/wd/hub";
 			System.out.println(capabilities);
 			return new IOSDriver(new URL(url), capabilities);
 			
