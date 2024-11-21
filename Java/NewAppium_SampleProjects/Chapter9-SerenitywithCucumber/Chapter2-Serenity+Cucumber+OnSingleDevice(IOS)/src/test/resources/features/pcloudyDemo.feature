@@ -1,5 +1,6 @@
 Feature: Login Functionality
 
+  @User_Login
   Scenario: User logs in with valid credentials
     Given the user is on the login screen
     When the user enters the email-id "test@testname.com"

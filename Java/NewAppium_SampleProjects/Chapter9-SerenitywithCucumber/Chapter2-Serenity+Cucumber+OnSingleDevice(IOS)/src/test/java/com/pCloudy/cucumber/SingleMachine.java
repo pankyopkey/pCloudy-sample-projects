@@ -1,12 +1,12 @@
 package com.pCloudy.cucumber;
 
-import cucumber.api.CucumberOptions;
+import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 import com.pCloudy.PcloudyTestSerenityTest;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = "src/test/resources/features/pcloudyDemo.feature")
+@CucumberOptions(features = "src/test/resources/features/pcloudyDemo.feature", tags = "@User_Login")
 public class SingleMachine extends PcloudyTestSerenityTest {
 }

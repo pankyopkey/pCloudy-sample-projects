@@ -13,20 +13,35 @@
         <java.version>1.8</java.version>
         <java.source.version>${java.version}</java.source.version>
         <java.target.version>${java.version}</java.target.version>
-        <maven.version>3.9.6</maven.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.48</serenity.version>
-        <serenity.cucumber.version>1.9.37</serenity.cucumber.version>
-
-        <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
+        <serenity.version>3.5.1</serenity.version>
+        <serenity.maven.version>3.5.1</serenity.maven.version>
+        <serenity.cucumber.version>3.5.1</serenity.cucumber.version>
+        <maven.compiler-plugin.version>3.8.0</maven.compiler-plugin.version>
+        
+         <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
         <maven.surefire-plugin.version>3.0.0-M3</maven.surefire-plugin.version>
 
-    </properties>
 
+        <jetty-io.version>10.0.2</jetty-io.version>
+        <jetty-util.version>10.0.2</jetty-util.version>
+
+    </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>${jetty-io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty-util.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -40,21 +55,45 @@
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber</artifactId>
             <version>${serenity.cucumber.version}</version>
         </dependency>
-      
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>6.0.0</version>
-			
-		</dependency>
-		
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.8.6</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.xml.bind</groupId>
+                    <artifactId>jaxb-osgi</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.lambdaj</groupId>
+            <artifactId>lambdaj</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.12.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
