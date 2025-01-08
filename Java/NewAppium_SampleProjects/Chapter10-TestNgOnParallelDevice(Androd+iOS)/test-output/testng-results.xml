@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-01-08T13:52:11Z" name="pCloudy Suite" finished-at="2025-01-08T13:53:24Z" duration-ms="73458">
+    <groups>
+    </groups>
+    <test started-at="2025-01-08T13:52:11Z" name="SAMSUNG_GalaxyF145G" finished-at="2025-01-08T13:53:08Z" duration-ms="56960">
+      <class name="com.pCloudy.testNG.Runner">
+        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:com.pCloudy.testNG.Runner@258e2e41]" started-at="2025-01-08T19:22:11Z" name="setUpSuite" finished-at="2025-01-08T19:22:11Z" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpSuite -->
+        <test-method is-config="true" signature="prepareTest(java.lang.String, java.lang.String)[pri:0, instance:com.pCloudy.testNG.Runner@258e2e41]" started-at="2025-01-08T19:22:11Z" name="prepareTest" finished-at="2025-01-08T19:22:48Z" duration-ms="37275" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SAMSUNG_GalaxyF145G_Android_13.0.0_dd226]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.0.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method signature="Test(java.lang.String)[pri:0, instance:com.pCloudy.testNG.Runner@258e2e41]" started-at="2025-01-08T19:22:48Z" name="Test" finished-at="2025-01-08T19:23:03Z" duration-ms="14849" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SAMSUNG_GalaxyF145G_Android_13.0.0_dd226]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test -->
+        <test-method is-config="true" signature="endTest(java.lang.String)[pri:0, instance:com.pCloudy.testNG.Runner@258e2e41]" started-at="2025-01-08T19:23:03Z" name="endTest" finished-at="2025-01-08T19:23:08Z" duration-ms="4814" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SAMSUNG_GalaxyF145G_Android_13.0.0_dd226]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+      </class> <!-- com.pCloudy.testNG.Runner -->
+    </test> <!-- SAMSUNG_GalaxyF145G -->
+    <test started-at="2025-01-08T13:52:11Z" name="APPLE_iPhone14Plus_" finished-at="2025-01-08T13:53:24Z" duration-ms="73458">
+      <class name="com.pCloudy.testNG.Runner">
+        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:com.pCloudy.testNG.Runner@fdefd3f]" started-at="2025-01-08T19:22:11Z" name="setUpSuite" finished-at="2025-01-08T19:22:11Z" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpSuite -->
+        <test-method is-config="true" signature="prepareTest(java.lang.String, java.lang.String)[pri:0, instance:com.pCloudy.testNG.Runner@fdefd3f]" started-at="2025-01-08T19:22:11Z" name="prepareTest" finished-at="2025-01-08T19:23:16Z" duration-ms="64922" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[APPLE_iPhone14Plus_iOS_17.0.2_1bff0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2.0.0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- prepareTest -->
+        <test-method signature="Test(java.lang.String)[pri:0, instance:com.pCloudy.testNG.Runner@fdefd3f]" started-at="2025-01-08T19:23:16Z" name="Test" finished-at="2025-01-08T19:23:22Z" duration-ms="6660" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[APPLE_iPhone14Plus_iOS_17.0.2_1bff0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test -->
+        <test-method is-config="true" signature="endTest(java.lang.String)[pri:0, instance:com.pCloudy.testNG.Runner@fdefd3f]" started-at="2025-01-08T19:23:22Z" name="endTest" finished-at="2025-01-08T19:23:24Z" duration-ms="1856" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[APPLE_iPhone14Plus_iOS_17.0.2_1bff0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTest -->
+      </class> <!-- com.pCloudy.testNG.Runner -->
+    </test> <!-- APPLE_iPhone14Plus_ -->
+  </suite> <!-- pCloudy Suite -->
+</testng-results>

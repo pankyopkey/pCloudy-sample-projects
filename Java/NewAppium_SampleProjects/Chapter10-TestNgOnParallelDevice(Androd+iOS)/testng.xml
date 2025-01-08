@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue"
+	name="pCloudy Suite" parallel="tests">
+
+	<test name="SAMSUNG_GalaxyF145G">
+		<parameter name="deviceName" value="SAMSUNG_GalaxyF145G_Android_13.0.0_dd226" />
+		<parameter name="appiumVersion" value="2.0.0" />
+		<classes>
+			<class name="com.pCloudy.testNG.Runner" />
+		</classes>
+	</test>
+
+
+	<test name="APPLE_iPhone14Plus_">
+		<parameter name="deviceName" value="APPLE_iPhone14Plus_iOS_17.0.2_1bff0" />
+		<parameter name="appiumVersion" value="2.0.0" />
+		<classes>
+			<class name="com.pCloudy.testNG.Runner" />
+		</classes>
+	</test>
+
+
+</suite> 
