@@ -41,17 +41,6 @@ export async function handleUploadApp(cap: Record<string, any>): Promise<string>
   return uploadedName;
 }
 
-// Dynamic test name helper
-export function handleDynamicName(cap: Record<string, any>): string {
-  const resolvedSpecs = globSync("./test/specs/**/*.ts");
-  let testName = "default-test-name";
-  if (resolvedSpecs.length > 0) {
-    testName = getTestName(resolvedSpecs[0]);
-  }
-  cap["appium:name"] = testName;
-  return testName;
-}
-
 // Dynamic build helper
 export function handleDynamicBuild(cap: Record<string, any>): string {
   const id = Math.floor(Date.now() / 1000);

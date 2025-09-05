@@ -30,9 +30,6 @@ export const config: WebdriverIO.Config = {
 			await wdioHelper.handleUploadApp(cap);
 		}
 
-		if (configuration.dynamicName) {
-			wdioHelper.handleDynamicName(cap);
-		}
 
 		if (configuration.dynamicBuild) {
 			wdioHelper.handleDynamicBuild(cap);

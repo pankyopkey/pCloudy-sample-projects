@@ -1,8 +1,8 @@
 {
 	"capabilities" : {
 		 "pcloudy:options": {	
-			"pCloudy_Username": "smruti.ranjan@sstsinc.com",
-			"pCloudy_ApiKey": "4qt9ctpp3z594p3x9m4gqjcz",
+			"pCloudy_Username": "Enter-Email",
+			"pCloudy_ApiKey": "Enter-Api-Key",
 			"pCloudy_DurationInMinutes": 30,
 			"pCloudy_DeviceFullName": "SAMSUNG_GalaxyS22_Android_13.0.0_644d3",
 			"pCloudy_ApplicationName": "pCloudy_Appium_Demo.apk",
@@ -16,12 +16,11 @@
 			"appium:appActivity": "com.ba.mobile.LaunchActivity",
 			"appium:project": "test_project",
 			"appium:tag": "test_tag",
-			"appium:name": "Test_mo_name",
-			"appium:build": "test_check_v116"
+			"appium:name": "test_name",
+			"appium:build": "test_build"
 	},
-	"hostname": "poc-usa.pcloudy.com",
+	"hostname": "ind-west.pcloudy.com",
 	"AppPath" : "/path/for/Application",
-	"uploadApp" : false,
-	"dynamicBuild": false,
-	"dynamicName": false
+	"uploadApp" : true,
+	"dynamicBuild": true
 }
