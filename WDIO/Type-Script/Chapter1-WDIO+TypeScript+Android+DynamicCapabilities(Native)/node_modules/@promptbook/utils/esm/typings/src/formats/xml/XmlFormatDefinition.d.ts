@@ -1,0 +1,19 @@
+import type { TODO_any } from '../../utils/organization/TODO_any';
+import type { FormatDefinition } from '../_common/FormatDefinition';
+/**
+ * Definition for XML format
+ *
+ * @private still in development [🏢]
+ */
+export declare const XmlFormatDefinition: FormatDefinition<string, string, TODO_any, TODO_any>;
+/**
+ * TODO: [🧠] Maybe propper instance of object
+ * TODO: [0] Make string_serialized_xml
+ * TODO: [1] Make type for XML Settings and Schema
+ * TODO: [🧠] What to use for validating XMLs - XSD,...
+ * TODO: [🍓] In `XmlFormatDefinition` implement simple `isValid`
+ * TODO: [🍓] In `XmlFormatDefinition` implement partial `canBeValid`
+ * TODO: [🍓] In `XmlFormatDefinition` implement `heal
+ * TODO: [🍓] In `XmlFormatDefinition` implement `subvalueDefinitions`
+ * TODO: [🏢] Allow to expect something inside XML and other formats
+ */

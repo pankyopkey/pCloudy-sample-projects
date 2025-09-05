@@ -1,11 +1,11 @@
 {
 	"capabilities" : {
 		 "pcloudy:options": {	
-			"pCloudy_Username": "Enter Email",
-			"pCloudy_ApiKey": "Enter API Key",
-			"pCloudy_DurationInMinutes": 10,
-			"pCloudy_DeviceFullName": "GOOGLE_Pixel3XL_Android_12.0.0_a9397",
-			"pCloudy_ApplicationName": "",
+			"pCloudy_Username": "smruti.ranjan@sstsinc.com",
+			"pCloudy_ApiKey": "4qt9ctpp3z594p3x9m4gqjcz",
+			"pCloudy_DurationInMinutes": 30,
+			"pCloudy_DeviceFullName": "SAMSUNG_GalaxyS22_Android_13.0.0_644d3",
+			"pCloudy_ApplicationName": "pCloudy_Appium_Demo.apk",
 			"appiumVersion": "1.22.0"
 		},
 			"platformName": "Android",
@@ -16,12 +16,12 @@
 			"appium:appActivity": "com.ba.mobile.LaunchActivity",
 			"appium:project": "test_project",
 			"appium:tag": "test_tag",
-			"appium:name": "",
-			"appium:build": ""
+			"appium:name": "Test_mo_name",
+			"appium:build": "test_check_v116"
 	},
-	"hostname": "ind-west.pcloudy.com",
+	"hostname": "poc-usa.pcloudy.com",
 	"AppPath" : "/path/for/Application",
-	"uploadApp" : true,
-	"dynamicBuild": true,
-	"dynamicName": true
+	"uploadApp" : false,
+	"dynamicBuild": false,
+	"dynamicName": false
 }

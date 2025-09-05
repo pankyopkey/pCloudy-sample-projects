@@ -1,0 +1,22 @@
+import type { LlmExecutionToolsWithTotalUsage } from './utils/count-total-usage/LlmExecutionToolsWithTotalUsage';
+type GetLlmToolsForCliOptions = {
+    /**
+     * @@@
+     *
+     * @default false
+     */
+    isCacheReloaded?: boolean;
+};
+/**
+ * Returns LLM tools for CLI
+ *
+ * @private within the repository - for CLI utils
+ */
+export declare function getLlmToolsForCli(options?: GetLlmToolsForCliOptions): LlmExecutionToolsWithTotalUsage;
+export {};
+/**
+ * Note: [🟡] This code should never be published outside of `@promptbook/cli`
+ * TODO: [👷‍♂️] @@@ Manual about construction of llmTools
+ * TODO: [🥃] Allow `ptbk make` without llm tools
+ * TODO: This should be maybe not under `_common` but under `utils-internal` / `utils/internal`
+ */

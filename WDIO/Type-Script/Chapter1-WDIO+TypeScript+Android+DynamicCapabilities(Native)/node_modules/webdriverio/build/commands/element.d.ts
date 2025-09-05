@@ -1,0 +1,64 @@
+export * from './element/$$.js';
+export * from './element/$.js';
+export * from './element/addValue.js';
+export * from './element/clearValue.js';
+export * from './element/click.js';
+export * from './element/custom$$.js';
+export * from './element/custom$.js';
+export * from './element/doubleClick.js';
+export * from './element/dragAndDrop.js';
+export * from './element/execute.js';
+export * from './element/executeAsync.js';
+export * from './element/getAttribute.js';
+export * from './element/getCSSProperty.js';
+export * from './element/getComputedRole.js';
+export * from './element/getComputedLabel.js';
+export * from './element/getElement.js';
+/**
+ * don't expose this method as it should not be attached to the `WebdriverIO.Element` prototype.
+ */
+export { getHTML } from './element/getHTML.js';
+export * from './element/getLocation.js';
+export * from './element/getProperty.js';
+export * from './element/getSize.js';
+export * from './element/getTagName.js';
+export * from './element/getText.js';
+export * from './element/getValue.js';
+export * from './element/isClickable.js';
+export * from './element/isDisplayed.js';
+export * from './element/isEnabled.js';
+export * from './element/isEqual.js';
+export * from './element/isExisting.js';
+export * from './element/isFocused.js';
+export * from './element/isSelected.js';
+export * from './element/isStable.js';
+export * from './element/moveTo.js';
+export * from './element/nextElement.js';
+export * from './element/parentElement.js';
+export * from './element/previousElement.js';
+export * from './element/react$$.js';
+export * from './element/react$.js';
+export * from './element/saveScreenshot.js';
+export * from './element/scrollIntoView.js';
+export * from './element/selectByAttribute.js';
+export * from './element/selectByIndex.js';
+export * from './element/selectByVisibleText.js';
+export * from './element/setValue.js';
+export * from './element/shadow$$.js';
+export * from './element/shadow$.js';
+export * from './element/touchAction.js';
+export * from './element/waitForClickable.js';
+export * from './element/waitForDisplayed.js';
+export * from './element/waitForEnabled.js';
+export * from './element/waitForExist.js';
+export * from './element/waitForStable.js';
+export * from './element/waitUntil.js';
+/**
+ * Add it to the Element scope, but not to the docs by providing a different folder
+ */
+export * from './mobile/dragAndDrop.js';
+export * from './mobile/longPress.js';
+export * from './mobile/pinch.js';
+export * from './mobile/tap.js';
+export * from './mobile/zoom.js';
+//# sourceMappingURL=element.d.ts.map

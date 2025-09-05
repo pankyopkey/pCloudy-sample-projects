@@ -1,0 +1,45 @@
+{
+	"name": "htmlfy",
+	"version": "0.8.1",
+	"description": "HTML formatter yo! Prettify, minify, and more!",
+	"main": "./src/exports/index.js",
+	"scripts": {
+		"check": "tsc",
+		"test": "vitest"
+	},
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/exports/index.js",
+			"require": "./src/exports/index.js"
+		}
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"devDependencies": {
+		"typescript": "^5.0.0",
+		"vitest": "^2.1.2"
+	},
+	"types": "types/index.d.ts",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/j4w8n/htmlfy.git"
+	},
+	"keywords": [
+		"HTML",
+		"format",
+		"formatter",
+		"prettier",
+		"minifier",
+		"prettify",
+		"minify"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/j4w8n/htmlfy/issues"
+	},
+	"homepage": "https://github.com/j4w8n/htmlfy#readme"
+}

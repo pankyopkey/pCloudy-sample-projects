@@ -1,0 +1,1 @@
+{"version":3,"file":"locateInternetExplorer.js","sourceRoot":"","sources":["../../src/browsers/locateInternetExplorer.ts"],"names":[],"mappings":";;;AAAA,4CAAyC;AAEzC,SAAgB,sBAAsB;IAClC,OAAO,IAAA,qBAAS,EAAC;QACb,OAAO,EAAE,IAAI;QACb,aAAa,EAAE,mCAAmC;KACrD,CAAC,CAAC;AACP,CAAC;AALD,wDAKC"}

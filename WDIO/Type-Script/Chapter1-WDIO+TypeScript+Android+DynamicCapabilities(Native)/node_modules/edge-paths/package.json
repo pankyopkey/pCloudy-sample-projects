@@ -1,0 +1,43 @@
+{
+	"name": "edge-paths",
+	"version": "3.0.5",
+	"description": "Get the paths of edge browser easily",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"repository": "shirshak55/edge-paths",
+	"funding": "https://github.com/sponsors/shirshak55",
+	"author": "shirshak",
+	"license": "MIT",
+	"private": false,
+	"type": "module",
+	"files": [
+		"dist/index.js",
+		"dist/index.d.ts"
+	],
+	"keywords": [
+		"browser",
+		"edge",
+		"paths",
+		"edge-paths",
+		"exists",
+		"path"
+	],
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"scripts": {
+		"watch": "tsc --watch",
+		"build": "tsc",
+		"test": "node tests/index.js"
+	},
+	"exports": "./dist/index.js",
+	"devDependencies": {
+		"@types/node": "^16.11.9",
+		"got": "^11.8.3",
+		"typescript": "^4.5.2"
+	},
+	"dependencies": {
+		"@types/which": "^2.0.1",
+		"which": "^2.0.2"
+	}
+}

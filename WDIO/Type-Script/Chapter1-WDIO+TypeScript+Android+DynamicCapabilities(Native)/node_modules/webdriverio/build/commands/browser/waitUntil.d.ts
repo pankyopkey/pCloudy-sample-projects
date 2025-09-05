@@ -1,0 +1,22 @@
+import type { WaitUntilOptions } from '../../types.js';
+/**
+ * This wait command is your universal weapon if you want to wait on something. It expects a condition
+ * and waits until that condition is fulfilled with a truthy value to be returned.
+ *
+ * A common example is to wait until a certain element contains a certain text (see example).
+ *
+ * @alias browser.waitUntil
+ * @param {Function}          condition  condition to wait on until returning a truthy value
+ * @param {WaitUntilOptions=} options    command options
+ * @param {Number=}           options.timeout     time in ms (default set based on [`waitforTimeout`](/docs/configuration#waitfortimeout) config value)
+ * @param {String=}           options.timeoutMsg  error message to throw when waitUntil times out
+ * @param {Number=}           options.interval    interval between condition checks (default set based on [`waitforInterval`](/docs/configuration#waitforinterval) config value)
+ * @return {Boolean} true if condition is fulfilled
+ * @uses utility/pause
+ * @example https://github.com/webdriverio/example-recipes/blob/0bfb2b8d212b627a2659b10f4449184b657e1d59/waitUntil/index.html#L3-L8
+ * @example https://github.com/webdriverio/example-recipes/blob/0c9252b0a4f7e18a34cece74e5798c1fe464c120/waitUntil/waitUntilExample.js#L16-L24
+ * @type utility
+ *
+ */
+export declare function waitUntil<ReturnValue>(this: WebdriverIO.Browser | WebdriverIO.Element, condition: () => ReturnValue | Promise<ReturnValue>, { timeout, interval, timeoutMsg }?: Partial<WaitUntilOptions>): Promise<Exclude<ReturnValue, false | 0 | '' | null | undefined>>;
+//# sourceMappingURL=waitUntil.d.ts.map

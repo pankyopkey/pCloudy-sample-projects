@@ -59,3 +59,4 @@ export function handleDynamicBuild(cap: Record<string, any>): string {
   cap["appium:build"] = buildId;
   return buildId;
 }
+

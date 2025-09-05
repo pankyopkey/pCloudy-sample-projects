@@ -1,0 +1,17 @@
+import { toHaveAttributeAndValue } from './toHaveAttribute.js';
+import { DEFAULT_OPTIONS } from '../../constants.js';
+export async function toHaveId(el, expectedValue, options = DEFAULT_OPTIONS) {
+    await options.beforeAssertion?.({
+        matcherName: 'toHaveId',
+        expectedValue,
+        options,
+    });
+    const result = await toHaveAttributeAndValue.call(this, el, 'id', expectedValue, options);
+    await options.afterAssertion?.({
+        matcherName: 'toHaveId',
+        expectedValue,
+        options,
+        result
+    });
+    return result;
+}

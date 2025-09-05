@@ -1,0 +1,1 @@
+{"version":3,"file":"RequireLibrary.d.ts","sourceRoot":"","sources":["../../src/node/RequireLibrary.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,mBAAmB,EAAE,MAAM,aAAa,CAAA;AAEtD,MAAM,CAAC,OAAO,OAAO,cAAe,YAAW,mBAAmB;IAC9D,MAAM,CAAC,CAAC,EAAE,MAAM,EAAE,MAAM,GAAG,OAAO,CAAC,CAAC,CAAC;CAGxC"}

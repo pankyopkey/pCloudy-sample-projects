@@ -1,0 +1,35 @@
+{
+    "include": ["src"],
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "downlevelIteration": true,
+        "allowJs": true,
+        "moduleResolution": "node",
+        "jsx": "react",
+        "outDir": "dist",
+        "declaration": true,
+        "sourceMap": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "experimentalDecorators": true,
+        "noUnusedLocals": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "types": ["node", "jest"],
+        "lib": ["DOM"]
+    },
+    "typedocOptions": {
+        "name": "Locate App",
+        "entryPoints": ["./src/main.ts"],
+        "exclude": ["./src/utils/**"],
+        "includeVersion": true,
+        "hideGenerator": true,
+        "out": "./docs",
+        "gitRemote": "https://github.com/hejny/locate-app"
+    }
+}

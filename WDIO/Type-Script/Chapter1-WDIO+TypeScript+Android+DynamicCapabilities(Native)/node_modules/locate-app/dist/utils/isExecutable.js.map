@@ -1,0 +1,1 @@
+{"version":3,"file":"isExecutable.js","sourceRoot":"","sources":["../../src/utils/isExecutable.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,2BAA+B;AAC/B,0CAAqC;AAErC,SAAsB,YAAY,CAAC,IAAY;;QAC3C,IAAI;YACA,MAAM,IAAA,iBAAM,EAAC,IAAI,EAAE,cAAS,CAAC,IAAI,CAAC,CAAC;YACnC,OAAO,IAAI,CAAC;SACf;QAAC,OAAO,KAAK,EAAE;YACZ,OAAO,KAAK,CAAC;SAChB;IACL,CAAC;CAAA;AAPD,oCAOC"}

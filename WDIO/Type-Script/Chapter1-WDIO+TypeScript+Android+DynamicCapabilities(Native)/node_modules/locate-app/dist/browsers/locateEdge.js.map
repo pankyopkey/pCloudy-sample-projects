@@ -1,0 +1,1 @@
+{"version":3,"file":"locateEdge.js","sourceRoot":"","sources":["../../src/browsers/locateEdge.ts"],"names":[],"mappings":";;;AAAA,4CAAyC;AAEzC,SAAgB,UAAU;IACtB,OAAO,IAAA,qBAAS,EAAC;QACb,OAAO,EAAE,MAAM;QACf,aAAa,EAAE,4CAA4C;QAC3D,UAAU,EAAE,gBAAgB;QAC5B,qDAAqD;KACxD,CAAC,CAAC;AACP,CAAC;AAPD,gCAOC"}

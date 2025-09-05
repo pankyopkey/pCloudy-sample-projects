@@ -1,0 +1,1 @@
+{"version":3,"file":"locateChrome.js","sourceRoot":"","sources":["../../src/browsers/locateChrome.ts"],"names":[],"mappings":";;;AAAA,4CAAyC;AAEzC,SAAgB,YAAY;IACxB,OAAO,IAAA,qBAAS,EAAC;QACb,OAAO,EAAE,QAAQ;QACjB,UAAU,EAAE,eAAe;QAC3B,aAAa,EAAE,2CAA2C;QAC1D,SAAS,EAAE,eAAe;KAC7B,CAAC,CAAC;AACP,CAAC;AAPD,oCAOC"}

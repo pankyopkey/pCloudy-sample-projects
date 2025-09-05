@@ -1,0 +1,1 @@
+{"version":3,"file":"getPuppeteer.d.ts","sourceRoot":"","sources":["../../../src/commands/browser/getPuppeteer.ts"],"names":[],"mappings":"AAGA,OAAO,KAAK,EAAa,OAAO,IAAI,gBAAgB,EAAE,MAAM,gBAAgB,CAAA;AAO5E;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAyCG;AACH,wBAAsB,YAAY,CAAE,IAAI,EAAE,WAAW,CAAC,OAAO,GAAG,OAAO,CAAC,gBAAgB,CAAC,CA4HxF"}

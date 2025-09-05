@@ -1,0 +1,1 @@
+{"version":3,"file":"locateFirefox.js","sourceRoot":"","sources":["../../src/browsers/locateFirefox.ts"],"names":[],"mappings":";;;AAAA,4CAAyC;AAEzC,SAAgB,aAAa;IACzB,OAAO,IAAA,qBAAS,EAAC;QACb,OAAO,EAAE,SAAS;QAClB,UAAU,EAAE,SAAS;QACrB,aAAa,EAAE,gCAAgC;QAC/C,SAAS,EAAE,SAAS;KACvB,CAAC,CAAC;AACP,CAAC;AAPD,sCAOC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"actions.d.ts","sourceRoot":"","sources":["../../../src/commands/browser/actions.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,SAAS,EAAE,aAAa,EAAE,WAAW,EAAE,MAAM,8BAA8B,CAAA;AAEzF;;;;;;;;;;;;;;;;;;;;;;;;;GAyBG;AACH,wBAAsB,OAAO,CACzB,IAAI,EAAE,WAAW,CAAC,OAAO,EACzB,OAAO,EAAE,CAAC,SAAS,GAAG,aAAa,GAAG,WAAW,CAAC,EAAE,GACrD,OAAO,CAAC,IAAI,CAAC,CAGf"}

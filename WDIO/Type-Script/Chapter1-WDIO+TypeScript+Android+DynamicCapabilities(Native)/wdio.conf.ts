@@ -39,5 +39,6 @@ export const config: WebdriverIO.Config = {
 		}
 
 		console.log(cap);
-	}
+	},
+	
 };
